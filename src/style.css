@@ -1,5 +1,9 @@
 :root {
   /* --main-bg-color: #222222; */
+  --secondary-color: #ebebeb;
+  --header-brand-color: #ff385c;
+  --subtitle-color: #6a6a6a;
+  --font-color: #222222;
 }
 
 * {
@@ -12,16 +16,16 @@ body {
   font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
     Roboto, Helvetica Neue, sans-serif;
   font-size: 0.875rem;
-  color: #222222;
+  color: var(--font-color);
 }
 
 .container {
 }
 
 /*
----------------------
+-------------------------------
 Modal container
----------------------
+-------------------------------
 */
 .box-modal {
   position: fixed;
@@ -47,12 +51,11 @@ Modal container
   max-height: 0;
   opacity: 0;
   overflow: hidden;
- 
 }
 .box-modal .body-modal .inner-body-modal {
   background-color: #fff;
   padding: 1.5rem;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   position: relative;
   z-index: 1;
 }
@@ -61,12 +64,11 @@ Modal container
   position: relative;
   display: flex;
   gap: 1rem;
-
 }
 .underline_bottom {
   height: 1px;
-  background-color: #DDDDDD;
-  margin-top: .8rem;
+  background-color: #dddddd;
+  margin-top: 0.8rem;
 }
 
 /* .tabs::after {
@@ -78,9 +80,10 @@ Modal container
   left: 0;
   top: 0;
 } */
- .tab_one, .tab_two {
+.tab_one,
+.tab_two {
   cursor: pointer;
- }
+}
 
 .box-modal.modal-show {
   display: flex;
@@ -102,7 +105,6 @@ Modal container
 .body-modal .cancel_icon {
   position: absolute;
   z-index: 9;
-  
 }
 .cancel_icon img {
   width: 1.4rem;
@@ -139,8 +141,8 @@ The switch - the box around the slider
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -151,8 +153,8 @@ The switch - the box around the slider
   left: 2px;
   bottom: 3px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -177,5 +179,53 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
 /*
-----------------------------
+-----------------------------------
+Search-box
+-----------------------------------
+*/
+.search_box_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner_search_box {
+  border: 1px solid #dddddd;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+  border-radius: 3rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+}
+.where_section {
+  padding: 1rem 4rem 1rem 2rem;
+}
+
+.checkin_section {
+  padding: 1rem 1.5rem;
+}
+.checkout_section {
+  padding: 1rem 1.5rem;
+}
+.who_section {
+  padding: 1rem 1.5rem;
+}
+.search_btn {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+.search_btn button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  background-color: var(--header-brand-color);
+  color: #fff;
+  border: none;
+}
+.subtitle_color {
+  color: var(--subtitle-color);
+  font-size: inherit;
+}
