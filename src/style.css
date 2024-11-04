@@ -15,9 +15,8 @@
 }
 
 body {
-  font-family: Poppins, Roboto, Helvetica Neue, sans-serif;
-  /* font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
-    Roboto, Helvetica Neue, sans-serif; */
+  font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
+    Roboto, Helvetica Neue, sans-serif;
   font-size: 0.9rem;
   color: var(--font-color);
 }
@@ -26,75 +25,14 @@ body {
 Fonts
 --------------------------------
 */
-.poppins-thin {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+@font-face {
+  font-family: Airbnb Cereal VF;
+  src: url(../public/fonts/AirbnbCerealVF_W_Wght.woff2);
 }
-
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+@font-face {
+  font-family: Airbnb Cereal VF Cyril;
+  src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
-
-.poppins-medium {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.poppins-semibold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.poppins-bold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.poppins-black {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.poppins-thin-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.poppins-regular-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.poppins-medium-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.poppins-bold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.poppins-black-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
-
-.container {
-}
-
 /*
 -------------------------------
 Modal container
@@ -273,6 +211,11 @@ Search-box
   font-weight: 500;
   line-height: 1.125rem;
 }
+/* 
+-----------------------------
+hover searchbox
+-----------------------------
+*/
 .where_section {
   padding: 1rem 7rem 1rem 2rem;
   position: relative;
@@ -284,12 +227,28 @@ Search-box
   border-radius: 3rem;
   background-color: var(--background-hover);
 }
-
+/* .where_section:active,
+.checkin_section:active,
+.checkout_section:active,
+.who_section:active {
+  
+} */
+.active_section {
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  border-radius: 3rem;
+}
 .where_section:hover::after,
 .checkout_section:hover::after,
 .checkin_section:hover::after {
   opacity: 0;
 }
+.bg-active {
+  background-color: var(--background-hover);
+}
+/*
+ ---------------------------------------
+ */
 .where_section::after,
 .checkout_section::after,
 .checkin_section::after {
@@ -332,5 +291,5 @@ Search-box
 }
 .subtitle_color {
   color: var(--subtitle-color);
-  font-size: inherit;
+  font-size: 0.9rem;
 }
