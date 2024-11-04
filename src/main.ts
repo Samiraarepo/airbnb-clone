@@ -31,7 +31,7 @@ const innerSearchBox = document.querySelector(".inner_search_box");
 
 const activeChanges = (section: any) => {
   section?.addEventListener("click", function () {
-    section.classList.add("active_section");
+    section.classList.toggle("active_section");
     innerSearchBox?.classList.add("bg-active");
   });
 };
