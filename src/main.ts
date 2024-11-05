@@ -9,25 +9,7 @@ const whoSection = document.querySelector(".who_section");
 
 const innerSearchBox = document.querySelector(".inner_search_box");
 const activeBox = document.querySelectorAll(".active_box");
-// whereSection?.addEventListener("click", function () {
-//   whereSection.classList.add("active_section");
-//   innerSearchBox?.classList.add("bg-active");
-// });
-
-// checkInSection?.addEventListener("click", function () {
-//   checkInSection.classList.add("active_section");
-//   innerSearchBox?.classList.add("bg-active");
-// });
-
-// checkOutSection?.addEventListener("click", function () {
-//   checkOutSection.classList.add("active_section");
-//   innerSearchBox?.classList.add("bg-active");
-// });
-
-// whoSection?.addEventListener("click", function () {
-//   whoSection.classList.add("active_section");
-//   innerSearchBox?.classList.add("bg-active");
-// });
+const searchBtn = document.querySelector(".search_btn button");
 
 const activeChanges = (section: any) => {
   section?.addEventListener("click", function () {
@@ -36,7 +18,12 @@ const activeChanges = (section: any) => {
     innerSearchBox?.classList.add("bg-active");
   });
 };
-
+document.addEventListener("click", function (e) {
+  if (!innerSearchBox?.contains(e.target as Node)) {
+    activeBox.forEach((item) => item.classList.remove("active_section"));
+    innerSearchBox?.classList.remove("bg-active");
+  }
+});
 activeChanges(whereSection);
 activeChanges(checkInSection);
 activeChanges(checkOutSection);
