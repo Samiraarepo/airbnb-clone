@@ -2,6 +2,7 @@
   /* --main-bg-color: #222222; */
   --secondary-color: #ebebeb;
   --header-brand-color: #ff385c;
+  --theme-product-color: #e00b41;
   --subtitle-color: #6a6a6a;
   --font-color: #222222;
   --border-line-color: #dddddd;
@@ -82,15 +83,6 @@ Modal container
   margin-top: 0.8rem;
 }
 
-/* .tabs::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-bottom: 1px solid #DDDDDD;
-  left: 0;
-  top: 0;
-} */
 .tab_one,
 .tab_two {
   cursor: pointer;
@@ -227,16 +219,14 @@ hover searchbox
   border-radius: 3rem;
   background-color: var(--background-hover);
 }
-/* .where_section:active,
-.checkin_section:active,
-.checkout_section:active,
-.who_section:active {
-  
-} */
+
 .active_section {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
   background-color: #fff;
   border-radius: 3rem;
+}
+.active_section:hover {
+  background-color: #fff;
 }
 .where_section:hover::after,
 .checkout_section:hover::after,
@@ -246,6 +236,20 @@ hover searchbox
 
 .bg-active {
   background-color: var(--background-hover);
+}
+.bg-active .search_btn button {
+  min-width: 7rem;
+  max-width: 9rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bg-active .search_btn span {
+  display: inline-block;
+  padding-left: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 /*
  ---------------------------------------
@@ -266,7 +270,6 @@ hover searchbox
 .divider {
   align-self: stretch;
   background-color: var(--border-line-color);
-
   width: 1px;
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
@@ -291,17 +294,21 @@ hover searchbox
 .who_content {
   padding-right: 6rem;
 }
-.search_btn {
+/* .search_btn {
   display: flex;
   align-items: center;
-}
+} */
 .search_btn button {
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
-  background-color: var(--header-brand-color);
+  background-color: var(--header-brand-color, var(--theme-product-color));
   color: #fff;
   border: none;
+  transition: max-width 0.5s ease;
+}
+.search_btn span {
+  display: none;
 }
 .subtitle_color {
   color: var(--subtitle-color);
