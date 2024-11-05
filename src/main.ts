@@ -8,7 +8,7 @@ const checkOutSection = document.querySelector(".checkout_section");
 const whoSection = document.querySelector(".who_section");
 
 const innerSearchBox = document.querySelector(".inner_search_box");
-
+const activeBox = document.querySelectorAll(".active_box");
 // whereSection?.addEventListener("click", function () {
 //   whereSection.classList.add("active_section");
 //   innerSearchBox?.classList.add("bg-active");
@@ -31,6 +31,7 @@ const innerSearchBox = document.querySelector(".inner_search_box");
 
 const activeChanges = (section: any) => {
   section?.addEventListener("click", function () {
+    activeBox?.forEach((item) => item.classList.remove("active_section"));
     section.classList.toggle("active_section");
     innerSearchBox?.classList.add("bg-active");
   });

@@ -243,13 +243,14 @@ hover searchbox
 .checkin_section:hover::after {
   opacity: 0;
 }
+
 .bg-active {
   background-color: var(--background-hover);
 }
 /*
  ---------------------------------------
  */
-.where_section::after,
+/* .where_section::after,
 .checkout_section::after,
 .checkin_section::after {
   content: "";
@@ -261,8 +262,21 @@ hover searchbox
   transform: translateY(50%);
   border-right: 1px solid var(--border-line-color);
   opacity: 1;
-}
+} */
+.divider {
+  align-self: stretch;
+  background-color: var(--border-line-color);
 
+  width: 1px;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.divider:has(+ .active_section) {
+  opacity: 0;
+}
+.active_section + .divider {
+  opacity: 0;
+}
 .checkout_section,
 .checkin_section {
   padding: 1rem 3rem 1rem 1.5rem;
