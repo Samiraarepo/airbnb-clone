@@ -7,6 +7,7 @@
   --font-color: #222222;
   --border-line-color: #dddddd;
   --background-hover: #ebebeb;
+  --border-radius-main: 3rem;
 }
 
 * {
@@ -20,6 +21,14 @@ body {
     Roboto, Helvetica Neue, sans-serif;
   font-size: 0.9rem;
   color: var(--font-color);
+}
+input {
+  font-family: Airbnb Cereal VF;
+  border: none;
+  background-color: transparent;
+}
+input:focus-visible {
+  outline: none;
 }
 /*
 --------------------------------
@@ -176,7 +185,7 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 2rem;
 }
 
 .slider.round:before {
@@ -198,7 +207,7 @@ Search-box
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  border-radius: 3rem;
+  border-radius: var(--border-radius-main);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.125rem;
@@ -212,45 +221,39 @@ hover searchbox
   padding: 1rem 7rem 1rem 2rem;
   position: relative;
 }
-.where_section:hover,
-.checkin_section:hover,
-.checkout_section:hover,
-.who_section:hover {
-  border-radius: 3rem;
-  background-color: var(--background-hover);
-}
 
 .active_section {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
   background-color: #fff;
-  border-radius: 3rem;
+  border-radius: var(--border-radius-main);
 }
-.active_section:hover {
+.bg-active .active_box:hover {
+  background-color: var(--border-line-color);
+}
+.bg-active .active_section:hover {
   background-color: #fff;
 }
-.where_section:hover::after,
-.checkout_section:hover::after,
-.checkin_section:hover::after {
+.active_box:hover {
+  border-radius: var(--border-radius-main);
+  background-color: var(--background-hover);
+}
+.active_box:hover::after {
   opacity: 0;
 }
-
 .bg-active {
   background-color: var(--background-hover);
 }
 .bg-active .search_btn button {
-  min-width: 7rem;
-  max-width: 9rem;
-  border-radius: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 7rem;
+  /* border-radius: 500px; */
 }
-.bg-active .search_btn span {
+.bg-active .search_content {
   display: inline-block;
   padding-left: 0.2rem;
   font-size: 1rem;
   font-weight: bold;
 }
+
 /*
  ---------------------------------------
  */
@@ -274,43 +277,75 @@ hover searchbox
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
 }
+.divider:has(+ .active_box:hover),
 .divider:has(+ .active_section) {
   opacity: 0;
 }
+.active_box:hover + .divider,
 .active_section + .divider {
   opacity: 0;
 }
+
 .checkout_section,
 .checkin_section {
   padding: 1rem 3rem 1rem 1.5rem;
   position: relative;
 }
-
+.date_section {
+  padding: 1rem 9rem 1rem 1.5rem;
+}
 .who_section {
-  padding: 0.6rem 0.5rem 0.6rem 1.5rem;
+  padding: 1rem 0.5rem 1rem 1.5rem;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .who_content {
-  padding-right: 6rem;
-}
-/* .search_btn {
-  display: flex;
-  align-items: center;
-} */
-.search_btn button {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 100%;
-  background-color: var(--header-brand-color, var(--theme-product-color));
-  color: #fff;
-  border: none;
-  transition: max-width 0.5s ease;
-}
-.search_btn span {
-  display: none;
+  padding-right: 9rem;
 }
 .subtitle_color {
   color: var(--subtitle-color);
   font-size: 0.9rem;
+  font-weight: normal;
+}
+.search_btn {
+  position: absolute;
+  right: 0.5rem;
+}
+.search_btn button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  background-color: var(--header-brand-color, var(--theme-product-color));
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.2s ease;
+}
+
+.search_content {
+  display: none;
+}
+
+/*
+-------------------------------
+Search-box Dropdown
+-------------------------------
+*/
+.hide {
+  display: none;
+}
+.dropdown_wrapper {
+  position: absolute;
+  margin-top: 2.5rem;
+  background-color: hsla(32, 98%, 50%, 0.659);
+}
+.region_selection {
+}
+.region_items {
+  display: flex;
+}
+.item {
 }
