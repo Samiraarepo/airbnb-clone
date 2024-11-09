@@ -8,6 +8,7 @@
   --border-line-color: #dddddd;
   --background-hover: #ebebeb;
   --border-radius-main: 3rem;
+  --font-size-default: 0.9rem;
 }
 
 * {
@@ -19,7 +20,7 @@
 body {
   font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
     Roboto, Helvetica Neue, sans-serif;
-  font-size: 0.9rem;
+  font-size: var(--font-size-default);
   color: var(--font-color);
 }
 input {
@@ -210,7 +211,6 @@ Search-box
   border-radius: var(--border-radius-main);
   font-size: 0.75rem;
   font-weight: 500;
-  line-height: 1.125rem;
 }
 /* 
 -----------------------------
@@ -305,7 +305,7 @@ hover searchbox
 }
 .subtitle_color {
   color: var(--subtitle-color);
-  font-size: 0.9rem;
+  font-size: var(--font-size-default);
   font-weight: normal;
 }
 .search_btn {
@@ -339,13 +339,45 @@ Search-box Dropdown
 }
 .dropdown_wrapper {
   position: absolute;
-  margin-top: 2.5rem;
-  background-color: hsla(32, 98%, 50%, 0.659);
+  margin-top: 2rem;
+  left: 0;
+  border-radius: 2rem;
+  box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
+  padding: 2rem 1.5rem 1.5rem;
 }
 .region_selection {
+  width: 24rem;
+}
+.region_selection .region_title {
+  margin-bottom: 1rem;
+  margin-left: 0.7rem;
+}
+.region_title h4 {
+  font-size: var(--font-size-default);
 }
 .region_items {
   display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.region_items .item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.region_items .item:hover {
+  background-color: var(--background-hover);
+  border-radius: 1rem;
+}
+.region_items figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-line-color);
+  border-radius: 1rem;
+  margin-bottom: 0.4rem;
 }
 .item {
+  flex: 1 1 calc(33.333% - 20px);
+
+  box-sizing: border-box;
 }

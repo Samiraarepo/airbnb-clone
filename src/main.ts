@@ -24,6 +24,7 @@ document.addEventListener("click", function (e) {
   if (!innerSearchBox?.contains(e.target as Node)) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
     innerSearchBox?.classList.remove("bg-active");
+    // dropdownWrapper?.classList.remove("hide");
   }
 });
 
