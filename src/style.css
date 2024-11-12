@@ -325,7 +325,7 @@ Search-box Dropdown
 .hide {
   display: none;
 }
-.dropdown_wrapper {
+.region_wrapper {
   position: absolute;
   margin-top: 2rem;
   left: 0;
