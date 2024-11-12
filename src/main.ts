@@ -1,5 +1,5 @@
-let stays = document.getElementById("stay");
-let experience = document.getElementById("exper");
+const stays = document.getElementById("stay");
+const experience = document.getElementById("exper");
 
 stays?.addEventListener("click", () => {
   stays.classList.add("Active");
@@ -14,5 +14,3 @@ experience?.addEventListener("click", () => {
   stays?.classList.remove("Active");
   stays?.classList.add("inactive");
 });
-
-console.log(stays);
