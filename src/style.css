@@ -44,6 +44,126 @@ Fonts
   font-family: Airbnb Cereal VF Cyril;
   src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
+/*navbar part style*/
+
+.navpart {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+}
+
+/* logo style */
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+.staysExperience {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+}
+.staysExperience button {
+  font-size: 1rem;
+  color: #0b0707;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+}
+.staysExperience button.Active {
+  color: #0b0707;
+  font-weight: 500;
+}
+
+.staysExperience button.inactive {
+  color: #c5c2c2;
+  padding: 1rem;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+}
+
+.staysExperience button.inactive:hover {
+  background-color: #efefef;
+  cursor: pointer;
+  color: #030202;
+  font-weight: lighter;
+}
+
+/*humberger menu and profile menu*/
+.hamburg-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+}
+.home a {
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 14px;
+  color: #030202;
+  border-radius: 2rem;
+}
+
+.home a:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+.global {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  padding: 1rem;
+}
+
+.global img {
+  width: 16px;
+  height: 16px;
+}
+.global:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+.menu {
+  border: 1px solid #c1c0c0;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  padding: 8px 8px 8px 14px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.menu:hover {
+  box-shadow: 1px 2px 2px 1px #efefef;
+  cursor: pointer;
+}
+.img-menu {
+  width: 16px;
+  height: 16px;
+}
+
+.img-profile {
+  width: 30px;
+  height: 30px;
+}
 /*
 -------------------------------
 Modal container
