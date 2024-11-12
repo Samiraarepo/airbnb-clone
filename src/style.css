@@ -382,8 +382,8 @@ hover searchbox
   align-self: stretch;
   background-color: var(--border-line-color);
   width: 1px;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
 }
 .header_divider:has(+ .active_box:hover),
 .header_divider:has(+ .active_section) {
