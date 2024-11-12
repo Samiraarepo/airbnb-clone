@@ -14,3 +14,10 @@ experience?.addEventListener("click", () => {
   stays?.classList.remove("Active");
   stays?.classList.add("inactive");
 });
+/*---------------Humbrger menu Drop Down-----------------------*/
+const Dropbtn = document.getElementById("Drop-btn") as HTMLButtonElement;
+const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
+
+Dropbtn?.addEventListener("click", () => {
+  dropcontent.classList.toggle;
+});
