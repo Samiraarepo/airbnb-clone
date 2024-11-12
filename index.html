@@ -1,13 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Airbnb</title>
   </head>
   <body>
-    <div id="app"></div>
+    <nav class="navpart">
+      <div class="logo">
+        <a href="#">
+          <img src="/images/logo-removebg-preview.png" alt="Logo" />
+        </a>
+      </div>
+      <div class="staysExperience">
+      <button class="stays-button Active" id="stay">Stays</button>
+      <button class="experience-button " id="exper">Experiences</button>
+      </div>
+      <div class="hamburg-nav">
+        <div class="home">
+          <a href="/airbnb your home"> Airbnb your home </a>
+        </div>
+        <div class="global">
+          <a href="/#">
+            <img src="/Icons/global.png" alt="Global" />
+          </a>
+        </div>
+        <button class="menu">
+        <img class="img-menu" src="/Icons/menu.png" />  
+        <img class="img-profile" src="/Icons/profile-user.png" />
+        </button>
+      </div>
+    </nav>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
