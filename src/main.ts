@@ -1,7 +1,3 @@
-// document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-
-// `;
-
 const whereSection = document.querySelector(".where_section");
 const checkInSection = document.querySelector(".checkin_section");
 const checkOutSection = document.querySelector(".checkout_section");
@@ -10,8 +6,21 @@ const dateSection = document.querySelector(".date_section");
 
 const innerSearchBox = document.querySelector(".inner_search_box");
 const activeBox = document.querySelectorAll(".active_box");
-// const searchBtn = document.querySelector(".search_btn button");
-const dropdownWrapper = document.querySelector(".dropdown_wrapper");
+
+const regionWrapper = document.querySelector(".region_wrapper");
+
+const regionItems = document.querySelectorAll<HTMLElement>(".item");
+const destination = document.querySelector<HTMLInputElement>(".destination");
+
+regionItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    const regionNameElement = item.querySelector<HTMLElement>(".region_name");
+    const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
+    if (destination && regionName) {
+      destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
+    }
+  });
+});
 
 const activeChanges = (section: any) => {
   section?.addEventListener("click", function () {
@@ -24,12 +33,12 @@ document.addEventListener("click", function (e) {
   if (!innerSearchBox?.contains(e.target as Node)) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
     innerSearchBox?.classList.remove("bg-active");
-    // dropdownWrapper?.classList.remove("hide");
+    regionWrapper?.classList.add("hide");
   }
 });
 
 whereSection?.addEventListener("click", function () {
-  dropdownWrapper?.classList.toggle("hide");
+  regionWrapper?.classList.toggle("hide");
 });
 
 activeChanges(whereSection);
