@@ -257,32 +257,20 @@ hover searchbox
 /*
  ---------------------------------------
  */
-/* .where_section::after,
-.checkout_section::after,
-.checkin_section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  transform: translateY(50%);
-  border-right: 1px solid var(--border-line-color);
-  opacity: 1;
-} */
-.divider {
+
+.header_divider {
   align-self: stretch;
   background-color: var(--border-line-color);
   width: 1px;
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
 }
-.divider:has(+ .active_box:hover),
-.divider:has(+ .active_section) {
+.header_divider:has(+ .active_box:hover),
+.header_divider:has(+ .active_section) {
   opacity: 0;
 }
-.active_box:hover + .divider,
-.active_section + .divider {
+.active_box:hover + .header_divider,
+.active_section + .header_divider {
   opacity: 0;
 }
 
