@@ -338,7 +338,7 @@ hover searchbox
 -----------------------------
 */
 .where_section {
-  padding: 1rem 7rem 1rem 2rem;
+  padding: 1rem 5rem 1rem 2rem;
   position: relative;
 }
 
@@ -409,7 +409,7 @@ hover searchbox
   position: relative;
 }
 .who_content {
-  padding-right: 9rem;
+  padding-right: 10rem;
 }
 .subtitle_color {
   color: var(--subtitle-color);
