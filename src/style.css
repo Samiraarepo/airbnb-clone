@@ -44,7 +44,10 @@ Fonts
   font-family: Airbnb Cereal VF Cyril;
   src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
-/*navbar part style*/
+
+/*------------------------
+navbar part style
+--------------------------*/
 
 .navpart {
   width: 100%;
@@ -85,10 +88,6 @@ Fonts
   color: #c5c2c2;
   padding: 1rem;
   border-radius: 3rem;
-  -webkit-border-radius: 3rem;
-  -moz-border-radius: 3rem;
-  -ms-border-radius: 3rem;
-  -o-border-radius: 3rem;
 }
 
 .staysExperience button.inactive:hover {
@@ -121,10 +120,6 @@ Fonts
 
 .global {
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   padding: 1rem;
 }
 
@@ -140,10 +135,6 @@ Fonts
 .menu {
   border: 1px solid #c1c0c0;
   border-radius: 25px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
   padding: 8px 8px 8px 14px;
   background-color: #fff;
   display: flex;
