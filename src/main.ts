@@ -1,13 +1,15 @@
-const whereSection = document.querySelector(".where_section");
-const checkInSection = document.querySelector(".checkin_section");
-const checkOutSection = document.querySelector(".checkout_section");
-const whoSection = document.querySelector(".who_section");
-const dateSection = document.querySelector(".date_section");
+const whereSection = document.querySelector<HTMLElement>(".where_section")!;
+const checkInSection = document.querySelector<HTMLElement>(".checkin_section")!;
+const checkOutSection =
+  document.querySelector<HTMLElement>(".checkout_section")!;
+const whoSection = document.querySelector<HTMLElement>(".who_section")!;
+const dateSection = document.querySelector<HTMLElement>(".date_section")!;
 
-const innerSearchBox = document.querySelector(".inner_search_box");
-const activeBox = document.querySelectorAll(".active_box");
+const innerSearchBox = document.querySelector<HTMLElement>(".inner_search_box");
+const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 
-const regionWrapper = document.querySelector(".region_wrapper");
+const regionWrapper =
+  document.querySelector<HTMLInputElement>(".region_wrapper");
 
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
@@ -22,7 +24,7 @@ regionItems.forEach((item) => {
   });
 });
 
-const activeChanges = (section: any) => {
+const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
     section.classList.toggle("active_section");
@@ -45,10 +47,9 @@ activeChanges(whereSection);
 activeChanges(checkInSection);
 activeChanges(checkOutSection);
 activeChanges(whoSection);
-activeChanges(whoSection);
 activeChanges(dateSection);
 
-//
+//navbar
 const stays = document.getElementById("stay");
 const experience = document.getElementById("exper");
 
