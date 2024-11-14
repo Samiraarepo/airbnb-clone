@@ -21,6 +21,8 @@ const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
 Dropbtn?.addEventListener("click", () => {
   dropcontent.classList.toggle;
 });
+
+/* search bar part */
 const whereSection = document.querySelector(".where_section");
 const checkInSection = document.querySelector(".checkin_section");
 const checkOutSection = document.querySelector(".checkout_section");

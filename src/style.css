@@ -56,10 +56,14 @@ Fonts
 }
 
 /* logo style */
-
+.logo a{
+display: block;
+width: 118px;
+height: 64px;
+}
 .logo img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .staysExperience {
   gap: 20px;
