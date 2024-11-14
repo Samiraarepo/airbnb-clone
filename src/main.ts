@@ -11,19 +11,6 @@ const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 const regionWrapper =
   document.querySelector<HTMLInputElement>(".region_wrapper");
 
-const regionItems = document.querySelectorAll<HTMLElement>(".item");
-const destination = document.querySelector<HTMLInputElement>(".destination");
-
-regionItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    const regionNameElement = item.querySelector<HTMLElement>(".region_name");
-    const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
-    if (destination && regionName) {
-      destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
-    }
-  });
-});
-
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
