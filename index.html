@@ -1,38 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Airbnb</title>
-  </head>
-  <body>
-    <nav class="navpart">
-      <div class="logo">
-        <a href="#">
-          <img src="/images/logo-removebg-preview.png" alt="Logo" />
-        </a>
-      </div>
-      <div class="staysExperience">
-      <button class="stays-button Active" id="stay">Stays</button>
-      <button class="experience-button " id="exper">Experiences</button>
-      </div>
-      <div class="hamburg-nav">
-        <div class="home">
-          <a href="/airbnb your home"> Airbnb your home </a>
-        </div>
-        <div class="global">
-          <a href="/#">
-            <img src="/Icons/global.png" alt="Global" />
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airbnb</title>
+  <link rel="stylesheet" href="src/style.css">
+
+</head>
+
+<body>
+  <div id="">
+    <header>
+      <nav class="navpart">
+        <div class="logo">
+          <a href="#">
+            <img src="/images/logo-removebg-preview.png" alt="Logo" />
           </a>
         </div>
-        <button class="menu">
-        <img class="img-menu" src="/Icons/menu.png" />  
-        <img class="img-profile" src="/Icons/profile-user.png" />
-        </button>
+        <div class="staysExperience">
+          <button class="stays-button Active" id="stay">Stays</button>
+          <button class="experience-button " id="exper">Experiences</button>
+        </div>
+        <div class="hamburg-nav">
+          <div class="home">
+            <a href="/airbnb your home"> Airbnb your home </a>
+          </div>
+          <div class="global">
+            <a href="/#">
+              <img src="/Icons/global.png" alt="Global" />
+            </a>
+          </div>
+          <button class="menu">
+            <img class="img-menu" src="/Icons/menu.png" />
+            <img class="img-profile" src="/Icons/profile-user.png" />
+          </button>
+        </div>
+      </nav>
+
+      <div class="container">
+
+        <!--Searchbox-->
+        <!--Stays Tab-->
+        <div class="search_box_container">
+          <div class="inner_search_box">
+            <div class="where_section active_box ">
+              <div class="where-title">Where</div>
+              <input class="destination subtitle_color" value="search destinations"></input>
+            </div>
+            <div class="header_divider"></div>
+            <div class="checkin_section active_box">
+              <div class="checkin_title">Check in</div>
+              <div class="checkin_date subtitle_color">Add dates</div>
+            </div>
+            <div class="header_divider"></div>
+            <div class="checkout_section active_box">
+              <div class="checkout_title">Check out</div>
+              <div class="checkout_date subtitle_color">Add dates</div>
+            </div>
+
+            <!--Experience Tab-->
+            <!-- <div class="header_divider"></div>
+            <div class="date_section active_box">
+              <div class="date_title">Date</div>
+              <div class="enter_date subtitle_color">Add dates</div>
+            </div> -->
+            <div class="header_divider"></div>
+            <div class="who_section active_box">
+              <div class="who_content">
+                <div class="who_title">Who</div>
+                <div class="add_guests subtitle_color">Add guests</div>
+
+              </div>
+              <div class="search_btn">
+                <button>
+                  <img src="./public/images/icons8-search.svg" alt="">
+                  <span class="search_content">Search</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </nav>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    </header>
+
+  </div>
+  <script type="module" src="./src/main.ts"></script>
+</body>
+
 </html>
