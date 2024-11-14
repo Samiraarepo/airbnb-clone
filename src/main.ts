@@ -20,6 +20,11 @@ regionItems.forEach((item) => {
     const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
     if (destination && regionName) {
       destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
+      destination.style.fontWeight = "bold";
+      if (regionName === "I'm flexible") {
+        destination.value = "search destinations";
+        destination.style.fontWeight = "normal";
+      }
     }
   });
 });
