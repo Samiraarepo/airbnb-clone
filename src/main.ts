@@ -1,3 +1,4 @@
+//DOM Manipulation
 const whereSection = document.querySelector<HTMLElement>(".where_section")!;
 const checkInSection = document.querySelector<HTMLElement>(".checkin_section")!;
 const checkOutSection =
@@ -11,6 +12,13 @@ const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 const regionWrapper =
   document.querySelector<HTMLInputElement>(".region_wrapper");
 
+
+/*
+*********************************
+Search-box 
+**********************************
+*/
+
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
@@ -18,6 +26,7 @@ const activeChanges = (section: HTMLElement) => {
     innerSearchBox?.classList.add("bg-active");
   });
 };
+
 document.addEventListener("click", function (e) {
   if (!innerSearchBox?.contains(e.target as Node)) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
@@ -36,7 +45,11 @@ activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
 
-//navbar
+/*
+********************************
+=> Navbar
+********************************
+*/
 const stays = document.getElementById("stay");
 const experience = document.getElementById("exper");
 
