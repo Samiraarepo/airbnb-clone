@@ -62,10 +62,14 @@ regionItems.forEach((item) => {
         destination.style.fontWeight = "normal";
       }
     }
+    // for (let i = 0; i < activeBox.length; i++) {
+    //   activeBox[i].classList.remove("active_section");
+    // }
     let activeBoxIndex = 0;
     activeBox[activeBoxIndex].classList.remove("active_section");
     activeBoxIndex =
       activeBoxIndex + 1 < activeBox.length ? activeBoxIndex + 1 : 0;
+    activeBox[activeBoxIndex].classList.add("active_section");
   });
 });
 /*
