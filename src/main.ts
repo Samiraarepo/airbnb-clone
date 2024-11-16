@@ -23,16 +23,9 @@ Dropbtn?.addEventListener("click", () => {
   dropcontent.classList.toggle("show");
 });
 
-document.querySelector(".menu .img-menu")?.addEventListener("click", () => {
-  console.log("img menu hitted");
-});
-
-document.querySelector(".menu .img-profile")?.addEventListener("click", () => {
-  console.log("img-profile menu hitted");
-});
 window.onclick = (event: MouseEvent) => {
   const target = event.target as HTMLElement;
-  if (!target.matches(".menu")) {
+  if (!target.matches(".drop-show")) {
     dropcontent.classList.remove("show");
   }
 };
