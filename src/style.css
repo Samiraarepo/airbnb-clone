@@ -56,10 +56,10 @@ Fonts
 }
 
 /* logo style */
-.logo a{
-display: block;
-width: 118px;
-height: 64px;
+.logo a {
+  display: block;
+  width: 118px;
+  height: 64px;
 }
 .logo img {
   width: 100%;
@@ -141,8 +141,13 @@ height: 64px;
   cursor: pointer;
 }
 
-.menu{
-  border: 1px solid #c1c0c0 ;
+/* Drop Down style */
+.drop-parent {
+  position: relative;
+}
+
+.menu {
+  border: 1px solid #c1c0c0;
   border-radius: 25px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
@@ -154,27 +159,33 @@ height: 64px;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  position: relative;
 }
-.menu:hover{ 
-box-shadow: 1px 2px 2px 1px  #efefef;
-cursor: pointer;
+.drop-dowoncontent {
+  position: absolute;
+  display: none;
+  background-color: #fff;
 }
-.img-menu{
-width: 16px;
-height: 16px;
+.drop-dowoncontent a {
+  text-decoration: none;
+}
+.drop-dowoncontent.show {
+  display: flex;
+  flex-direction: column;
+}
+.menu:hover {
+  box-shadow: 1px 2px 2px 1px #efefef;
+  cursor: pointer;
+}
+.img-menu {
+  width: 16px;
+  height: 16px;
 }
 
-.img-profile{
-width: 30px;
-height: 30px;
+.img-profile {
+  width: 30px;
+  height: 30px;
 }
-.drop-dowoncontent{
-position: absolute;
-display: none;
-background-color: #fff;
-z-index: 1;
-}
+
 /*
 -------------------------------
 Modal container

@@ -15,12 +15,27 @@ experience?.addEventListener("click", () => {
   stays?.classList.add("inactive");
 });
 /*---------------Humbrger menu Drop Down-----------------------*/
-const Dropbtn = document.getElementById("Drop-btn") as HTMLButtonElement;
+const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
 const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
 
 Dropbtn?.addEventListener("click", () => {
-  dropcontent.classList.toggle;
+  console.log(`Dropbtn hitted`);
+  dropcontent.classList.toggle("show");
 });
+
+document.querySelector(".menu .img-menu")?.addEventListener("click", () => {
+  console.log("img menu hitted");
+});
+
+document.querySelector(".menu .img-profile")?.addEventListener("click", () => {
+  console.log("img-profile menu hitted");
+});
+window.onclick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement;
+  if (!target.matches(".menu")) {
+    dropcontent.classList.remove("show");
+  }
+};
 
 /* search bar part */
 const whereSection = document.querySelector(".where_section");
