@@ -1,3 +1,4 @@
+//DOM Manipulation
 const whereSection = document.querySelector<HTMLElement>(".where_section")!;
 const checkInSection = document.querySelector<HTMLElement>(".checkin_section")!;
 const checkOutSection =
@@ -11,24 +12,11 @@ const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 const regionWrapper =
   document.querySelector<HTMLInputElement>(".region_wrapper");
 
-const regionItems = document.querySelectorAll<HTMLElement>(".item");
-const destination = document.querySelector<HTMLInputElement>(".destination");
-
-regionItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    const regionNameElement = item.querySelector<HTMLElement>(".region_name");
-    const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
-    if (destination && regionName) {
-      destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
-      destination.style.fontWeight = "bold";
-      if (regionName === "I'm flexible") {
-        destination.value = "search destinations";
-        destination.style.fontWeight = "normal";
-      }
-    }
-  });
-});
-
+/*
+*********************************
+Search-box 
+**********************************
+*/
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
@@ -36,6 +24,7 @@ const activeChanges = (section: HTMLElement) => {
     innerSearchBox?.classList.add("bg-active");
   });
 };
+
 document.addEventListener("click", function (e) {
   if (!innerSearchBox?.contains(e.target as Node)) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
@@ -54,7 +43,11 @@ activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
 
-//navbar
+/*
+********************************
+=> Navbar
+********************************
+*/
 const stays = document.getElementById("stay");
 const experience = document.getElementById("exper");
 

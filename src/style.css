@@ -45,9 +45,11 @@ Fonts
   src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
 
-/*------------------------
+/*
+----------------------------------
 navbar part style
---------------------------*/
+----------------------------------
+*/
 
 .navpart {
   width: 100%;
