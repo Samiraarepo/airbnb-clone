@@ -441,6 +441,7 @@ hover searchbox
 .search_content {
   display: none;
 }
+
 /*
 -------------------------------
 Search-box Dropdown
@@ -493,3 +494,4 @@ Search-box Dropdown
 
   box-sizing: border-box;
 }
+

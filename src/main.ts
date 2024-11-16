@@ -12,11 +12,13 @@ const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 const regionWrapper =
   document.querySelector<HTMLInputElement>(".region_wrapper");
 
+
 /*
 *********************************
 Search-box 
 **********************************
 */
+
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
