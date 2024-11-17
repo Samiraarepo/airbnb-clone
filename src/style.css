@@ -156,7 +156,7 @@ navbar part style
 }
 
 .menu {
-  border: 1px solid #c1c0c0;
+  border: 1px solid #dddddd;
   border-radius: 25px;
   padding: 8px 8px 8px 14px;
   background-color: #fff;
@@ -175,10 +175,6 @@ navbar part style
   top: 50%;
   border-radius: 12px;
   padding: 8px 0px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
   right: 0;
   z-index: 2;
   margin-top: 34px;
@@ -547,4 +543,3 @@ Search-box Dropdown
 
   box-sizing: border-box;
 }
-
