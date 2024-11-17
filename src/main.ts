@@ -20,8 +20,7 @@ Search-box
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
-    section.classList.remove("active_section");
-
+    section.classList.toggle("active_section");
     innerSearchBox?.classList.add("bg-active");
   });
 };
@@ -53,7 +52,6 @@ const destination = document.querySelector<HTMLInputElement>(".destination");
 
 regionItems.forEach((item) => {
   item.addEventListener("click", function (event) {
-    event.stopPropagation();
     const regionNameElement = item.querySelector<HTMLElement>(".region_name");
     const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
     if (destination && regionName) {
@@ -64,7 +62,7 @@ regionItems.forEach((item) => {
         destination.style.fontWeight = "normal";
       }
     }
-
+    event.stopPropagation();
     whereSection.classList.remove("active_section");
     checkInSection.classList.add("active_section");
     console.log("Where Section Classes:", whereSection.classList);
