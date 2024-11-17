@@ -30,8 +30,6 @@ window.onclick = (event: MouseEvent) => {
   }
 };
 
-/* search bar part */
-
 //DOM Manipulation
 const whereSection = document.querySelector<HTMLElement>(".where_section")!;
 const checkInSection = document.querySelector<HTMLElement>(".checkin_section")!;
