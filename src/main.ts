@@ -18,15 +18,10 @@ Search-box
 *********************************
 */
 const activeChanges = (section: HTMLElement) => {
-  // if (
-  //   section.classList.contains("where_section") ||
-  //   section.classList.contains("checkin_section")
-  // ) {
-  //   return; // Skip these sections, as they have custom logic
-  // }
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
-    section.classList.toggle("active_section");
+    section.classList.remove("active_section");
+
     innerSearchBox?.classList.add("bg-active");
   });
 };
@@ -69,36 +64,31 @@ regionItems.forEach((item) => {
       }
     }
 
+    whereSection.classList.remove("active_section");
+    checkInSection.classList.add("active_section");
+    console.log("Where Section Classes:", whereSection.classList);
+    console.log("Next Element Classes:", checkInSection?.classList);
+
     // Find the next relevant sibling (skip non-relevant ones)
-    let nextElement = whereSection.nextElementSibling;
-    while (nextElement && !nextElement.classList.contains("checkin_section")) {
-      nextElement = nextElement.nextElementSibling;
-    }
-    // Log traversal
-    console.log("Next Section:", nextElement);
+    // let nextElement = whereSection.nextElementSibling;
+    // while (nextElement && !nextElement.classList.contains("checkin_section")) {
+    //   nextElement = nextElement.nextElementSibling;
+    // }
+    // // Log traversal
+    // console.log("Next Section:", nextElement);
 
-    activeBox.forEach((item) => {
-      item.classList.remove("active_section");
-      whereSection.classList.remove("active_section");
-    });
+    // activeBox.forEach((item) => {
+    //   item.classList.remove("active_section");
+    // });
 
-    if (nextElement) {
-      nextElement.classList.add("active_section");
+    // if (nextElement) {
+    //   nextElement.classList.add("active_section");
 
-      console.log("Where Section Classes:", whereSection.classList);
-      console.log("Next Element Classes:", nextElement?.classList);
-    } else {
-      console.warn("No valid next section found!");
-    }
-
-    // activeBox[activeBoxIndex].classList.remove("active_section");
-    // // Update the index to the next element
-    // activeBoxIndex = (activeBoxIndex + 1) % activeBox.length;
-
-    // activeBox[activeBoxIndex].classList.add("active_section");
-
-    // console.log("Current Index:", activeBoxIndex);
-    // console.log("Activating Element:", activeBox[activeBoxIndex]);
+    //   console.log("Where Section Classes:", whereSection.classList);
+    //   console.log("Next Element Classes:", nextElement?.classList);
+    // } else {
+    //   console.warn("No valid next section found!");
+    // }
   });
 });
 /*
