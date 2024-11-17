@@ -192,6 +192,9 @@ Fonts
   line-height: 1.125rem;
   background: transparent;
 }
+.drop-dowoncontent .signup {
+  font-weight: 500;
+}
 .drop-dowoncontent a:hover:not(:active) {
   background-color: #f7f7f7;
 }
