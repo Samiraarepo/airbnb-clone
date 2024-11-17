@@ -133,11 +133,13 @@ navbar part style
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  padding: 1rem;
   margin-right: 8px;
+  width: 42px;
+  height: 42px;
 }
 
-.global img {
+.global img,
+a {
   width: 16px;
   height: 16px;
 }
