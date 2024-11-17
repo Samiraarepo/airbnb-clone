@@ -44,8 +44,25 @@ Fonts
   font-family: Airbnb Cereal VF Cyril;
   src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
-/*navbar part style*/
 
+/*
+----------------------------------
+navbar part style
+----------------------------------
+*/
+#header {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+/* #header:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--secondary-color);
+  bottom: 0;
+  left: 0;
+} */
 .navpart {
   width: 100%;
   height: 80px;
@@ -89,10 +106,6 @@ Fonts
   color: #c5c2c2;
   padding: 1rem;
   border-radius: 3rem;
-  -webkit-border-radius: 3rem;
-  -moz-border-radius: 3rem;
-  -ms-border-radius: 3rem;
-  -o-border-radius: 3rem;
 }
 
 .staysExperience button.inactive:hover {
@@ -125,10 +138,6 @@ Fonts
 
 .global {
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   padding: 1rem;
 }
 
@@ -149,10 +158,6 @@ Fonts
 .menu {
   border: 1px solid #c1c0c0;
   border-radius: 25px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
   padding: 8px 8px 8px 14px;
   background-color: #fff;
   display: flex;
@@ -391,7 +396,7 @@ hover searchbox
 -----------------------------
 */
 .where_section {
-  padding: 1rem 7rem 1rem 2rem;
+  padding: 1rem 5rem 1rem 2rem;
   position: relative;
 }
 
@@ -435,8 +440,8 @@ hover searchbox
   align-self: stretch;
   background-color: var(--border-line-color);
   width: 1px;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
 }
 .header_divider:has(+ .active_box:hover),
 .header_divider:has(+ .active_section) {
@@ -462,7 +467,7 @@ hover searchbox
   position: relative;
 }
 .who_content {
-  padding-right: 9rem;
+  padding-right: 10rem;
 }
 .subtitle_color {
   color: var(--subtitle-color);
@@ -542,3 +547,4 @@ Search-box Dropdown
 
   box-sizing: border-box;
 }
+
