@@ -91,7 +91,7 @@ navbar part style
   background-color: transparent;
   border: none;
   font-weight: 500;
-  color: #c5c2c2;
+  color: #6a6a6a;
   padding: 1rem;
   border-radius: 3rem;
 }
@@ -100,8 +100,8 @@ navbar part style
   font-weight: 500;
 }
 
-.staysExperience button.inactive:hover {
-  background-color: #efefef;
+.staysExperience button:hover {
+  background-color: #f7f7f7;
   cursor: pointer;
   color: #030202;
   font-weight: lighter;
@@ -129,8 +129,12 @@ navbar part style
 }
 
 .global {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   padding: 1rem;
+  margin-right: 8px;
 }
 
 .global img {
@@ -138,7 +142,7 @@ navbar part style
   height: 16px;
 }
 .global:hover {
-  background-color: #efefef;
+  background-color: #f7f7f7;
   cursor: pointer;
 }
 
