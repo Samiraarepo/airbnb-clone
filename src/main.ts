@@ -52,7 +52,8 @@ const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 
 regionItems.forEach((item) => {
-  item.addEventListener("click", function () {
+  item.addEventListener("click", function (event) {
+    event.stopPropagation();
     const regionNameElement = item.querySelector<HTMLElement>(".region_name");
     const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
     if (destination && regionName) {
@@ -68,27 +69,6 @@ regionItems.forEach((item) => {
     checkInSection.classList.add("active_section");
     console.log("Where Section Classes:", whereSection.classList);
     console.log("Next Element Classes:", checkInSection?.classList);
-
-    // Find the next relevant sibling (skip non-relevant ones)
-    // let nextElement = whereSection.nextElementSibling;
-    // while (nextElement && !nextElement.classList.contains("checkin_section")) {
-    //   nextElement = nextElement.nextElementSibling;
-    // }
-    // // Log traversal
-    // console.log("Next Section:", nextElement);
-
-    // activeBox.forEach((item) => {
-    //   item.classList.remove("active_section");
-    // });
-
-    // if (nextElement) {
-    //   nextElement.classList.add("active_section");
-
-    //   console.log("Where Section Classes:", whereSection.classList);
-    //   console.log("Next Element Classes:", nextElement?.classList);
-    // } else {
-    //   console.warn("No valid next section found!");
-    // }
   });
 });
 /*
