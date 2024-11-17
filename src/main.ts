@@ -31,37 +31,35 @@ window.onclick = (event: MouseEvent) => {
 };
 
 /* search bar part */
-const whereSection = document.querySelector(".where_section");
-const checkInSection = document.querySelector(".checkin_section");
-const checkOutSection = document.querySelector(".checkout_section");
-const whoSection = document.querySelector(".who_section");
-const dateSection = document.querySelector(".date_section");
 
-const innerSearchBox = document.querySelector(".inner_search_box");
-const activeBox = document.querySelectorAll(".active_box");
+//DOM Manipulation
+const whereSection = document.querySelector<HTMLElement>(".where_section")!;
+const checkInSection = document.querySelector<HTMLElement>(".checkin_section")!;
+const checkOutSection =
+  document.querySelector<HTMLElement>(".checkout_section")!;
+const whoSection = document.querySelector<HTMLElement>(".who_section")!;
+const dateSection = document.querySelector<HTMLElement>(".date_section")!;
 
-const regionWrapper = document.querySelector(".region_wrapper");
+const innerSearchBox = document.querySelector<HTMLElement>(".inner_search_box");
+const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 
-const regionItems = document.querySelectorAll<HTMLElement>(".item");
-const destination = document.querySelector<HTMLInputElement>(".destination");
+const regionWrapper =
+  document.querySelector<HTMLInputElement>(".region_wrapper");
 
-regionItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    const regionNameElement = item.querySelector<HTMLElement>(".region_name");
-    const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
-    if (destination && regionName) {
-      destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
-    }
-  });
-});
+/*
+*********************************
+Search-box 
+**********************************
+*/
 
-const activeChanges = (section: any) => {
+const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
     section.classList.toggle("active_section");
     innerSearchBox?.classList.add("bg-active");
   });
 };
+
 document.addEventListener("click", function (e) {
   if (!innerSearchBox?.contains(e.target as Node)) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
@@ -77,6 +75,5 @@ whereSection?.addEventListener("click", function () {
 activeChanges(whereSection);
 activeChanges(checkInSection);
 activeChanges(checkOutSection);
-activeChanges(whoSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
