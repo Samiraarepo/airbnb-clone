@@ -50,12 +50,10 @@ regionItems.forEach((item) => {
       destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
       destination.style.fontWeight =
         regionName === "I'm flexible" ? "normal" : "bold";
-
+      // Show the close button after clicking a region item
       if (regionName === "I'm flexible") {
         destination.value = "search destinations";
       }
-      // Show the close button after clicking a region item
-      closeBtn?.classList.add("show");
     }
     // Switch sections
     whereSection.classList.remove("active_section");
@@ -68,27 +66,20 @@ regionItems.forEach((item) => {
 
 // Handle click on "where section" to re-show the close button
 whereSection?.addEventListener("click", () => {
-  regionWrapper?.classList.toggle("hide");
-
-  // whereSection.classList.add("active_section");
-  // checkInSection.classList.remove("active_section");
-
-  // Ensure the close button is shown only if a region item was clicked
+  regionWrapper?.classList.remove("hide");
+  whereSection.classList.add("active_section");
 
   if (
-    !regionWrapper?.classList.contains("hide") &&
-    destination?.value !== "search destinations"
+    destination?.value !== "" &&
+    whereSection.classList.contains("active_section")
   ) {
-    closeBtn?.classList.add("show"); // Show the close button if section is collapsed
+    closeBtn?.classList.remove("hide");
   } else {
-    closeBtn?.classList.remove("show"); // Hide the close button when expanded
+    closeBtn?.classList.add("hide");
   }
-  console.log("Destination value:", destination?.value);
-  console.log(
-    "Region wrapper hidden",
-    regionWrapper?.classList.contains("hide")
-  );
   console.log("Close button classes:", closeBtn?.classList);
+  console.log("Destination value:", destination?.value);
+  console.log("Where sections classes:", whereSection.classList);
 });
 
 /*
