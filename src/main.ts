@@ -62,6 +62,8 @@ regionItems.forEach((item) => {
     regionWrapper?.classList.add("hide");
     checkInSection.classList.add("active_section");
 
+    closeBtn?.classList.remove("show");
+
     event.stopPropagation();
   });
 });
