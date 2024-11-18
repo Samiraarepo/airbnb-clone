@@ -67,6 +67,7 @@ regionItems.forEach((item) => {
 // Handle click on "where section" to re-show the close button
 whereSection?.addEventListener("click", () => {
   regionWrapper?.classList.remove("hide");
+
   whereSection.classList.add("active_section");
 
   if (
