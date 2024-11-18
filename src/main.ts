@@ -11,11 +11,12 @@ const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 
 const regionWrapper =
   document.querySelector<HTMLInputElement>(".region_wrapper");
+const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 
 /*
-*********************************
+------------------------------------
 Search-box 
-*********************************
+------------------------------------
 */
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
@@ -33,19 +34,10 @@ document.addEventListener("click", function (e) {
   }
 });
 
-whereSection?.addEventListener("click", function () {
-  regionWrapper?.classList.toggle("hide");
-});
-
-activeChanges(whereSection);
-activeChanges(checkInSection);
-activeChanges(checkOutSection);
-activeChanges(whoSection);
-activeChanges(dateSection);
 /*
-*********************************** 
+------------------------------------
 Where dropdown
-***********************************
+------------------------------------
 */
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
@@ -56,23 +48,63 @@ regionItems.forEach((item) => {
     const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
     if (destination && regionName) {
       destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
-      destination.style.fontWeight = "bold";
+      destination.style.fontWeight =
+        regionName === "I'm flexible" ? "normal" : "bold";
+
       if (regionName === "I'm flexible") {
         destination.value = "search destinations";
-        destination.style.fontWeight = "normal";
       }
+      // Show the close button after clicking a region item
+      closeBtn?.classList.add("show");
     }
-    event.stopPropagation();
+    // Switch sections
     whereSection.classList.remove("active_section");
+    regionWrapper?.classList.add("hide");
     checkInSection.classList.add("active_section");
-    console.log("Where Section Classes:", whereSection.classList);
-    console.log("Next Element Classes:", checkInSection?.classList);
+
+    event.stopPropagation();
   });
 });
+
+// Handle click on "where section" to re-show the close button
+whereSection?.addEventListener("click", () => {
+  regionWrapper?.classList.toggle("hide");
+
+  // whereSection.classList.add("active_section");
+  // checkInSection.classList.remove("active_section");
+
+  // Ensure the close button is shown only if a region item was clicked
+
+  if (
+    !regionWrapper?.classList.contains("hide") &&
+    destination?.value !== "search destinations"
+  ) {
+    closeBtn?.classList.add("show"); // Show the close button if section is collapsed
+  } else {
+    closeBtn?.classList.remove("show"); // Hide the close button when expanded
+  }
+  console.log("Destination value:", destination?.value);
+  console.log(
+    "Region wrapper hidden",
+    regionWrapper?.classList.contains("hide")
+  );
+  console.log("Close button classes:", closeBtn?.classList);
+});
+
 /*
-********************************
-=> Navbar
-********************************
+----------------------------------
+Function Calls
+----------------------------------
+*/
+activeChanges(whereSection);
+activeChanges(checkInSection);
+activeChanges(checkOutSection);
+activeChanges(whoSection);
+activeChanges(dateSection);
+/*
+------------------------------------
+ Navbar
+------------------------------------
 */
 const stays = document.getElementById("stay");
 const experience = document.getElementById("exper");
