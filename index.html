@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airbnb</title>
   <link rel="stylesheet" href="src/style.css">
-
 </head>
-
 <body>
   <div id="">
     <header id="header">
       <nav class="navpart">
         <div class="logo">
           <a href="#">
-            <img src="/images/logo-removebg-preview.png" alt="Logo" />
+            <img src="./public/images/logo-removebg-preview.png" alt="Logo" />
           </a>
         </div>
         <div class="staysExperience">
@@ -29,16 +26,28 @@
           </div>
           <div class="global">
             <a href="/#">
-              <img src="/Icons/global.png" alt="Global" />
+              <img src="/Icons/global.svg" alt="Global" />
             </a>
           </div>
-          <button class="menu">
-            <img class="img-menu" src="/Icons/menu.png" />
-            <img class="img-profile" src="/Icons/profile-user.png" />
-          </button>
+          <!-- Navbar Drop down -->
+            <div class="drop-parent">
+              <button class="menu drop-show" id="drop-btn">
+                <img class="img-menu drop-show" src="/Icons/menu.svg" />  
+                <img class="img-profile drop-show" src="/Icons/profile.svg" />
+              </button>
+            <!-- DropDown Content -->
+            <div class="drop-dowoncontent" id="drop-content">
+            <a class="signup" href="#">Sign up</a>
+            <a href="#">Log in</a>
+            <div class="dropdown-line"></div>
+            <a href="#">Gift cards</a>
+            <a href="#">Airbnb your home</a>
+            <a href="#">Host an experience</a>
+            <a href="#">Help center</a>
+            </div> 
+          </div>
         </div>
       </nav>
-
       <div class="container">
 
         <!--Searchbox-->
