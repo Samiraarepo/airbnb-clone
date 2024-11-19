@@ -96,22 +96,28 @@ input:focus-visible {
   font-size: 1rem;
   background-color: transparent;
   border: none;
-  font-weight: 500;
   color: #6a6a6a;
-  padding: 1rem;
+  padding: 10px 12px;
   border-radius: 3rem;
   font-family: "Airbnb Cereal VF";
 }
 .staysExperience button.Active {
   color: #0b0707;
   font-weight: 500;
+  font-family: "Airbnb Cereal VF";
+}
+.staysExperience button.Active:hover {
+  color: #0b0707;
+  font-weight: 500;
+  font-family: "Airbnb Cereal VF";
+  background-color: transparent;
 }
 
 .staysExperience button:hover {
   background-color: #f7f7f7;
   cursor: pointer;
-  color: #030202;
-  font-weight: lighter;
+  color: #222;
+  font-family: "Airbnb Cereal VF";
 }
 
 /*humberger menu and profile menu*/
