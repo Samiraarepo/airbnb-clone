@@ -1,3 +1,17 @@
+/*
+--------------------------------
+Fonts
+--------------------------------
+*/
+@font-face {
+  font-family: "Airbnb Cereal VF";
+  src: url(/fonts/AirbnbCerealVF_W_Wght.woff2);
+}
+@font-face {
+  font-family: "Airbnb Cereal VF Cyril";
+  src: url(/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
+}
+
 :root {
   /* --main-bg-color: #222222; */
   --secondary-color: #ebebeb;
@@ -18,39 +32,27 @@
 }
 
 body {
-  font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
-    Roboto, Helvetica Neue, sans-serif;
+  font-family: "Airbnb Cereal VF", Circular, -apple-system, BlinkMacSystemFont,
+    Roboto, "Helvetica Neue", sans-serif;
   font-size: var(--font-size-default);
   color: var(--font-color);
 }
 input {
-  font-family: Airbnb Cereal VF;
+  font-family: "Airbnb Cereal VF";
   border: none;
   background-color: transparent;
 }
 input:focus-visible {
   outline: none;
 }
-/*
---------------------------------
-Fonts
---------------------------------
-*/
-@font-face {
-  font-family: Airbnb Cereal VF;
-  src: url(../public/fonts/AirbnbCerealVF_W_Wght.woff2);
-}
-@font-face {
-  font-family: Airbnb Cereal VF Cyril;
-  src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
-}
 
-/*
 ----------------------------------
-navbar part style
-----------------------------------
-*/
-#header {
+  navbar
+  part
+  style
+  ----------------------------------
+  */
+  #header {
   position: relative;
   padding-bottom: 1.5rem;
 }
@@ -98,6 +100,7 @@ navbar part style
   color: #6a6a6a;
   padding: 1rem;
   border-radius: 3rem;
+  font-family: "Airbnb Cereal VF";
 }
 .staysExperience button.Active {
   color: #0b0707;
@@ -123,8 +126,9 @@ navbar part style
   padding: 1rem;
   text-decoration: none;
   font-size: 14px;
-  color: #030202;
+  color: #222;
   border-radius: 2rem;
+  font-family: "Airbnb Cereal VF";
 }
 
 .home a:hover {
