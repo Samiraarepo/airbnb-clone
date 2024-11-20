@@ -12,17 +12,33 @@ const activeBox = document.querySelectorAll<HTMLElement>(".active_box");
 const regionWrapper =
   document.querySelector<HTMLInputElement>(".region_wrapper");
 const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
+const regionItems = document.querySelectorAll<HTMLElement>(".item");
+const destination = document.querySelector<HTMLInputElement>(".destination");
 
 /*
 ------------------------------------
 Search-box 
 ------------------------------------
 */
+const closeBtnVisibility = () => {
+  if (
+    destination?.value !== "" &&
+    whereSection?.classList.contains("active_section")
+  ) {
+    closeBtn?.classList.remove("hide");
+  } else {
+    closeBtn?.classList.add("hide");
+  }
+};
+
+destination?.addEventListener("input", closeBtnVisibility);
+
 const activeChanges = (section: HTMLElement) => {
   section?.addEventListener("click", function () {
     activeBox?.forEach((item) => item.classList.remove("active_section"));
     section.classList.toggle("active_section");
     innerSearchBox?.classList.add("bg-active");
+    closeBtnVisibility();
   });
 };
 
@@ -31,6 +47,7 @@ document.addEventListener("click", function (e) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
     innerSearchBox?.classList.remove("bg-active");
     regionWrapper?.classList.add("hide");
+    closeBtnVisibility();
   }
 });
 
@@ -39,53 +56,42 @@ document.addEventListener("click", function (e) {
 Where dropdown
 ------------------------------------
 */
-const regionItems = document.querySelectorAll<HTMLElement>(".item");
-const destination = document.querySelector<HTMLInputElement>(".destination");
+whereSection?.addEventListener("click", () => {
+  regionWrapper?.classList.remove("hide");
+  destination?.select();
+});
 
 regionItems.forEach((item) => {
   item.addEventListener("click", function (event) {
     const regionNameElement = item.querySelector<HTMLElement>(".region_name");
     const regionName = regionNameElement?.innerText; // regionName is now explicitly a string | undefined
+
     if (destination && regionName) {
-      destination.value = regionName; // This should be valid as regionName is now explicitly checked as a string
+      destination.value = regionName;
       destination.style.fontWeight =
         regionName === "I'm flexible" ? "normal" : "bold";
-      // Show the close button after clicking a region item
+
       if (regionName === "I'm flexible") {
-        destination.value = "search destinations";
+        destination.value = "";
       }
     }
     // Switch sections
     whereSection.classList.remove("active_section");
     regionWrapper?.classList.add("hide");
     checkInSection.classList.add("active_section");
-
+    closeBtnVisibility();
     event.stopPropagation();
   });
 });
 
-// Handle click on "where section" to re-show the close button
-whereSection?.addEventListener("click", () => {
-  regionWrapper?.classList.remove("hide");
-  whereSection.classList.add("active_section");
-
-  if (
-    destination?.value !== "" &&
-    whereSection.classList.contains("active_section")
-  ) {
-    closeBtn?.classList.remove("hide");
-  } else {
-    closeBtn?.classList.add("hide");
-  }
-  console.log("Close button classes:", closeBtn?.classList);
-  console.log("Destination value:", destination?.value);
-  console.log("Where sections classes:", whereSection.classList);
+closeBtn?.addEventListener("click", () => {
+  destination && destination.value ? (destination.value = "") : "";
 });
 
 /*
-----------------------------------
+-----------------------------------
 Function Calls
-----------------------------------
+-----------------------------------
 */
 activeChanges(whereSection);
 activeChanges(checkInSection);
