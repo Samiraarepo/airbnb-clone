@@ -20,7 +20,6 @@ const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
 const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
 
 Dropbtn?.addEventListener("click", () => {
-  console.log(`Dropbtn hitted`);
   dropcontent.classList.toggle("show");
 });
 
@@ -76,3 +75,10 @@ activeChanges(checkInSection);
 activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
+
+/* who Drop Down logic */
+const whodropdown = document.getElementById("who-dropdown") as HTMLElement;
+whoSection?.addEventListener("click", () => {
+  console.log("man injam");
+  whodropdown.classList.toggle("show-dropdown");
+});

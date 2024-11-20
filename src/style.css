@@ -476,6 +476,28 @@ hover searchbox
 .who_content {
   padding-right: 10rem;
 }
+/* who Drop Down stayle part */
+.who-container {
+  position: absolute;
+  margin-top: 12px;
+  display: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  z-index: 1;
+  box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
+  right: 0;
+  top: 100%;
+}
+.who-around {
+  width: 342px;
+  padding: 0 6px;
+}
+.who-container.show-dropdown {
+  display: inline-flex;
+}
+
+/* End of who Drop Down style part */
 .subtitle_color {
   color: var(--subtitle-color);
   font-size: var(--font-size-default);
