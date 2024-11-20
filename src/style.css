@@ -45,9 +45,11 @@ Fonts
   src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
 
-/*------------------------
+/*
+---------------------------------
 navbar part style
---------------------------*/
+---------------------------------
+*/
 
 .navpart {
   width: 100%;
@@ -124,8 +126,8 @@ navbar part style
 }
 
 .global img {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 }
 .global:hover {
   background-color: #efefef;
@@ -147,8 +149,8 @@ navbar part style
   cursor: pointer;
 }
 .img-menu {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 }
 
 .img-profile {
@@ -176,9 +178,7 @@ Search-box
   font-weight: 500;
 }
 /* 
------------------------------
 hover searchbox
------------------------------
 */
 .where_section {
   padding: 1rem 5rem 1rem 2rem;
@@ -186,17 +186,24 @@ hover searchbox
 }
 .close_btn {
   position: absolute;
-  width: 0.8rem;
-  height: 0.8rem;
-  right: 1.5rem;
+  display: flex;
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 100%;
+  background-color: transparent;
 }
 .close_btn img {
-  width: 100%;
-  height: auto;
+  align-items: center;
+  width: 0.8rem;
+  height: 0.8rem;
 }
 
+.close_btn:hover {
+  background-color: var(--border-line-color);
+}
 .active_section {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
   background-color: #fff;
@@ -298,6 +305,8 @@ hover searchbox
 Search-box Dropdown
 -------------------------------
 */
+
+/* where section */
 .hide {
   display: none;
 }
@@ -325,6 +334,10 @@ Search-box Dropdown
   flex-wrap: wrap;
   margin: 0 auto;
 }
+.item {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+}
 .region_items .item {
   display: flex;
   flex-direction: column;
@@ -337,12 +350,18 @@ Search-box Dropdown
 .region_items figure img {
   width: 100%;
   height: auto;
+  cursor: pointer;
   border: 1px solid var(--border-line-color);
   border-radius: 1rem;
   margin-bottom: 0.4rem;
+  transition: transform 0.25s ease;
 }
-.item {
-  flex: 1 1 calc(33.333% - 20px);
-
-  box-sizing: border-box;
+/* input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]:checked ~ label > img {
+  transform: scale(0.5);
+} */
+.scale-img {
+  transform: scale(0.5);
 }
