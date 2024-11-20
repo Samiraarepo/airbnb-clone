@@ -483,7 +483,7 @@ hover searchbox
   display: none;
   padding: 1rem 2rem;
   border-radius: 2rem;
-  background-color: #fff;
+  background-color: #ffff;
   z-index: 1;
   box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
   right: 0;
@@ -495,6 +495,30 @@ hover searchbox
 }
 .who-container.show-dropdown {
   display: inline-flex;
+}
+.Adult-part {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 24px 4px 24px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+.title-select h3 {
+  font-size: 16px;
+  color: #222222;
+}
+.title-select span {
+  font-size: 14px;
+  color: #6a6a6a;
+}
+.button-select button {
+  border-radius: 50%;
+  cursor: pointer;
+  border-color: #b0b0b0;
+  text-align: center;
+  align-items: center;
+  background-color: #ffff;
 }
 
 /* End of who Drop Down style part */

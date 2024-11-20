@@ -79,6 +79,11 @@ activeChanges(dateSection);
 /* who Drop Down logic */
 const whodropdown = document.getElementById("who-dropdown") as HTMLElement;
 whoSection?.addEventListener("click", () => {
-  console.log("man injam");
   whodropdown.classList.toggle("show-dropdown");
 });
+window.onclick = (event: MouseEvent) => {
+  const targe = event.target as HTMLElement;
+  if (!targe.matches(".drop-show")) {
+    whodropdown.classList.remove("show-dropdown");
+  }
+};
