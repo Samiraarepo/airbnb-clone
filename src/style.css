@@ -519,6 +519,21 @@ hover searchbox
   text-align: center;
   align-items: center;
   background-color: #ffff;
+  border: 1px solid black;
+  height: 32px;
+}
+.button-select button img {
+  display: block;
+  height: 12px;
+  width: 12px;
+  fill: currentcolor;
+  cursor: pointer;
+  color: #6a6a6a;
+}
+.button-select button span {
+  padding: 5px;
+  height: 22px;
+  width: 22px;
 }
 
 /* End of who Drop Down style part */
