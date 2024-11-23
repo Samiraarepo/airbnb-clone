@@ -62,10 +62,14 @@ navbar part style
 }
 
 /* logo style */
-
+.logo a {
+  display: block;
+  width: 118px;
+  height: 64px;
+}
 .logo img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .staysExperience {
   gap: 20px;
@@ -77,29 +81,31 @@ navbar part style
 }
 .staysExperience button {
   font-size: 1rem;
-  color: #0b0707;
   background-color: transparent;
   border: none;
-  font-weight: 500;
+  color: #6a6a6a;
+  padding: 10px 12px;
+  border-radius: 3rem;
+  font-family: "Airbnb Cereal VF";
 }
 .staysExperience button.Active {
   color: #0b0707;
   font-weight: 500;
+  font-family: "Airbnb Cereal VF";
+}
+.staysExperience button.Active:hover {
+  color: #0b0707;
+  font-weight: 500;
+  font-family: "Airbnb Cereal VF";
+  background-color: transparent;
 }
 
-.staysExperience button.inactive {
-  color: #c5c2c2;
-  padding: 1rem;
-  border-radius: 3rem;
-}
-
-.staysExperience button.inactive:hover {
-  background-color: #efefef;
+.staysExperience button:hover {
+  background-color: #f7f7f7;
   cursor: pointer;
-  color: #030202;
-  font-weight: lighter;
+  color: #222;
+  font-family: "Airbnb Cereal VF";
 }
-
 /*humberger menu and profile menu*/
 .hamburg-nav {
   display: flex;
@@ -134,9 +140,61 @@ navbar part style
   background-color: #efefef;
   cursor: pointer;
 }
+/* Drop Down style */
+.drop-parent {
+  position: relative;
+}
 
 .menu {
-  border: 1px solid #c1c0c0;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  padding: 8px 8px 8px 14px;
+  background-color: #fff;
+  justify-content: center;
+  gap: 10px;
+}
+.drop-dowoncontent {
+  cursor: pointer;
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  max-height: calc(100vh - 100%);
+  min-width: 240px;
+  top: 50%;
+  border-radius: 12px;
+  padding: 8px 0px;
+  right: 0;
+  z-index: 2;
+  margin-top: 34px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+}
+.drop-dowoncontent .dropdown-line {
+  background: #dddddd;
+  margin: 8px 0;
+  height: 1px;
+}
+.drop-dowoncontent a {
+  text-decoration: none;
+  padding: 12px 16px;
+  color: #222222;
+  line-height: 1.125rem;
+  background: transparent;
+}
+.drop-dowoncontent .signup {
+  font-weight: 500;
+}
+.drop-dowoncontent a:hover:not(:active) {
+  background-color: #f7f7f7;
+}
+
+.drop-dowoncontent.show {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.menu {
+  border: 1px solid #dddddd;
   border-radius: 25px;
   padding: 8px 8px 8px 14px;
   background-color: #fff;
@@ -145,20 +203,58 @@ navbar part style
   justify-content: center;
   gap: 10px;
 }
+.drop-dowoncontent {
+  cursor: pointer;
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  min-width: 240px;
+  top: 50%;
+  border-radius: 12px;
+  padding: 8px 0px;
+  right: 0;
+  z-index: 2;
+  margin-top: 34px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+}
+.drop-dowoncontent .dropdown-line {
+  background: #dddddd;
+  margin: 8px 0;
+  height: 1px;
+}
+.drop-dowoncontent a {
+  text-decoration: none;
+  padding: 12px 16px;
+  color: #222222;
+  line-height: 1.125rem;
+  background: transparent;
+}
+.drop-dowoncontent .signup {
+  font-weight: 500;
+}
+.drop-dowoncontent a:hover:not(:active) {
+  background-color: #f7f7f7;
+}
+
+.drop-dowoncontent.show {
+  display: inline-flex;
+  flex-direction: column;
+}
 .menu:hover {
-  box-shadow: 1px 2px 2px 1px #efefef;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
 .img-menu {
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
 }
 
 .img-profile {
   width: 30px;
   height: 30px;
 }
-
 /*
 -----------------------------------
 Search-box
