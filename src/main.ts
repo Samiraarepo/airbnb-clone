@@ -25,7 +25,7 @@ Dropbtn?.addEventListener("click", () => {
 
 window.onclick = (event: MouseEvent) => {
   const target = event.target as HTMLElement;
-  if (!target.matches(".drop-show")) {
+  if (!target.matches("drop-show")) {
     dropcontent.classList.remove("show");
   }
 };
@@ -82,8 +82,8 @@ whoSection?.addEventListener("click", () => {
   whodropdown.classList.toggle("show-dropdown");
 });
 window.onclick = (event: MouseEvent) => {
-  const targe = event.target as HTMLElement;
-  if (!targe.matches(".drop-show")) {
+  const whotarget = event.target as HTMLElement;
+  if (!whotarget.matches(".drop_who_dropdwon")) {
     whodropdown.classList.remove("show-dropdown");
   }
 };

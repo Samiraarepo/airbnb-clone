@@ -45,14 +45,14 @@ input {
 input:focus-visible {
   outline: none;
 }
-
+/*
 ----------------------------------
   navbar
   part
   style
   ----------------------------------
   */
-  #header {
+#header {
   position: relative;
   padding-bottom: 1.5rem;
 }

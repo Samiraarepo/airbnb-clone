@@ -26,14 +26,14 @@
           </div>
           <div class="global">
             <a class="global-a" href="/#">
-              <img src="/Icons/global.svg" alt="Global" />
+              <img src="/icon/global.svg" alt="Global" />
             </a>
           </div>
           <!-- Navbar Drop down -->
             <div class="drop-parent">
               <button class="menu drop-show" id="drop-btn">
-                <img class="img-menu drop-show" src="/Icons/menu.svg" />  
-                <img class="img-profile drop-show" src="/Icons/profile.svg" />
+                <img class="img-menu drop-show" src="/icon/menu.svg" />  
+                <img class="img-profile drop-show" src="/icon/profile.svg" />
               </button>
             <!-- DropDown Content -->
             <div class="drop-dowoncontent" id="drop-content">
@@ -111,10 +111,10 @@
               <div class="enter_date subtitle_color">Add dates</div>
             </div> -->
             <div class="header_divider"></div>
-            <div class="who_section active_box drop-show">
+            <div class="who_section active_box drop_who_dropdwon">
               <div class="who_content">
-                <div class="who_title drop-show">Who</div>
-                <div class="add_guests subtitle_color drop-show">Add guests</div>
+                <div class="who_title drop_who_dropdwon">Who</div>
+                <div class="add_guests subtitle_color drop_who_dropdwon">Add guests</div>
               <!-- who section drop down part-->
               <div id="who-dropdown" class="who-container show-dropdown">
               <div class="who-around">              
@@ -124,11 +124,15 @@
                   <span>Ages 13 or above</span>
                 </div>
                 <div class="button-select">
-                <button>-</button>
+                <button>
+                <span>
+                <img src="/public/icon/subtraction.svg" />
+                </span>
+                </button>
                 <span>0</span>
                 <button>
                 <span>
-                  <img src="/public/Icons/plus.svg" />
+                  <img src="/public/icon/plus.svg" />
                 </span>
                 </button>
                 </div>
@@ -137,7 +141,7 @@
               </div>
               <!-- end of who section drop down part -->
               </div>
-              <div class="search_btn drop-show">
+              <div class="search_btn">
                 <button>
                   <img src="./public/images/icons8-search.svg" alt="">
                   <span class="search_content">Search</span>
