@@ -512,15 +512,24 @@ hover searchbox
   font-size: 14px;
   color: #6a6a6a;
 }
+
+.button-select {
+  width: 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .button-select button {
+  text-align: center;
   border-radius: 50%;
   cursor: pointer;
   border-color: #b0b0b0;
-  text-align: center;
-  align-items: center;
   background-color: #ffff;
   border: 1px solid black;
   height: 32px;
+  width: 32px;
+  padding: 0;
+  color: #6a6a6a;
 }
 .button-select button img {
   display: block;
