@@ -1,24 +1,11 @@
-/*
---------------------------------
-Fonts
---------------------------------
-*/
-@font-face {
-  font-family: "Airbnb Cereal VF";
-  src: url(/fonts/AirbnbCerealVF_W_Wght.woff2);
-}
-@font-face {
-  font-family: "Airbnb Cereal VF Cyril";
-  src: url(/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
-}
-
 :root {
-  /* --main-bg-color: #222222; */
+  --main-bg-color: #222222;
   --secondary-color: #ebebeb;
   --header-brand-color: #ff385c;
   --theme-product-color: #e00b41;
   --subtitle-color: #6a6a6a;
   --font-color: #222222;
+
   --border-line-color: #dddddd;
   --background-hover: #ebebeb;
   --border-radius-main: 3rem;
@@ -45,26 +32,26 @@ input {
 input:focus-visible {
   outline: none;
 }
-
-----------------------------------
-  navbar
-  part
-  style
-  ----------------------------------
-  */
-  #header {
-  position: relative;
-  padding-bottom: 1.5rem;
+/*
+--------------------------------
+Fonts
+--------------------------------
+*/
+@font-face {
+  font-family: Airbnb Cereal VF;
+  src: url(../public/fonts/AirbnbCerealVF_W_Wght.woff2);
 }
-/* #header:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: var(--secondary-color);
-  bottom: 0;
-  left: 0;
-} */
+@font-face {
+  font-family: Airbnb Cereal VF Cyril;
+  src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
+}
+
+/*
+---------------------------------
+navbar part style
+---------------------------------
+*/
+
 .navpart {
   width: 100%;
   height: 80px;
@@ -119,7 +106,6 @@ input:focus-visible {
   color: #222;
   font-family: "Airbnb Cereal VF";
 }
-
 /*humberger menu and profile menu*/
 .hamburg-nav {
   display: flex;
@@ -128,6 +114,7 @@ input:focus-visible {
   width: 100%;
   height: 100%;
 }
+
 .home a {
   padding: 1rem;
   text-decoration: none;
@@ -171,8 +158,6 @@ input:focus-visible {
   border-radius: 25px;
   padding: 8px 8px 8px 14px;
   background-color: #fff;
-  display: flex;
-  align-items: center;
   justify-content: center;
   gap: 10px;
 }
@@ -214,6 +199,17 @@ input:focus-visible {
   display: inline-flex;
   flex-direction: column;
 }
+
+.menu {
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  padding: 8px 8px 8px 14px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 .menu:hover {
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04),
     0px 2px 4px 0px rgba(0, 0, 0, 0.16);
@@ -228,156 +224,6 @@ input:focus-visible {
   width: 30px;
   height: 30px;
 }
-
-/*
--------------------------------
-Modal container
--------------------------------
-*/
-.box-modal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-}
-
-.box-modal .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #000;
-  opacity: 0.5;
-  transition: opacity 1.3s;
-}
-
-.box-modal .body-modal {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-}
-.box-modal .body-modal .inner-body-modal {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 0.6rem;
-  position: relative;
-  z-index: 1;
-}
-
-.inner-body-modal .tabs {
-  position: relative;
-  display: flex;
-  gap: 1rem;
-}
-.underline_bottom {
-  height: 1px;
-  background-color: var(--border-line-color);
-  margin-top: 0.8rem;
-}
-
-.tab_one,
-.tab_two {
-  cursor: pointer;
-}
-
-.box-modal.modal-show {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: visible;
-  transition: all 0.8s;
-}
-.box-modal.modal-show .overlay {
-  opacity: 0.5;
-  transition: opacity 1.2s;
-}
-.box-modal.modal-show .body-modal {
-  position: relative;
-  max-height: 100vh;
-  opacity: 1;
-  transition: 0.1s max-height 0.2s, 0.1s opacity 0.2s;
-}
-.body-modal .cancel_icon {
-  position: absolute;
-  z-index: 9;
-}
-.cancel_icon img {
-  width: 1.4rem;
-  height: 1.4rem;
-}
-.translation {
-  display: flex;
-}
-/* 
------------------------------------------
-The switch - the box around the slider
------------------------------------------
- */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 3.2rem;
-  height: 2.1rem;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 1.8rem;
-  width: 1.8rem;
-  left: 2px;
-  bottom: 3px;
-  background-color: #fff;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: var(--font-color);
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--font-color);
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(1.8rem);
-  -ms-transform: translateX(1.8rem);
-  transform: translateX(1.8rem);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 2rem;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
 /*
 -----------------------------------
 Search-box
@@ -398,15 +244,32 @@ Search-box
   font-weight: 500;
 }
 /* 
------------------------------
 hover searchbox
------------------------------
 */
 .where_section {
   padding: 1rem 5rem 1rem 2rem;
   position: relative;
 }
+.close_btn {
+  position: absolute;
+  display: flex;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 100%;
+  background-color: transparent;
+}
+.close_btn img {
+  align-items: center;
+  width: 0.8rem;
+  height: 0.8rem;
+}
 
+.close_btn:hover {
+  background-color: var(--border-line-color);
+}
 .active_section {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
   background-color: #fff;
@@ -427,6 +290,7 @@ hover searchbox
 }
 .bg-active {
   background-color: var(--background-hover);
+  box-shadow: none;
 }
 .bg-active .search_btn button {
   width: 7rem;
@@ -507,9 +371,12 @@ hover searchbox
 Search-box Dropdown
 -------------------------------
 */
+
+/* where section */
 .hide {
   display: none;
 }
+
 .region_wrapper {
   position: absolute;
   margin-top: 2rem;
@@ -533,6 +400,10 @@ Search-box Dropdown
   flex-wrap: wrap;
   margin: 0 auto;
 }
+.item {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+}
 .region_items .item {
   display: flex;
   flex-direction: column;
@@ -542,15 +413,16 @@ Search-box Dropdown
   background-color: var(--background-hover);
   border-radius: 1rem;
 }
+.region_items .item:active img {
+  transform: scale(0.925); /* Slight zoom effect */
+  transition: transform 0.25s ease-in-out; /* Smooth transition */
+}
 .region_items figure img {
   width: 100%;
   height: auto;
+  cursor: pointer;
   border: 1px solid var(--border-line-color);
   border-radius: 1rem;
   margin-bottom: 0.4rem;
-}
-.item {
-  flex: 1 1 calc(33.333% - 20px);
-
-  box-sizing: border-box;
+  transition: transform 0.25s ease;
 }

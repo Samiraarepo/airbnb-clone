@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="" />
@@ -7,6 +8,7 @@
   <title>Airbnb</title>
   <link rel="stylesheet" href="src/style.css">
 </head>
+
 <body>
   <div id="">
     <header id="header">
@@ -26,37 +28,39 @@
           </div>
           <div class="global">
             <a class="global-a" href="/#">
-              <img src="/Icons/global.svg" alt="Global" />
+              <img src="./public/icons/global.svg" alt="Global" />
             </a>
           </div>
           <!-- Navbar Drop down -->
-            <div class="drop-parent">
-              <button class="menu drop-show" id="drop-btn">
-                <img class="img-menu drop-show" src="/Icons/menu.svg" />  
-                <img class="img-profile drop-show" src="/Icons/profile.svg" />
-              </button>
+          <div class="drop-parent">
+            <button class="menu drop-show" id="drop-btn">
+              <img class="img-menu drop-show" src="./public/icons/menu.svg" />
+              <img class="img-profile drop-show" src="./public/icons/profile.svg" />
+            </button>
             <!-- DropDown Content -->
             <div class="drop-dowoncontent" id="drop-content">
-            <a class="signup" href="#">Sign up</a>
-            <a href="#">Log in</a>
-            <div class="dropdown-line"></div>
-            <a href="#">Gift cards</a>
-            <a href="#">Airbnb your home</a>
-            <a href="#">Host an experience</a>
-            <a href="#">Help center</a>
-            </div> 
+              <a class="signup" href="#">Sign up</a>
+              <a href="#">Log in</a>
+              <div class="dropdown-line"></div>
+              <a href="#">Gift cards</a>
+              <a href="#">Airbnb your home</a>
+              <a href="#">Host an experience</a>
+              <a href="#">Help center</a>
+            </div>
           </div>
         </div>
       </nav>
       <div class="container">
-
         <!--Searchbox-->
         <!--Stays Tab-->
         <div class="search_box_container">
           <div class="inner_search_box">
             <div class="where_section active_box ">
               <div class="where-title">Where</div>
-              <input class="destination subtitle_color" value="search destinations"></input>
+              <input class="destination subtitle_color" placeholder="search destinations" />
+              <div class="close_btn hide">
+                <img src="./public/icons/icons8-close.svg" alt="close-icon">
+              </div>
 
               <div class="region_wrapper hide">
                 <div class="region_selection">
