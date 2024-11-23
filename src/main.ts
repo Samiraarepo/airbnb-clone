@@ -1,3 +1,41 @@
+/*
+------------------------------------
+ Navbar
+------------------------------------
+*/
+const stays = document.getElementById("stay");
+const experience = document.getElementById("exper");
+
+stays?.addEventListener("click", () => {
+  stays.classList.add("Active");
+  experience?.classList.remove("Active");
+});
+
+experience?.addEventListener("click", () => {
+  experience.classList.add("Active");
+  stays?.classList.remove("Active");
+});
+
+/*
+--------------------------------------
+Humbrger menu Drop Down
+--------------------------------------
+*/
+const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
+const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
+
+Dropbtn?.addEventListener("click", () => {
+  console.log(`Dropbtn hitted`);
+  dropcontent.classList.toggle("show");
+});
+
+window.onclick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement;
+  if (!target.matches(".drop-show")) {
+    dropcontent.classList.remove("show");
+  }
+};
+
 //DOM Manipulation
 const whereSection = document.querySelector<HTMLElement>(".where_section")!;
 const checkInSection = document.querySelector<HTMLElement>(".checkin_section")!;
@@ -98,24 +136,3 @@ activeChanges(checkInSection);
 activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
-/*
-------------------------------------
- Navbar
-------------------------------------
-*/
-const stays = document.getElementById("stay");
-const experience = document.getElementById("exper");
-
-stays?.addEventListener("click", () => {
-  stays.classList.add("Active");
-  stays.classList.remove("inactive");
-  experience?.classList.remove("Active");
-  experience?.classList.add("inactive");
-});
-
-experience?.addEventListener("click", () => {
-  experience.classList.add("Active");
-  experience.classList.remove("inactive");
-  stays?.classList.remove("Active");
-  stays?.classList.add("inactive");
-});
