@@ -5,6 +5,7 @@
   --theme-product-color: #e00b41;
   --subtitle-color: #6a6a6a;
   --font-color: #222222;
+
   --border-line-color: #dddddd;
   --background-hover: #ebebeb;
   --border-radius-main: 3rem;
@@ -347,6 +348,10 @@ Search-box Dropdown
   background-color: var(--background-hover);
   border-radius: 1rem;
 }
+.region_items .item:active img {
+  transform: scale(0.925); /* Slight zoom effect */
+  transition: transform 0.25s ease-in-out; /* Smooth transition */
+}
 .region_items figure img {
   width: 100%;
   height: auto;
@@ -355,13 +360,4 @@ Search-box Dropdown
   border-radius: 1rem;
   margin-bottom: 0.4rem;
   transition: transform 0.25s ease;
-}
-/* input[type="checkbox"] {
-  display: none;
-}
-input[type="checkbox"]:checked ~ label > img {
-  transform: scale(0.5);
-} */
-.scale-img {
-  transform: scale(0.5);
 }
