@@ -23,12 +23,13 @@ Dropbtn?.addEventListener("click", () => {
   dropcontent.classList.toggle("show");
 });
 
-window.onclick = (event: MouseEvent) => {
+document.addEventListener("click", (event) => {
   const target = event.target as HTMLElement;
-  if (!target.matches("drop-show")) {
+
+  if (!target.matches(".drop-show")) {
     dropcontent.classList.remove("show");
   }
-};
+});
 
 //DOM Manipulation
 const whereSection = document.querySelector<HTMLElement>(".where_section")!;
@@ -81,9 +82,9 @@ const whodropdown = document.getElementById("who-dropdown") as HTMLElement;
 whoSection?.addEventListener("click", () => {
   whodropdown.classList.toggle("show-dropdown");
 });
-window.onclick = (event: MouseEvent) => {
+document.addEventListener("click", (event) => {
   const whotarget = event.target as HTMLElement;
   if (!whotarget.matches(".drop_who_dropdwon")) {
     whodropdown.classList.remove("show-dropdown");
   }
-};
+});
