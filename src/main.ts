@@ -88,3 +88,22 @@ document.addEventListener("click", (event) => {
     whodropdown.classList.remove("show-dropdown");
   }
 });
+/* add increment and decrement logic to button */
+let adultcount: number = 2;
+const increment = document.getElementById("decrement") as HTMLButtonElement;
+const display = document.getElementById("display") as HTMLElement;
+const decrement = document.getElementById("increment") as HTMLButtonElement;
+increment.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (parseInt(display.innerText) === 2) {
+    adultcount += 1;
+  } else {
+    adultcount++;
+  }
+  display.innerText = adultcount.toString();
+});
+decrement.addEventListener("click", (event) => {
+  event.stopPropagation();
+  adultcount--;
+  display.innerText = adultcount.toString();
+});
