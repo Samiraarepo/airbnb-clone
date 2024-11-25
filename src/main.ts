@@ -79,7 +79,8 @@ activeChanges(dateSection);
 
 /* who Drop Down logic */
 const whodropdown = document.getElementById("who-dropdown") as HTMLElement;
-whoSection?.addEventListener("click", () => {
+whoSection?.addEventListener("click", (event) => {
+  console.log(`baraye test${event}`);
   whodropdown.classList.toggle("show-dropdown");
 });
 document.addEventListener("click", (event) => {
@@ -89,21 +90,24 @@ document.addEventListener("click", (event) => {
   }
 });
 /* add increment and decrement logic to button */
-let adultcount: number = 2;
-const increment = document.getElementById("decrement") as HTMLButtonElement;
-const display = document.getElementById("display") as HTMLElement;
-const decrement = document.getElementById("increment") as HTMLButtonElement;
-increment.addEventListener("click", (event) => {
-  event.stopPropagation();
-  if (parseInt(display.innerText) === 2) {
-    adultcount += 1;
-  } else {
-    adultcount++;
-  }
-  display.innerText = adultcount.toString();
-});
-decrement.addEventListener("click", (event) => {
-  event.stopPropagation();
-  adultcount--;
-  display.innerText = adultcount.toString();
-});
+function calcButton(initialvalue: number, part: HTMLElement) {
+  const increment = part.querySelector(".decrement") as HTMLButtonElement;
+  const display = part.querySelector(".display") as HTMLElement;
+  const decrement = part.querySelector(".increment") as HTMLButtonElement;
+  display.textContent = initialvalue.toString();
+
+  increment.addEventListener("click", (event) => {
+    event.stopPropagation();
+    initialvalue++;
+    display.innerText = initialvalue.toString();
+  });
+  decrement.addEventListener("click", (event) => {
+    event.stopPropagation();
+    initialvalue--;
+    display.innerText = initialvalue.toString();
+  });
+}
+calcButton(2, document.querySelector(".Adult-part") as HTMLElement);
+calcButton(0, document.querySelector(".children_part") as HTMLElement);
+calcButton(0, document.querySelector(".infants_part") as HTMLElement);
+calcButton(0, document.querySelector(".pets_part") as HTMLElement);
