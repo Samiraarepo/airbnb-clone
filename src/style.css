@@ -496,7 +496,9 @@ hover searchbox
 .who-container.show-dropdown {
   display: inline-flex;
 }
-.Adult-part {
+.Adult-part,
+.children_part,
+.infants_part {
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -504,13 +506,32 @@ hover searchbox
   padding: 24px 4px 24px 0;
   border-bottom: 1px solid #ebebeb;
 }
+.pets_part {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 24px 4px 24px 0;
+}
 .title-select h3 {
   font-size: 16px;
   color: #222222;
+  font-weight: inherit;
 }
 .title-select span {
   font-size: 14px;
   color: #6a6a6a;
+  font-family: "Airbnb Cereal VF Cyril";
+  font-weight: normal;
+}
+
+.title-select span a {
+  font-size: 14px;
+  color: #6a6a6a;
+  font-family: "Airbnb Cereal VF Cyril";
+  font-weight: normal;
+  text-decoration: underline;
+  font-weight: 500 !important;
 }
 
 .button-select {
@@ -518,18 +539,26 @@ hover searchbox
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Airbnb Cereal VF Cyril";
+  color: #222222;
+  font-size: 1rem;
 }
 .button-select button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
-  border-color: #b0b0b0;
   background-color: #ffff;
-  border: 1px solid black;
+  border: 1px solid #b0b0b0;
   height: 32px;
   width: 32px;
   padding: 0;
   color: #6a6a6a;
+}
+.button-select button:hover {
+  border: 1px solid black;
 }
 .button-select button img {
   display: block;
@@ -540,9 +569,12 @@ hover searchbox
   color: #6a6a6a;
 }
 .button-select button span {
-  padding: 5px;
   height: 22px;
   width: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* End of who Drop Down style part */
