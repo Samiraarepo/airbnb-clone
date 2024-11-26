@@ -79,8 +79,7 @@ activeChanges(dateSection);
 
 /* who Drop Down logic */
 const whodropdown = document.getElementById("who-dropdown") as HTMLElement;
-whoSection?.addEventListener("click", (event) => {
-  console.log(`baraye test${event}`);
+whoSection?.addEventListener("click", () => {
   whodropdown.classList.toggle("show-dropdown");
 });
 document.addEventListener("click", (event) => {
@@ -89,22 +88,39 @@ document.addEventListener("click", (event) => {
     whodropdown.classList.remove("show-dropdown");
   }
 });
+/* FUNCTION UPDATE BUTTON STATE */
+function updateButtonDisable(
+  value: number,
+  buttonSelector: HTMLElement | null
+) {
+  if (value <= 0) {
+    buttonSelector?.setAttribute("disabled", "disabled");
+  } else {
+    buttonSelector?.removeAttribute("disabled");
+  }
+}
+
 /* add increment and decrement logic to button */
 function calcButton(initialvalue: number, part: HTMLElement) {
-  const increment = part.querySelector(".decrement") as HTMLButtonElement;
+  const increment = part.querySelector(".increment") as HTMLButtonElement;
   const display = part.querySelector(".display") as HTMLElement;
-  const decrement = part.querySelector(".increment") as HTMLButtonElement;
+  const decrement = part.querySelector(".decrement") as HTMLButtonElement;
   display.textContent = initialvalue.toString();
+  updateButtonDisable(initialvalue, decrement);
 
   increment.addEventListener("click", (event) => {
     event.stopPropagation();
     initialvalue++;
     display.innerText = initialvalue.toString();
+    updateButtonDisable(initialvalue, decrement);
   });
   decrement.addEventListener("click", (event) => {
     event.stopPropagation();
-    initialvalue--;
-    display.innerText = initialvalue.toString();
+    if (initialvalue > 0) {
+      initialvalue--;
+      display.innerText = initialvalue.toString();
+      updateButtonDisable(initialvalue, decrement);
+    }
   });
 }
 calcButton(2, document.querySelector(".Adult-part") as HTMLElement);

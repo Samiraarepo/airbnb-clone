@@ -557,6 +557,25 @@ hover searchbox
   padding: 0;
   color: #6a6a6a;
 }
+.button-select button:disabled {
+  background-color: #ffffff;
+  color: #ebebeb;
+  cursor: not-allowed;
+  border-color: #ebebeb;
+  fill: currentColor;
+}
+.button-select button:disabled:hover {
+  border-color: #ebebeb;
+}
+.button-select button:disabled img {
+  color: #ebebeb;
+  fill: currentColor;
+}
+
+.button-select button {
+  color: #ebebeb;
+  fill: currentColor;
+}
 .button-select button:hover {
   border: 1px solid black;
 }
