@@ -6,9 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airbnb</title>
-  <script type="text/javascript" src="./public/datepicker/js/jquery.min.js"></script>
-  <script type="text/javascript" src="./public/datepicker/js/daterangepicker.min.js"></script>
-  <script type="text/javascript" src="./public/datepicker/js/moment.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="./public/datepicker/daterangepicker.css" />
   <link rel="stylesheet" href="src/style.css">
 </head>
@@ -103,26 +101,14 @@
               </div>
             </div>
             <div class="header_divider"></div>
-            <div class="checkin_section active_box">
+            <div class="checkin_section  active_box">
               <div class="checkin_title">Check in</div>
               <div class="checkin_date subtitle_color">Add dates</div>
               <div class="when_wrapper">
                 <div class="when_dropdown">
                   <div class="when_tabs">
                     <div class="when_dates active_tab">
-                      <a href="#">Dates</a>
-
-                      <div class="date_calender">
-                        <input type="text" name="datefilter" value="" />
-                        <div class="left_month">
-
-
-                        </div>
-                        <div class="right_month">
-                          <div class="right_carousel"></div>
-                          <div class="month_content"></div>
-                        </div>
-                      </div>
+                      <a id="daterange" class="date_link" name="datefilter" href="#">Dates</a>
                     </div>
                     <div class="when_months active_tab">
                       <a href="#">Months</a>
@@ -131,7 +117,11 @@
                       <a href="#">Flexible</a>
                     </div>
                   </div>
+                  <div class="when_calender">
+                    <div id="dates_calendar" class="dates_calender_container">
 
+                    </div>
+                  </div>
                   <div class="when_num_days">
                     <div class="exact_dates num_days"></div>
                     <div class="one_day num_days"></div>
@@ -177,26 +167,42 @@
     </header>
 
   </div>
-  <script type="module" src="./src/main.ts"></script>
+  <script type="text/javascript" src="./src/main.ts"></script>
+
+  <script type="text/javascript" src="./public/datepicker/js/jquery.min.js"></script>
+  <script type="text/javascript" src="./public/datepicker/js/moment.min.js"></script>
+  <script type="text/javascript" src="./public/datepicker/js/daterangepicker.min.js"></script>
+
   <script type="text/javascript">
-    $(function () {
-
-      $('input[name="datefilter"]').daterangepicker({
+    $(document).ready(function () {
+      $('#daterange').daterangepicker({
+        parentEl: '#dates_calendar', // Set parent container
+        singleDatePicker: false,
+        // showDropdowns: true,
         autoUpdateInput: false,
+        autoApply: true,
+        opens: 'center',
         locale: {
-          cancelLabel: 'Clear'
+          format: 'MM/DD/YYYY', // Customize the date format
+          separator: ' - ',
+          applyLabel: 'Apply',
+          cancelLabel: 'Cancel',
+          fromLabel: 'From',
+          toLabel: 'To',
+          customRangeLabel: 'Custom',
+        },
+        startDate: moment().startOf('day'), // Default start date
+        endDate: moment().startOf('day').add(1, 'days'), // Default end date
+        // minDate: moment().startOf('day'), // Disallow past dates
+        maxDate: moment().add(1, 'year'), // Set a max date
+      },
+        function (start, end, label) {
+          console.log('A new date range was selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
         }
-      });
-
-      $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-      });
-
-      $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
-        $(this).val('');
-      });
+      );
 
     });
+
   </script>
 </body>
 

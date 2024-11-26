@@ -478,10 +478,19 @@ Search-box Dropdown
   padding: 0.5rem 0.75rem;
   margin: 0.4rem 0.06rem;
 }
-.active_tab {
+
+.dates_calender_container {
 }
-.date_calender {
+.when_calender {
   position: absolute;
   top: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#dates_calendar .daterangepicker {
+  top: 100%;
   left: 0;
+  z-index: 10;
 }
