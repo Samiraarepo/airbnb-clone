@@ -20,9 +20,9 @@ const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 
 /*
-------------------------------------
+------------------------------------------------
  Navbar
-------------------------------------
+------------------------------------------------
 */
 const stays = document.getElementById("stay");
 const experience = document.getElementById("exper");
@@ -38,9 +38,9 @@ experience?.addEventListener("click", () => {
 });
 
 /*
---------------------------------------
+-------------------------------------------
 Humbrger menu Drop Down
---------------------------------------
+-------------------------------------------
 */
 const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
 const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
@@ -58,9 +58,9 @@ window.onclick = (event: MouseEvent) => {
 };
 
 /*
-------------------------------------
+-----------------------------------------------
 Search-box 
-------------------------------------
+-----------------------------------------------
 */
 const closeBtnVisibility = () => {
   if (
@@ -94,9 +94,9 @@ document.addEventListener("click", function (e) {
 });
 
 /*
-------------------------------------
+--------------------------------------------
 Where dropdown
-------------------------------------
+--------------------------------------------
 */
 whereSection?.addEventListener("click", () => {
   regionWrapper?.classList.remove("hide");
@@ -131,9 +131,9 @@ closeBtn?.addEventListener("click", () => {
 });
 
 /*
------------------------------------
+--------------------------------------------
 Function Calls
------------------------------------
+--------------------------------------------
 */
 activeChanges(whereSection);
 activeChanges(checkInSection);

@@ -5,7 +5,9 @@
   --theme-product-color: #e00b41;
   --subtitle-color: #6a6a6a;
   --font-color: #222222;
-
+  --box-shadow-primary: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  --box-shadow-secondary: 0 3px 12px 0 rgb(0 0 0/0.15);
   --border-line-color: #dddddd;
   --background-hover: #ebebeb;
   --border-radius-main: 3rem;
@@ -161,7 +163,7 @@ navbar part style
   justify-content: center;
   gap: 10px;
 }
-.drop-dowoncontent {
+.drop-downcontent {
   cursor: pointer;
   position: absolute;
   display: none;
@@ -176,26 +178,26 @@ navbar part style
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
   padding: 8px 0;
 }
-.drop-dowoncontent .dropdown-line {
+.drop-downcontent .dropdown-line {
   background: #dddddd;
   margin: 8px 0;
   height: 1px;
 }
-.drop-dowoncontent a {
+.drop-downcontent a {
   text-decoration: none;
   padding: 12px 16px;
   color: #222222;
   line-height: 1.125rem;
   background: transparent;
 }
-.drop-dowoncontent .signup {
+.drop-downcontent .signup {
   font-weight: 500;
 }
-.drop-dowoncontent a:hover:not(:active) {
+.drop-downcontent a:hover:not(:active) {
   background-color: #f7f7f7;
 }
 
-.drop-dowoncontent.show {
+.drop-downcontent.show {
   display: inline-flex;
   flex-direction: column;
 }
@@ -235,8 +237,9 @@ Search-box
   align-items: center;
 }
 .inner_search_box {
+  position: relative;
   border: 1px solid var(--border-line-color);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: var(--box-shadow-primary);
   display: flex;
   align-items: center;
   border-radius: var(--border-radius-main);
@@ -271,7 +274,7 @@ hover searchbox
   background-color: var(--border-line-color);
 }
 .active_section {
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: var(--box-shadow-primary);
   background-color: #fff;
   border-radius: var(--border-radius-main);
 }
@@ -326,7 +329,7 @@ hover searchbox
 .checkout_section,
 .checkin_section {
   padding: 1rem 3rem 1rem 1.5rem;
-  position: relative;
+  /* position: relative; */
 }
 .date_section {
   padding: 1rem 9rem 1rem 1.5rem;
@@ -379,10 +382,11 @@ Search-box Dropdown
 
 .region_wrapper {
   position: absolute;
-  margin-top: 2rem;
+  top: 100%;
+  margin-top: 0.7rem;
   left: 0;
   border-radius: 2rem;
-  box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
+  box-shadow: var(--box-shadow-secondary);
   padding: 2rem 1.5rem 1.5rem;
 }
 .region_selection {
@@ -415,7 +419,7 @@ Search-box Dropdown
 }
 .region_items .item:active img {
   transform: scale(0.925); /* Slight zoom effect */
-  transition: transform 0.25s ease-in-out; /* Smooth transition */
+  /* transition: transform 0.1 ease;  */
 }
 .region_items figure img {
   width: 100%;
@@ -425,4 +429,23 @@ Search-box Dropdown
   border-radius: 1rem;
   margin-bottom: 0.4rem;
   transition: transform 0.25s ease;
+}
+
+/* checkin & checkout */
+.when_wrapper {
+  position: absolute;
+  width: 100%;
+  box-shadow: var(--box-shadow-secondary);
+  left: 0;
+  top: 100%;
+  margin-top: 0.7rem;
+}
+.when_dropdown {
+}
+
+.when_dates {
+}
+.when_months {
+}
+.when_flexible {
 }
