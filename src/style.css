@@ -14,6 +14,12 @@
   --font-size-default: 0.9rem;
 }
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +29,12 @@
 body {
   font-family: "Airbnb Cereal VF", Circular, -apple-system, BlinkMacSystemFont,
     Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
   font-size: var(--font-size-default);
+  color: var(--font-color);
+}
+a {
+  text-decoration: none;
   color: var(--font-color);
 }
 input {
@@ -123,7 +134,7 @@ navbar part style
   font-size: 14px;
   color: #222;
   border-radius: 2rem;
-  font-family: "Airbnb Cereal VF";
+  font-weight: 500;
 }
 
 .home a:hover {
@@ -418,7 +429,7 @@ Search-box Dropdown
   border-radius: 1rem;
 }
 .region_items .item:active img {
-  transform: scale(0.925); /* Slight zoom effect */
+  transform: scale(0.925);
   /* transition: transform 0.1 ease;  */
 }
 .region_items figure img {
@@ -432,20 +443,47 @@ Search-box Dropdown
 }
 
 /* checkin & checkout */
+
 .when_wrapper {
   position: absolute;
   width: 100%;
+  height: auto;
   box-shadow: var(--box-shadow-secondary);
   left: 0;
   top: 100%;
   margin-top: 0.7rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
 }
 .when_dropdown {
+  position: relative;
+  padding: 1rem;
 }
-
-.when_dates {
+.when_tabs {
+  display: flex;
+  background-color: var(--background-hover);
+  padding: 0.7rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 40%;
+  margin: 0 auto;
+  font-size: var(--font-size-default);
+  font-weight: 500;
+  border-radius: 6rem;
 }
-.when_months {
+.when_dates a,
+.when_months a,
+.when_flexible a {
+  padding: 0.5rem 0.75rem;
+  margin: 0.4rem 0.06rem;
 }
-.when_flexible {
+.active_tab {
+}
+.date_calender {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.left_month {
 }
