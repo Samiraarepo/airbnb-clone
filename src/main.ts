@@ -89,41 +89,136 @@ document.addEventListener("click", (event) => {
   }
 });
 /* FUNCTION UPDATE BUTTON STATE */
-function updateButtonDisable(
-  value: number,
-  buttonSelector: HTMLElement | null
-) {
-  if (value <= 0) {
-    buttonSelector?.setAttribute("disabled", "disabled");
+function getCount(selector: string): number {
+  return parseInt(
+    (document.querySelector(selector) as HTMLElement)?.textContent || "0",
+    10
+  );
+}
+
+function setButtonDisabled(button: HTMLElement | null, isDisabled: boolean) {
+  if (isDisabled) {
+    button?.setAttribute("disabled", "disabled");
   } else {
-    buttonSelector?.removeAttribute("disabled");
+    button?.removeAttribute("disabled");
   }
 }
 
-/* add increment and decrement logic to button */
+function totalLimit() {
+  const adultsCount = getCount(".Adult-part .display");
+  const childrenCount = getCount(".children_part .display");
+  return adultsCount + childrenCount;
+}
+
+function updateIncrementButtonDisable(
+  maxAdults: number,
+  maxChildren: number,
+  maxInfants: number,
+  maxPets: number
+) {
+  const incrementAdultButton = document.querySelector(
+    ".Adult-part .increment"
+  ) as HTMLButtonElement;
+  const incrementChildrenButton = document.querySelector(
+    ".children_part .increment"
+  ) as HTMLButtonElement;
+  const incrementInfantsButton = document.querySelector(
+    ".infants_part .increment"
+  ) as HTMLButtonElement;
+  const incrementPetsButton = document.querySelector(
+    ".pets_part .increment"
+  ) as HTMLButtonElement;
+
+  const currentTotal = totalLimit();
+  const infantsCount = getCount(".infants_part .display");
+  const petsCount = getCount(".pets_part .display");
+
+  setButtonDisabled(incrementAdultButton, currentTotal >= maxAdults);
+
+  const totalAdults = getCount(".Adult-part .display");
+  const totalChildren = getCount(".children_part .display");
+  const maxChildrenAllowed = maxAdults + maxChildren - totalAdults;
+
+  setButtonDisabled(
+    incrementChildrenButton,
+    totalChildren >= maxChildrenAllowed
+  );
+  setButtonDisabled(incrementInfantsButton, infantsCount >= maxInfants);
+  setButtonDisabled(incrementPetsButton, petsCount >= maxPets);
+}
+
 function calcButton(initialvalue: number, part: HTMLElement) {
   const increment = part.querySelector(".increment") as HTMLButtonElement;
   const display = part.querySelector(".display") as HTMLElement;
   const decrement = part.querySelector(".decrement") as HTMLButtonElement;
   display.textContent = initialvalue.toString();
-  updateButtonDisable(initialvalue, decrement);
 
   increment.addEventListener("click", (event) => {
     event.stopPropagation();
     initialvalue++;
     display.innerText = initialvalue.toString();
-    updateButtonDisable(initialvalue, decrement);
+    setButtonDisabled(decrement, initialvalue <= 0);
+    updateGuestSummary();
+    updateIncrementButtonDisable(16, 0, 5, 5);
   });
+
   decrement.addEventListener("click", (event) => {
     event.stopPropagation();
     if (initialvalue > 0) {
       initialvalue--;
       display.innerText = initialvalue.toString();
-      updateButtonDisable(initialvalue, decrement);
+      setButtonDisabled(decrement, initialvalue <= 0);
+      updateGuestSummary();
+      updateIncrementButtonDisable(16, 0, 5, 5);
     }
   });
 }
+
+function updateGuestSummary() {
+  const adultsCount = getCount(".Adult-part .display");
+  const childrenCount = getCount(".children_part .display");
+  const infantsCount = getCount(".infants_part .display");
+  const petsCount = getCount(".pets_part .display");
+
+  const totalCount = adultsCount + childrenCount;
+  const guestCountDisplay = document.getElementById(
+    "guest-count"
+  ) as HTMLInputElement;
+
+  guestCountDisplay.textContent = `${totalCount} guest${
+    totalCount > 1 ? "s" : ""
+  }, ${infantsCount} infant${infantsCount > 1 ? "s" : ""}, ${petsCount} pet${
+    petsCount > 1 ? "s" : ""
+  }`;
+}
+function initializeButtonStates() {
+  const adultCount = getCount(".Adult-part .display");
+  const childrenCount = getCount(".children_part .display");
+  const infantsCount = getCount(".infants_part .display");
+  const petsCount = getCount(".pets_part .display");
+
+  setButtonDisabled(
+    document.querySelector(".Adult-part .decrement"),
+    adultCount <= 0
+  );
+  setButtonDisabled(
+    document.querySelector(".children_part .decrement"),
+    childrenCount <= 0
+  );
+  setButtonDisabled(
+    document.querySelector(".infants_part .decrement"),
+    infantsCount <= 0
+  );
+  setButtonDisabled(
+    document.querySelector(".pets_part .decrement"),
+    petsCount <= 0
+  );
+
+  updateIncrementButtonDisable(16, 0, 5, 5);
+}
+
 calcButton(2, document.querySelector(".Adult-part") as HTMLElement);
 calcButton(0, document.querySelector(".children_part") as HTMLElement);
 calcButton(0, document.querySelector(".infants_part") as HTMLElement);
 calcButton(0, document.querySelector(".pets_part") as HTMLElement);
+initializeButtonStates();

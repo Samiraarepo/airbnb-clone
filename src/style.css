@@ -559,23 +559,19 @@ hover searchbox
 }
 .button-select button:disabled {
   background-color: #ffffff;
-  color: #ebebeb;
   cursor: not-allowed;
   border-color: #ebebeb;
-  fill: currentColor;
 }
 .button-select button:disabled:hover {
   border-color: #ebebeb;
 }
-.button-select button:disabled img {
+.button-select button:disabled span img {
   color: #ebebeb;
   fill: currentColor;
+  opacity: 0.1;
+  pointer-events: none;
 }
 
-.button-select button {
-  color: #ebebeb;
-  fill: currentColor;
-}
 .button-select button:hover {
   border: 1px solid black;
 }
