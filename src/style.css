@@ -1,5 +1,4 @@
 :root {
-  --main-bg-color: #222222;
   --secondary-color: #ebebeb;
   --header-brand-color: #ff385c;
   --theme-product-color: #e00b41;
@@ -479,9 +478,7 @@ Search-box Dropdown
   margin: 0.4rem 0.06rem;
 }
 
-.dates_calender_container {
-}
-.when_calender {
+/* .when_calender {
   position: absolute;
   top: 100%;
   width: 100%;
@@ -493,4 +490,4 @@ Search-box Dropdown
   top: 100%;
   left: 0;
   z-index: 10;
-}
+} */

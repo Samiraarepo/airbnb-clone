@@ -178,26 +178,31 @@
       $('#daterange').daterangepicker({
         parentEl: '#dates_calendar', // Set parent container
         singleDatePicker: false,
-        // showDropdowns: true,
         autoUpdateInput: false,
         autoApply: true,
         opens: 'center',
         locale: {
           format: 'MM/DD/YYYY', // Customize the date format
           separator: ' - ',
-          applyLabel: 'Apply',
-          cancelLabel: 'Cancel',
-          fromLabel: 'From',
-          toLabel: 'To',
-          customRangeLabel: 'Custom',
+          monthNames: [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ],
+          // applyLabel: 'Apply',
+          // cancelLabel: 'Cancel',
+          // fromLabel: 'From',
+          // toLabel: 'To',
+          // customRangeLabel: 'Custom',
+
         },
         startDate: moment().startOf('day'), // Default start date
         endDate: moment().startOf('day').add(1, 'days'), // Default end date
-        // minDate: moment().startOf('day'), // Disallow past dates
-        maxDate: moment().add(1, 'year'), // Set a max date
+        minDate: moment().startOf('month'), // Disallow past dates
+        minDate: moment().startOf('day'),
+        maxDate: moment().add(4, 'year'), // Set a max date
       },
         function (start, end, label) {
-          console.log('A new date range was selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+          console.log('Check-in: ' + start.format('YYYY-MM-DD') + ', Check-out ' + end.format('YYYY-MM-DD'));
         }
       );
 

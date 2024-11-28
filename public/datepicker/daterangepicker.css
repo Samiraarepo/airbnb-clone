@@ -1,43 +1,33 @@
-.daterangepicker {
-  position: absolute;
+.when_calender {
+  width: 100%;
+}
+.dates_calender_container {
+  display: flex;
+  justify-content: center;
+}
+.when_calender #dates_calendar .daterangepicker {
   color: inherit;
   background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  width: 278px;
-  max-width: none;
+  display: flex;
+
   padding: 0;
   margin-top: 7px;
-  top: 100px;
-  left: 20px;
+  top: 100%;
+  left: 0;
   z-index: 3001;
-  display: none;
-  font-family: arial;
-  font-size: 15px;
-  line-height: 1em;
 }
-
+/* Remove arrow tips */
 .daterangepicker:before,
 .daterangepicker:after {
-  position: absolute;
-  display: inline-block;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-  content: "";
+  display: none; /* Remove arrow tips */
 }
 
-.daterangepicker:before {
-  top: -7px;
-  border-right: 7px solid transparent;
-  border-left: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
-}
-
-.daterangepicker:after {
+/* .daterangepicker:after {
   top: -6px;
   border-right: 6px solid transparent;
   border-bottom: 6px solid #fff;
   border-left: 6px solid transparent;
-}
+} */
 
 .daterangepicker.opensleft:before {
   right: 9px;
@@ -46,13 +36,7 @@
 .daterangepicker.opensleft:after {
   right: 10px;
 }
-
 .daterangepicker.openscenter:before {
-  left: 0;
-  right: 0;
-  width: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .daterangepicker.openscenter:after {
@@ -62,7 +46,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .daterangepicker.opensright:before {
   left: 9px;
 }
@@ -112,7 +95,6 @@
 
 .daterangepicker .drp-calendar {
   display: none;
-  max-width: 270px;
 }
 
 .daterangepicker .drp-calendar.left {
@@ -152,18 +134,16 @@
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
-  min-width: 32px;
-  width: 32px;
+  min-width: 2rem;
+  width: 2rem;
   height: 24px;
   line-height: 24px;
-  font-size: 12px;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   border: 1px solid transparent;
   white-space: nowrap;
   cursor: pointer;
 }
-
-.daterangepicker .calendar-table {
+.calendar-table th .daterangepicker .calendar-table {
   border: 1px solid #fff;
   border-radius: 4px;
   background-color: #fff;
@@ -185,7 +165,6 @@
 
 .daterangepicker td.week,
 .daterangepicker th.week {
-  font-size: 80%;
   color: #ccc;
 }
 
@@ -224,20 +203,24 @@
   color: #fff;
 }
 
-.daterangepicker th.month {
-  width: auto;
+.daterangepicker .calendar-table th.month {
+  color: rgb(34, 34, 34) !important;
+  font-size: 1rem !important;
+  font-weight: normal;
 }
 
+.daterangepicker .calendar-table thead tr:nth-child(2) th {
+  padding: 8px;
+  font-weight: bold;
+  color: #999;
+}
 .daterangepicker td.disabled,
 .daterangepicker option.disabled {
   color: #999;
-  cursor: not-allowed;
-  text-decoration: line-through;
 }
 
 .daterangepicker select.monthselect,
 .daterangepicker select.yearselect {
-  font-size: 12px;
   padding: 1px;
   height: auto;
   margin: 0;
@@ -263,7 +246,6 @@
   border: 1px solid #eee;
   padding: 2px;
   outline: 0;
-  font-size: 12px;
 }
 
 .daterangepicker .calendar-time {
@@ -290,14 +272,14 @@
 
 .daterangepicker .drp-selected {
   display: inline-block;
-  font-size: 12px;
+
   padding-right: 8px;
 }
 
 .daterangepicker .drp-buttons .btn {
   margin-left: 8px;
-  font-size: 12px;
-  font-weight: bold;
+
+  font-weight: 500;
   padding: 4px 8px;
 }
 
@@ -316,18 +298,15 @@
 .daterangepicker.show-ranges.ltr .drp-calendar.left {
   border-left: 1px solid #ddd;
 }
-
 .daterangepicker .ranges {
-  float: none;
-  text-align: left;
-  margin: 0;
+  display: none; /* or adjust width and margins */
 }
 
-.daterangepicker.show-calendar .ranges {
+/* .daterangepicker.show-calendar .ranges {
   margin-top: 8px;
-}
+}*/
 
-.daterangepicker .ranges ul {
+/* .daterangepicker .ranges ul {
   list-style: none;
   margin: 0 auto;
   padding: 0;
@@ -335,7 +314,6 @@
 }
 
 .daterangepicker .ranges li {
-  font-size: 12px;
   padding: 8px 12px;
   cursor: pointer;
 }
@@ -347,9 +325,10 @@
 .daterangepicker .ranges li.active {
   background-color: #08c;
   color: #fff;
-}
+} */
 
 /*  Larger Screen Styling */
+
 @media (min-width: 564px) {
   .daterangepicker {
     width: auto;
