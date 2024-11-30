@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="" />
+  <link rel="icon" href="./public/icons/fav-icon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Airbnb</title>
+  <title>Airbnb | Vacation rentals, cabins, beach houses, & more</title>
 
   <link rel="stylesheet" type="text/css" href="./public/datepicker/daterangepicker.css" />
   <link rel="stylesheet" href="src/style.css">
@@ -101,14 +101,14 @@
               </div>
             </div>
             <div class="header_divider"></div>
-            <div class="checkin_section  active_box">
+            <div class="checkin_section date_link active_box" id="daterange" name="datefilter">
               <div class="checkin_title">Check in</div>
               <div class="checkin_date subtitle_color">Add dates</div>
-              <div class="when_wrapper">
+              <div class="when_wrapper hide">
                 <div class="when_dropdown">
                   <div class="when_tabs">
                     <div class="when_dates active_tab">
-                      <a id="daterange" class="date_link" name="datefilter" href="#">Dates</a>
+                      <a id="daterange" class="date_link active_link" name="datefilter" href="#">Dates</a>
                     </div>
                     <div class="when_months active_tab">
                       <a href="#">Months</a>
@@ -123,12 +123,24 @@
                     </div>
                   </div>
                   <div class="when_num_days">
-                    <div class="exact_dates num_days"></div>
-                    <div class="one_day num_days"></div>
-                    <div class="two_days num_days"></div>
-                    <div class="three_days num_days"></div>
-                    <div class="seven_days num_days"></div>
-                    <div class="fourtheen_days num_days"></div>
+                    <div class="exact_dates num_days">
+                      <span>Exact Dates</span>
+                    </div>
+                    <div class="one_day num_days">
+                      <span> + 1 days</span>
+                    </div>
+                    <div class="two_days num_days">
+                      <span> + 2 days</span>
+                    </div>
+                    <div class="three_days num_days">
+                      <span> + 3 days</span>
+                    </div>
+                    <div class="seven_days num_days">
+                      <span> + 7 days</span>
+                    </div>
+                    <div class="fourtheen_days num_days">
+                      <span> + 14 days</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -196,7 +208,7 @@
 
         },
         startDate: moment().startOf('day'), // Default start date
-        endDate: moment().startOf('day').add(1, 'days'), // Default end date
+        endDate: moment().startOf('day').add(1, 'days'),  //Default end date
         minDate: moment().startOf('month'), // Disallow past dates
         minDate: moment().startOf('day'),
         maxDate: moment().add(4, 'year'), // Set a max date

@@ -18,7 +18,7 @@ const regionWrapper =
 const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
-
+const whenWrapper = document.querySelector<HTMLElement>(".when_wrapper");
 /*
 ------------------------------------------------
  Navbar
@@ -100,6 +100,7 @@ Where dropdown
 */
 whereSection?.addEventListener("click", () => {
   regionWrapper?.classList.remove("hide");
+  whenWrapper?.classList.add("hide");
   destination?.select();
 });
 
@@ -141,5 +142,16 @@ activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
 
+/*
+---------------------------------
+when dropdown
+---------------------------------
+*/
 
+const activeLink = document.querySelector(".active_link");
 
+checkInSection?.addEventListener("click", () => {
+  activeLink?.classList.add("active_section");
+  regionWrapper?.classList.add("hide");
+  whenWrapper?.classList.remove("hide");
+});

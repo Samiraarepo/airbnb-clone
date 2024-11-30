@@ -8,7 +8,7 @@
     0 1px 2px 0 rgba(0, 0, 0, 0.08);
   --box-shadow-secondary: 0 3px 12px 0 rgb(0 0 0/0.15);
   --border-line-color: #dddddd;
-  --background-hover: #ebebeb;
+  --background-hover: #f7f7f7;
   --border-radius-main: 3rem;
   --font-size-default: 0.9rem;
 }
@@ -113,7 +113,7 @@ navbar part style
 }
 
 .staysExperience button:hover {
-  background-color: #f7f7f7;
+  background-color: var(--background-hover);
   cursor: pointer;
   color: #222;
   font-family: "Airbnb Cereal VF";
@@ -137,7 +137,7 @@ navbar part style
 }
 
 .home a:hover {
-  background-color: #f7f7f7;
+  background-color: var(--background-hover);
   cursor: pointer;
 }
 
@@ -156,7 +156,7 @@ navbar part style
   height: 16px;
 }
 .global:hover {
-  background-color: #f7f7f7;
+  background-color: var(--background-hover);
   cursor: pointer;
 }
 
@@ -204,7 +204,7 @@ navbar part style
   font-weight: 500;
 }
 .drop-downcontent a:hover:not(:active) {
-  background-color: #f7f7f7;
+  background-color: var(--background-hover);
 }
 
 .drop-downcontent.show {
@@ -296,13 +296,13 @@ hover searchbox
 }
 .active_box:hover {
   border-radius: var(--border-radius-main);
-  background-color: var(--background-hover);
+  background-color: var(--secondary-color);
 }
 .active_box:hover::after {
   opacity: 0;
 }
 .bg-active {
-  background-color: var(--background-hover);
+  background-color: var(--secondary-color);
   box-shadow: none;
 }
 .bg-active .search_btn button {
@@ -424,7 +424,7 @@ Search-box Dropdown
   padding: 0.5rem;
 }
 .region_items .item:hover {
-  background-color: var(--background-hover);
+  background-color: var(--secondary-color);
   border-radius: 1rem;
 }
 .region_items .item:active img {
@@ -451,21 +451,21 @@ Search-box Dropdown
   left: 0;
   top: 100%;
   margin-top: 0.7rem;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   border-radius: 2rem;
 }
 .when_dropdown {
   position: relative;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 .when_tabs {
   display: flex;
-  background-color: var(--background-hover);
+  background-color: var(--secondary-color);
   padding: 0.7rem 1.5rem;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  width: 40%;
+  /* gap: 1.5rem; */
+  width: 39%;
   margin: 0 auto;
   font-size: var(--font-size-default);
   font-weight: 500;
@@ -474,20 +474,27 @@ Search-box Dropdown
 .when_dates a,
 .when_months a,
 .when_flexible a {
-  padding: 0.5rem 0.75rem;
+  padding: 0.4rem 1.8rem;
   margin: 0.4rem 0.06rem;
 }
-
-/* .when_calender {
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.when_dates.active_tab a {
+  box-shadow: none;
 }
-#dates_calendar .daterangepicker {
-  top: 100%;
-  left: 0;
-  z-index: 10;
-} */
+
+.when_num_days {
+  display: flex;
+  padding: 2rem 4rem;
+}
+.num_days {
+  margin-right: 0.5rem;
+  border: 1px solid var(--border-line-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-main);
+}
+.num_days:hover {
+  border: 1px solid var(--font-color);
+}
+.num_days:active {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
