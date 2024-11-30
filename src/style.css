@@ -477,13 +477,14 @@ hover searchbox
   width: 300px;
 }
 .who_content {
+  position: relative;
   flex: 1;
-  padding: 14px 24px;
+  padding: 16px 24px;
   width: 100%;
 }
 .closebutton_who {
   position: absolute;
-  left: 50%;
+  right: 5px;
   top: 50%;
   transform: translate(-50%, -50%);
   border: none;
@@ -616,8 +617,8 @@ hover searchbox
   font-weight: normal;
 }
 .search_btn {
-  position: absolute;
   right: 0.5rem;
+  margin: 10px;
 }
 .search_btn button {
   width: 3rem;

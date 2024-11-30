@@ -89,7 +89,7 @@ document.addEventListener("click", (event) => {
   }
 });
 /* FUNCTION UPDATE BUTTON STATE */
-function getCount(selector: string): number {
+function getClass(selector: string): number {
   return parseInt(
     (document.querySelector(selector) as HTMLElement)?.textContent || "0",
     10
@@ -105,8 +105,8 @@ function setButtonDisabled(button: HTMLElement | null, isDisabled: boolean) {
 }
 
 function totalLimit() {
-  const adultsCount = getCount(".Adult-part .display");
-  const childrenCount = getCount(".children_part .display");
+  const adultsCount = getClass(".Adult-part .display");
+  const childrenCount = getClass(".children_part .display");
   return adultsCount + childrenCount;
 }
 
@@ -130,13 +130,13 @@ function updateIncrementButtonDisable(
   ) as HTMLButtonElement;
 
   const currentTotal = totalLimit();
-  const infantsCount = getCount(".infants_part .display");
-  const petsCount = getCount(".pets_part .display");
+  const infantsCount = getClass(".infants_part .display");
+  const petsCount = getClass(".pets_part .display");
 
   setButtonDisabled(incrementAdultButton, currentTotal >= maxAdults);
 
-  const totalAdults = getCount(".Adult-part .display");
-  const totalChildren = getCount(".children_part .display");
+  const totalAdults = getClass(".Adult-part .display");
+  const totalChildren = getClass(".children_part .display");
   const maxChildrenAllowed = maxAdults + maxChildren - totalAdults;
 
   setButtonDisabled(
@@ -175,10 +175,10 @@ function calcButton(initialvalue: number, part: HTMLElement) {
 }
 
 function updateGuestSummary() {
-  const adultsCount = getCount(".Adult-part .display");
-  const childrenCount = getCount(".children_part .display");
-  const infantsCount = getCount(".infants_part .display");
-  const petsCount = getCount(".pets_part .display");
+  const adultsCount = getClass(".Adult-part .display");
+  const childrenCount = getClass(".children_part .display");
+  const infantsCount = getClass(".infants_part .display");
+  const petsCount = getClass(".pets_part .display");
 
   const totalCount = adultsCount + childrenCount;
   const guestCountDisplay = document.getElementById(
@@ -210,10 +210,10 @@ function updateGuestSummary() {
   };
 }
 function initializeButtonStates() {
-  const adultCount = getCount(".Adult-part .display");
-  const childrenCount = getCount(".children_part .display");
-  const infantsCount = getCount(".infants_part .display");
-  const petsCount = getCount(".pets_part .display");
+  const adultCount = getClass(".Adult-part .display");
+  const childrenCount = getClass(".children_part .display");
+  const infantsCount = getClass(".infants_part .display");
+  const petsCount = getClass(".pets_part .display");
 
   setButtonDisabled(
     document.querySelector(".Adult-part .decrement"),
