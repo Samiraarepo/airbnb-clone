@@ -183,13 +183,31 @@ function updateGuestSummary() {
   const totalCount = adultsCount + childrenCount;
   const guestCountDisplay = document.getElementById(
     "guest-count"
-  ) as HTMLInputElement;
+  ) as HTMLElement;
+  const closeButtonWho = document.getElementById(
+    "closebutton_who"
+  ) as HTMLButtonElement;
+  const geustText = [];
 
-  guestCountDisplay.textContent = `${totalCount} guest${
-    totalCount > 1 ? "s" : ""
-  }, ${infantsCount} infant${infantsCount > 1 ? "s" : ""}, ${petsCount} pet${
-    petsCount > 1 ? "s" : ""
-  }`;
+  if (adultsCount > 0) {
+    geustText.push(`${totalCount} guest${totalCount > 1 ? "s" : ""}`);
+  }
+  if (infantsCount > 0) {
+    geustText.push(`${infantsCount} infant${infantsCount > 1 ? "s" : ""}`);
+  }
+  if (petsCount > 0) {
+    geustText.push(`${petsCount} pet${petsCount > 1 ? "s" : ""}`);
+  }
+
+  guestCountDisplay.textContent = geustText.join(", ");
+
+  closeButtonWho.style.display = geustText.length > 0 ? "inline" : "none";
+
+  closeButtonWho.onclick = function (event) {
+    event.stopPropagation();
+    guestCountDisplay.textContent = "Add guests";
+    closeButtonWho.style.display = "none";
+  };
 }
 function initializeButtonStates() {
   const adultCount = getCount(".Adult-part .display");

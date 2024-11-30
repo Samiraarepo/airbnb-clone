@@ -468,13 +468,30 @@ hover searchbox
   padding: 1rem 9rem 1rem 1.5rem;
 }
 .who_section {
-  padding: 1rem 0.5rem 1rem 1.5rem;
   display: flex;
   align-items: center;
   position: relative;
+  justify-content: space-between;
+  margin: -1px;
+  flex: 0.95 0 auto;
+  width: 300px;
 }
 .who_content {
-  padding-right: 10rem;
+  flex: 1;
+  padding: 14px 24px;
+  width: 100%;
+}
+.closebutton_who {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background-color: unset;
+}
+.closebutton_who img {
+  width: 0.8rem;
+  height: 0.8rem;
 }
 /* who Drop Down stayle part */
 .who-container {
