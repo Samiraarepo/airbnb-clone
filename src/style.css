@@ -293,6 +293,7 @@ hover searchbox
 }
 .bg-active .active_section:hover {
   background-color: #fff;
+  cursor: pointer;
 }
 .active_box:hover {
   border-radius: var(--border-radius-main);
@@ -479,6 +480,8 @@ Search-box Dropdown
 }
 .when_dates.active_tab a {
   box-shadow: none;
+  background-color: #fff;
+  border-radius: var(--border-radius-main);
 }
 
 .when_num_days {
@@ -497,4 +500,7 @@ Search-box Dropdown
 .num_days:active {
   transform: scale(0.9);
   transition: transform 0.1s ease;
+}
+.highlight {
+  background-color: yellow;
 }

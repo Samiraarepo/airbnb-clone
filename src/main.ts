@@ -19,43 +19,6 @@ const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 const whenWrapper = document.querySelector<HTMLElement>(".when_wrapper");
-/*
-------------------------------------------------
- Navbar
-------------------------------------------------
-*/
-const stays = document.getElementById("stay");
-const experience = document.getElementById("exper");
-
-stays?.addEventListener("click", () => {
-  stays.classList.add("Active");
-  experience?.classList.remove("Active");
-});
-
-experience?.addEventListener("click", () => {
-  experience.classList.add("Active");
-  stays?.classList.remove("Active");
-});
-
-/*
--------------------------------------------
-Humbrger menu Drop Down
--------------------------------------------
-*/
-const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
-const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
-
-Dropbtn?.addEventListener("click", () => {
-  console.log(`Dropbtn hitted`);
-  dropcontent.classList.toggle("show");
-});
-
-window.onclick = (event: MouseEvent) => {
-  const target = event.target as HTMLElement;
-  if (!target.matches(".drop-show")) {
-    dropcontent.classList.remove("show");
-  }
-};
 
 /*
 -----------------------------------------------
@@ -92,7 +55,6 @@ document.addEventListener("click", function (e) {
     closeBtnVisibility();
   }
 });
-
 /*
 --------------------------------------------
 Where dropdown
@@ -130,12 +92,17 @@ regionItems.forEach((item) => {
 closeBtn?.addEventListener("click", () => {
   destination && destination.value ? (destination.value = "") : "";
 });
+checkInSection?.addEventListener("click", () => {
+  regionWrapper?.classList.add("hide");
+  whenWrapper?.classList.remove("hide");
+});
 
 /*
---------------------------------------------
+-----------------------------------------
 Function Calls
---------------------------------------------
+-----------------------------------------
 */
+
 activeChanges(whereSection);
 activeChanges(checkInSection);
 activeChanges(checkOutSection);
@@ -143,15 +110,39 @@ activeChanges(whoSection);
 activeChanges(dateSection);
 
 /*
----------------------------------
-when dropdown
----------------------------------
+------------------------------------------------
+ Navbar
+------------------------------------------------
 */
+const stays = document.getElementById("stay");
+const experience = document.getElementById("exper");
 
-const activeLink = document.querySelector(".active_link");
-
-checkInSection?.addEventListener("click", () => {
-  activeLink?.classList.add("active_section");
-  regionWrapper?.classList.add("hide");
-  whenWrapper?.classList.remove("hide");
+stays?.addEventListener("click", () => {
+  stays.classList.add("Active");
+  experience?.classList.remove("Active");
 });
+
+experience?.addEventListener("click", () => {
+  experience.classList.add("Active");
+  stays?.classList.remove("Active");
+});
+
+/*
+-------------------------------------------
+Humbrger menu Drop Down
+-------------------------------------------
+*/
+const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
+const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
+
+Dropbtn?.addEventListener("click", () => {
+  console.log(`Dropbtn hitted`);
+  dropcontent.classList.toggle("show");
+});
+
+window.onclick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement;
+  if (!target.matches(".drop-show")) {
+    dropcontent.classList.remove("show");
+  }
+};
