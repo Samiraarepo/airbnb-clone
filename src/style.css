@@ -426,3 +426,56 @@ Search-box Dropdown
   margin-bottom: 0.4rem;
   transition: transform 0.25s ease;
 }
+
+/*
+-----------------------------------
+Carousel Items
+-----------------------------------
+*/
+
+.carousel {
+  width: 100%;
+  overflow: hidden; /* Hide overflow to show only visible images */
+  position: relative;
+}
+
+.carousel_wrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.carousel_wrapper figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel_wrapper figure img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover; /* Maintain aspect ratio and crop excess */
+  cursor: pointer;
+}
+.carousel button {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.carousel_wrapper .next img {
+}
+.carousel_wrapper .next {
+  border-radius: 50%;
+  border: 1px solid var(--border-line-color);
+  right: 1rem;
+}
+
+.carousel_wrapper .prev {
+  left: 0;
+}
