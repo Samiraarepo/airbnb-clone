@@ -19,6 +19,8 @@ const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 const whenWrapper = document.querySelector<HTMLElement>(".when_wrapper");
+const numDays = document.querySelectorAll<HTMLElement>(".num_days");
+const checkinDate = document.querySelector<HTMLElement>(".checkin_date");
 
 /*
 -----------------------------------------------
@@ -52,6 +54,7 @@ document.addEventListener("click", function (e) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
     innerSearchBox?.classList.remove("bg-active");
     regionWrapper?.classList.add("hide");
+    whenWrapper?.classList.add("hide");
     closeBtnVisibility();
   }
 });
@@ -92,9 +95,29 @@ regionItems.forEach((item) => {
 closeBtn?.addEventListener("click", () => {
   destination && destination.value ? (destination.value = "") : "";
 });
+
+/*
+----------------------------------------
+Checkin & checkout 
+----------------------------------------
+*/
 checkInSection?.addEventListener("click", () => {
   regionWrapper?.classList.add("hide");
   whenWrapper?.classList.remove("hide");
+});
+checkOutSection?.addEventListener("click", () => {
+  regionWrapper?.classList.add("hide");
+  whenWrapper?.classList.remove("hide");
+});
+numDays?.forEach((item) => {
+  item.addEventListener("click", () => {
+    const numElement = item.querySelector("span");
+    const dateElment = numElement?.innerText;
+    if (dateElment && checkinDate) {
+      console.log("hello");
+      checkinDate.innerText = dateElment;
+    }
+  });
 });
 
 /*

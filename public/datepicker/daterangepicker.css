@@ -136,7 +136,9 @@
   border-spacing: 0;
   border-collapse: collapse;
 }
-
+.daterangepicker .calendar-table tbody tr {
+  margin-top: 0.4rem;
+}
 .daterangepicker .calendar-table th,
 .daterangepicker .calendar-table td {
   display: inline-flex;

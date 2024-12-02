@@ -187,47 +187,39 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
-      // Flag to track the current selection
-      let isSelectingCheckIn = true;
-
-      $('#daterange').daterangepicker({
-        parentEl: '#dates_calendar', // Set parent container
-        singleDatePicker: false,
-        autoUpdateInput: false,
-        autoApply: false,
-        opens: 'center',
-        locale: {
-          format: 'MM/DD/YYYY', // Customize the date format
-          separator: ' - ',
-          monthNames: [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-          ],
-
+      // Initialize the daterangepicker with consistent logic
+      $('#daterange').daterangepicker(
+        {
+          parentEl: '#dates_calendar', // Set parent container
+          autoUpdateInput: false,
+          opens: 'center',
+          locale: {
+            format: 'MM/DD/YYYY', // Date format
+            separator: ' - ',
+            monthNames: [
+              "January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ],
+          },
+          minDate: moment().startOf('day'), // Prevent past dates
+          maxDate: moment().add(4, 'year'), // Limit to 4 years in the future
         },
-        // startDate: moment().startOf('day'), // Default start date
-        // endDate: moment().startOf('day').add(1, 'days'),  //Default end date
-        minDate: moment().startOf('month'), // Disallow past dates
-        minDate: moment().startOf('day'),
-        maxDate: moment().add(4, 'year'), // Set a max date
-      },
         function (start, end) {
-          console.log('Check-in: ' + start.format('YYYY-MM-DD') + ', Check-out ' + end.format('YYYY-MM-DD'));
-
-          // Sequentially update check-in or check-out date
+          // Update both Check-in and Check-out
           const formattedStart = start.format('MMM D');
           const formattedEnd = end.format('MMM D');
 
-          if (isSelectingCheckIn) {
-            $('.checkin_date').text(formattedStart); // Update check-in date
-          } else {
-            $('.checkout_date').text(formattedEnd); // Update check-out date
-          }
-          isSelectingCheckIn = !isSelectingCheckIn; // Toggle the flag
+          $('.checkin_date').text(formattedStart); // Update check-in date
+          $('.checkout_date').text(formattedEnd); // Update check-out date
         }
       );
 
-      // Prevent closing when clicking on the picker
+      // Open daterangepicker on clicking either Check-in or Check-out
+      $('.checkin_section, .checkout_section').on('click', function () {
+        $('#daterange').data('daterangepicker').show();
+      });
+
+      // Prevent closing the daterangepicker when clicking inside the calendar
       $('#dates_calendar').on('click', function (e) {
         e.stopPropagation();
       });
@@ -237,6 +229,7 @@
       //   if (!$(e.target).closest('#dates_calendar, #daterange').length) {
       //     $('#daterange').data('daterangepicker').hide();
       //   }
+
       // });
       // Carousel functionality
       const carouselItems = $('.carousel-item'); // Replace with your carousel class

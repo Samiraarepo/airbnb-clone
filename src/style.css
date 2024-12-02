@@ -58,6 +58,11 @@ Fonts
   src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
 
+header#header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
 /*
 ---------------------------------
 navbar part style
@@ -288,6 +293,11 @@ hover searchbox
   background-color: #fff;
   border-radius: var(--border-radius-main);
 }
+.bg-active .active_section .subtitle_color,
+.bg-active .active_section .subtitle_color::placeholder {
+  color: var(--subtitle-color);
+}
+
 .bg-active .active_box:hover {
   background-color: var(--border-line-color);
 }
@@ -315,6 +325,10 @@ hover searchbox
   padding-left: 0.2rem;
   font-size: 1rem;
   font-weight: bold;
+}
+.bg-active .subtitle_color,
+.bg-active .subtitle_color::placeholder {
+  color: var(--font-color);
 }
 
 /*
