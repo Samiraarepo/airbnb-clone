@@ -432,29 +432,42 @@ Search-box Dropdown
 Carousel Items
 -----------------------------------
 */
-
+.main_content {
+  padding: 0 2rem;
+}
 .carousel {
   width: 100%;
-  overflow: hidden; /* Hide overflow to show only visible images */
+  overflow: hidden;
   position: relative;
 }
 
 .carousel_wrapper {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 .carousel_wrapper figure {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.25rem 0;
+}
+.carousel_wrapper figure figcaption {
+  font-size: 0.75rem;
+  color: var(--subtitle-color);
 }
 .carousel_wrapper figure img {
   width: 24px;
   height: 24px;
   object-fit: cover; /* Maintain aspect ratio and crop excess */
   cursor: pointer;
+  color: var(--subtitle-color);
 }
 .carousel button {
   position: absolute;
@@ -467,15 +480,14 @@ Carousel Items
   cursor: pointer;
   padding: 0.5rem;
 }
-
-.carousel_wrapper .next img {
-}
-.carousel_wrapper .next {
+.carousel_wrapper .next,
+.carousel_wrapper .prev {
   border-radius: 50%;
   border: 1px solid var(--border-line-color);
+}
+.carousel_wrapper .next {
   right: 1rem;
 }
-
 .carousel_wrapper .prev {
-  left: 0;
+  left: 1rem;
 }
