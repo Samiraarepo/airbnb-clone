@@ -124,8 +124,8 @@ function resetGuestDisplay() {
   guestCountDisplay.textContent = "Add guests"; // Reset to "Add guests"
   closeButtonWho.style.display = "none"; // Hide the close button
 
-  // //Reset each part display to 0
-  // initializeButtonStates();
+  //Reset each part display to 0
+  initializeButtonStates();
 }
 
 // Function to get numeric value from display elements
@@ -255,8 +255,12 @@ function updateGuestSummary() {
 
   guestCountDisplay.textContent = guestText.filter(Boolean).join(", ");
   closeButtonWho.style.display = guestText.length > 0 ? "inline" : "none"; // Show or hide the close button based on the guest count
-}
 
+  if (totalCount === 0) {
+    guestCountDisplay.textContent = "Add guests";
+    closeButtonWho.style.display = "none";
+  }
+}
 // Initialize button states on page load
 function initializeButtonStates() {
   resetGuestDisplay(); // Reset display
