@@ -77,18 +77,58 @@ activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
 
-/* who Drop Down logic */
+/* who Drop Down and close button logic */
 const whodropdown = document.getElementById("who-dropdown") as HTMLElement;
-whoSection?.addEventListener("click", () => {
+const who_section = document.getElementById("who") as HTMLElement;
+const closeButtonWho = document.getElementById(
+  "closebutton_who"
+) as HTMLElement;
+const guestCountDisplay = document.getElementById("guest-count") as HTMLElement;
+
+// Toggle dropdown visibility when "Who" is clicked
+who_section.addEventListener("click", (e) => {
+  e.stopPropagation();
   whodropdown.classList.toggle("show-dropdown");
-});
-document.addEventListener("click", (event) => {
-  const whotarget = event.target as HTMLElement;
-  if (!whotarget.matches(".drop_who_dropdwon")) {
-    whodropdown.classList.remove("show-dropdown");
+  if (totalLimit() === 0) {
+    guestCountDisplay.textContent = "add guests";
+  } else {
+    updateGuestSummary(); //update summary if guests are resent
   }
 });
-/* FUNCTION UPDATE BUTTON STATE */
+
+// Hide dropdown and reset guest count when clicking outside
+document.addEventListener("click", (event) => {
+  const whotarget = event.target as HTMLElement;
+  if (
+    !whotarget.matches(".drop_who_dropdwon") &&
+    !who_section.contains(whotarget)
+  ) {
+    closeDropdownAndReset(); // Call the new function to handle this
+  }
+});
+
+// Function to handle dropdown hiding and UI reset
+function closeDropdownAndReset() {
+  whodropdown.classList.remove("show-dropdown"); // Hide dropdown
+  resetGuestDisplay(); // Reset the guest display
+}
+
+// Hide dropdown and reset guest count when "Close" button is clicked
+closeButtonWho.addEventListener("click", (event) => {
+  event.stopPropagation();
+  closeDropdownAndReset(); // Reuse the function
+});
+
+// Function to reset guest display
+function resetGuestDisplay() {
+  guestCountDisplay.textContent = "Add guests"; // Reset to "Add guests"
+  closeButtonWho.style.display = "none"; // Hide the close button
+
+  // //Reset each part display to 0
+  // initializeButtonStates();
+}
+
+// Function to get numeric value from display elements
 function getClass(selector: string): number {
   return parseInt(
     (document.querySelector(selector) as HTMLElement)?.textContent || "0",
@@ -96,6 +136,7 @@ function getClass(selector: string): number {
   );
 }
 
+// Function to enable/disable buttons
 function setButtonDisabled(button: HTMLElement | null, isDisabled: boolean) {
   if (isDisabled) {
     button?.setAttribute("disabled", "disabled");
@@ -104,12 +145,14 @@ function setButtonDisabled(button: HTMLElement | null, isDisabled: boolean) {
   }
 }
 
+// Function to calculate total limits
 function totalLimit() {
   const adultsCount = getClass(".Adult-part .display");
   const childrenCount = getClass(".children_part .display");
   return adultsCount + childrenCount;
 }
 
+// Function to update increment button states
 function updateIncrementButtonDisable(
   maxAdults: number,
   maxChildren: number,
@@ -147,6 +190,16 @@ function updateIncrementButtonDisable(
   setButtonDisabled(incrementPetsButton, petsCount >= maxPets);
 }
 
+// Function to update adult count
+function updateAdultCount(increment: number) {
+  const adultDisplay = document.querySelector(
+    ".Adult-part .display"
+  ) as HTMLElement;
+  const adultCount = getClass(".Adult-part .display");
+  adultDisplay.textContent = (adultCount + increment).toString();
+}
+
+// Function to handle increment/decrement button logic
 function calcButton(initialvalue: number, part: HTMLElement) {
   const increment = part.querySelector(".increment") as HTMLButtonElement;
   const display = part.querySelector(".display") as HTMLElement;
@@ -157,6 +210,14 @@ function calcButton(initialvalue: number, part: HTMLElement) {
     event.stopPropagation();
     initialvalue++;
     display.innerText = initialvalue.toString();
+
+    if (
+      part.classList.contains("children_part") ||
+      part.classList.contains("infants_part") ||
+      part.classList.contains("pets_part")
+    ) {
+      updateAdultCount(1);
+    }
     setButtonDisabled(decrement, initialvalue <= 0);
     updateGuestSummary();
     updateIncrementButtonDisable(16, 0, 5, 5);
@@ -174,68 +235,46 @@ function calcButton(initialvalue: number, part: HTMLElement) {
   });
 }
 
-function updateGuestSummary() {
-  const adultsCount = getClass(".Adult-part .display");
-  const childrenCount = getClass(".children_part .display");
-  const infantsCount = getClass(".infants_part .display");
-  const petsCount = getClass(".pets_part .display");
-
-  const totalCount = adultsCount + childrenCount;
-  const guestCountDisplay = document.getElementById(
-    "guest-count"
-  ) as HTMLElement;
-  const closeButtonWho = document.getElementById(
-    "closebutton_who"
-  ) as HTMLButtonElement;
-  const geustText = [];
-
-  if (adultsCount > 0) {
-    geustText.push(`${totalCount} guest${totalCount > 1 ? "s" : ""}`);
-  }
-  if (infantsCount > 0) {
-    geustText.push(`${infantsCount} infant${infantsCount > 1 ? "s" : ""}`);
-  }
-  if (petsCount > 0) {
-    geustText.push(`${petsCount} pet${petsCount > 1 ? "s" : ""}`);
-  }
-
-  guestCountDisplay.textContent = geustText.join(", ");
-
-  closeButtonWho.style.display = geustText.length > 0 ? "inline" : "none";
-
-  closeButtonWho.onclick = function (event) {
-    event.stopPropagation();
-    guestCountDisplay.textContent = "Add guests";
-    closeButtonWho.style.display = "none";
-  };
+// Function to format guest text
+function formatGuestText(count: number, singular: string): string {
+  return count > 0 ? `${count} ${singular} ${count > 1 ? "s" : ""}` : "";
 }
-function initializeButtonStates() {
-  const adultCount = getClass(".Adult-part .display");
-  const childrenCount = getClass(".children_part .display");
+
+// Function to update guest summary
+function updateGuestSummary() {
   const infantsCount = getClass(".infants_part .display");
   const petsCount = getClass(".pets_part .display");
 
-  setButtonDisabled(
-    document.querySelector(".Adult-part .decrement"),
-    adultCount <= 0
-  );
-  setButtonDisabled(
-    document.querySelector(".children_part .decrement"),
-    childrenCount <= 0
-  );
-  setButtonDisabled(
-    document.querySelector(".infants_part .decrement"),
-    infantsCount <= 0
-  );
-  setButtonDisabled(
-    document.querySelector(".pets_part .decrement"),
-    petsCount <= 0
-  );
+  const totalCount = totalLimit();
+  const guestText = [];
+  if (totalCount > 0) {
+    guestText.push(formatGuestText(totalCount, "guest"));
+  }
+  guestText.push(formatGuestText(infantsCount, "infant"));
+  guestText.push(formatGuestText(petsCount, "pet"));
 
+  guestCountDisplay.textContent = guestText.filter(Boolean).join(", ");
+  closeButtonWho.style.display = guestText.length > 0 ? "inline" : "none"; // Show or hide the close button based on the guest count
+}
+
+// Initialize button states on page load
+function initializeButtonStates() {
+  resetGuestDisplay(); // Reset display
+  const buttonParts = [
+    ".Adult-part",
+    ".children_part",
+    ".infants_part",
+    ".pets_part",
+  ];
+  buttonParts.forEach((part) => {
+    const count = getClass(`${part} .display`);
+    setButtonDisabled(document.querySelector(`${part} .decrement`), count <= 0);
+  });
   updateIncrementButtonDisable(16, 0, 5, 5);
 }
 
-calcButton(2, document.querySelector(".Adult-part") as HTMLElement);
+// Initialize buttons for different categories
+calcButton(0, document.querySelector(".Adult-part") as HTMLElement);
 calcButton(0, document.querySelector(".children_part") as HTMLElement);
 calcButton(0, document.querySelector(".infants_part") as HTMLElement);
 calcButton(0, document.querySelector(".pets_part") as HTMLElement);

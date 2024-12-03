@@ -477,14 +477,13 @@ hover searchbox
   width: 300px;
 }
 .who_content {
-  position: relative;
   flex: 1;
   padding: 16px 24px;
   width: 100%;
 }
 .closebutton_who {
   position: absolute;
-  right: 5px;
+  right: 45%;
   top: 50%;
   transform: translate(-50%, -50%);
   border: none;
