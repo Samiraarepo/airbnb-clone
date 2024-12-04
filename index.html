@@ -3,9 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="" />
+  <link rel="icon" href="./public/icons/fav-icon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Airbnb</title>
+  <title>Airbnb | Vacation rentals, cabins, beach houses, & more</title>
+
+  <link rel="stylesheet" type="text/css" href="./public/datepicker/daterangepicker.css" />
   <link rel="stylesheet" href="src/style.css">
 </head>
 
@@ -38,7 +40,7 @@
               <img class="img-profile drop-show" src="./public/icons/profile.svg" />
             </button>
             <!-- DropDown Content -->
-            <div class="drop-dowoncontent" id="drop-content">
+            <div class="drop-downcontent" id="drop-content">
               <a class="signup" href="#">Sign up</a>
               <a href="#">Log in</a>
               <div class="dropdown-line"></div>
@@ -56,7 +58,7 @@
         <div class="search_box_container">
           <div class="inner_search_box">
             <div class="where_section active_box ">
-              <div class="where-title">Where</div>
+              <div class="where_title">Where</div>
               <input class="destination subtitle_color" placeholder="search destinations" />
               <div class="close_btn hide">
                 <img src="./public/icons/icons8-close.svg" alt="close-icon">
@@ -99,9 +101,49 @@
               </div>
             </div>
             <div class="header_divider"></div>
-            <div class="checkin_section active_box">
+            <div class="checkin_section date_link active_box" id="daterange">
               <div class="checkin_title">Check in</div>
               <div class="checkin_date subtitle_color">Add dates</div>
+              <div class="when_wrapper hide">
+                <div class="when_dropdown">
+                  <div class="when_tabs">
+                    <div class="when_dates active_tab">
+                      <a class="date_link" name="datefilter" href="#">Dates</a>
+                    </div>
+                    <div class="when_months active_tab">
+                      <a href="#">Months</a>
+                    </div>
+                    <div class="when_flexible active_tab">
+                      <a href="#">Flexible</a>
+                    </div>
+                  </div>
+                  <div class="when_calender">
+                    <div id="dates_calendar" class="dates_calender_container">
+
+                    </div>
+                  </div>
+                  <div class="when_num_days">
+                    <div class="exact_dates num_days">
+                      <span>Exact Dates</span>
+                    </div>
+                    <div class="one_day num_days">
+                      <span> + 1 days</span>
+                    </div>
+                    <div class="two_days num_days">
+                      <span> + 2 days</span>
+                    </div>
+                    <div class="three_days num_days">
+                      <span> + 3 days</span>
+                    </div>
+                    <div class="seven_days num_days">
+                      <span> + 7 days</span>
+                    </div>
+                    <div class="fourtheen_days num_days">
+                      <span> + 14 days</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="header_divider"></div>
             <div class="checkout_section active_box">
@@ -129,15 +171,90 @@
                 </button>
               </div>
             </div>
+
+
           </div>
 
         </div>
-
-      </div>
     </header>
 
   </div>
-  <script type="module" src="./src/main.ts"></script>
+  <script type="text/javascript" src="./src/main.ts"></script>
+
+  <script type="text/javascript" src="./public/datepicker/js/jquery.min.js"></script>
+  <script type="text/javascript" src="./public/datepicker/js/moment.min.js"></script>
+  <script type="text/javascript" src="./public/datepicker/js/daterangepicker.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      // Initialize the daterangepicker with consistent logic
+      $('#daterange').daterangepicker(
+        {
+          parentEl: '#dates_calendar', // Set parent container
+          autoUpdateInput: false,
+          opens: 'center',
+          locale: {
+            format: 'MM/DD/YYYY', // Date format
+            separator: ' - ',
+            monthNames: [
+              "January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ],
+          },
+          minDate: moment().startOf('day'), // Prevent past dates
+          maxDate: moment().add(4, 'year'), // Limit to 4 years in the future
+        },
+        function (start, end) {
+          // Update both Check-in and Check-out
+          const formattedStart = start.format('MMM D');
+          const formattedEnd = end.format('MMM D');
+
+          $('.checkin_date').text(formattedStart); // Update check-in date
+          $('.checkout_date').text(formattedEnd); // Update check-out date
+        }
+      );
+
+      // Open daterangepicker on clicking either Check-in or Check-out
+      $('.checkin_section, .checkout_section').on('click', function () {
+        $('#daterange').data('daterangepicker').show();
+      });
+
+      // Prevent closing the daterangepicker when clicking inside the calendar
+      $('#dates_calendar').on('click', function (e) {
+        e.stopPropagation();
+      });
+
+      // Close picker on clicking outside or on other tabs
+      // $(document).on('click', function (e) {
+      //   if (!$(e.target).closest('#dates_calendar, #daterange').length) {
+      //     $('#daterange').data('daterangepicker').hide();
+      //   }
+
+      // });
+      // Carousel functionality
+      const carouselItems = $('.carousel-item'); // Replace with your carousel class
+      let currentIndex = 0;
+
+      function updateCarousel(index) {
+        carouselItems.hide(); // Hide all items
+        carouselItems.eq(index).fadeIn(); // Show the active item
+      }
+
+      $('.carousel-control-prev').on('click', function () {
+        currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+        updateCarousel(currentIndex);
+      });
+
+      $('.carousel-control-next').on('click', function () {
+        currentIndex = (currentIndex + 1) % carouselItems.length;
+        updateCarousel(currentIndex);
+      });
+
+      // Initialize the carousel display
+      updateCarousel(currentIndex);
+    });
+
+  </script>
 </body>
 
 </html>

@@ -18,49 +18,14 @@ const regionWrapper =
 const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
+const whenWrapper = document.querySelector<HTMLElement>(".when_wrapper");
+const numDays = document.querySelectorAll<HTMLElement>(".num_days");
+const checkinDate = document.querySelector<HTMLElement>(".checkin_date");
 
 /*
-------------------------------------
- Navbar
-------------------------------------
-*/
-const stays = document.getElementById("stay");
-const experience = document.getElementById("exper");
-
-stays?.addEventListener("click", () => {
-  stays.classList.add("Active");
-  experience?.classList.remove("Active");
-});
-
-experience?.addEventListener("click", () => {
-  experience.classList.add("Active");
-  stays?.classList.remove("Active");
-});
-
-/*
---------------------------------------
-Humbrger menu Drop Down
---------------------------------------
-*/
-const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
-const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
-
-Dropbtn?.addEventListener("click", () => {
-  console.log(`Dropbtn hitted`);
-  dropcontent.classList.toggle("show");
-});
-
-window.onclick = (event: MouseEvent) => {
-  const target = event.target as HTMLElement;
-  if (!target.matches(".drop-show")) {
-    dropcontent.classList.remove("show");
-  }
-};
-
-/*
-------------------------------------
+-----------------------------------------------
 Search-box 
-------------------------------------
+-----------------------------------------------
 */
 const closeBtnVisibility = () => {
   if (
@@ -89,17 +54,18 @@ document.addEventListener("click", function (e) {
     activeBox.forEach((item) => item.classList.remove("active_section"));
     innerSearchBox?.classList.remove("bg-active");
     regionWrapper?.classList.add("hide");
+    whenWrapper?.classList.add("hide");
     closeBtnVisibility();
   }
 });
-
 /*
-------------------------------------
+--------------------------------------------
 Where dropdown
-------------------------------------
+--------------------------------------------
 */
 whereSection?.addEventListener("click", () => {
   regionWrapper?.classList.remove("hide");
+  whenWrapper?.classList.add("hide");
   destination?.select();
 });
 
@@ -131,12 +97,75 @@ closeBtn?.addEventListener("click", () => {
 });
 
 /*
------------------------------------
-Function Calls
------------------------------------
+----------------------------------------
+Checkin & checkout 
+----------------------------------------
 */
+checkInSection?.addEventListener("click", () => {
+  regionWrapper?.classList.add("hide");
+  whenWrapper?.classList.remove("hide");
+});
+checkOutSection?.addEventListener("click", () => {
+  regionWrapper?.classList.add("hide");
+  whenWrapper?.classList.remove("hide");
+});
+numDays?.forEach((item) => {
+  item.addEventListener("click", () => {
+    const numElement = item.querySelector("span");
+    const dateElment = numElement?.innerText;
+    if (dateElment && checkinDate) {
+      console.log("hello");
+      checkinDate.innerText = dateElment;
+    }
+  });
+});
+
+/*
+-----------------------------------------
+Function Calls
+-----------------------------------------
+*/
+
 activeChanges(whereSection);
 activeChanges(checkInSection);
 activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
+
+/*
+------------------------------------------------
+ Navbar
+------------------------------------------------
+*/
+const stays = document.getElementById("stay");
+const experience = document.getElementById("exper");
+
+stays?.addEventListener("click", () => {
+  stays.classList.add("Active");
+  experience?.classList.remove("Active");
+});
+
+experience?.addEventListener("click", () => {
+  experience.classList.add("Active");
+  stays?.classList.remove("Active");
+});
+
+/*
+-------------------------------------------
+Humbrger menu Drop Down
+-------------------------------------------
+*/
+const Dropbtn = document.getElementById("drop-btn") as HTMLButtonElement;
+const dropcontent = document.getElementById("drop-content") as HTMLDivElement;
+
+Dropbtn?.addEventListener("click", () => {
+  console.log(`Dropbtn hitted`);
+  dropcontent.classList.toggle("show");
+});
+
+window.onclick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement;
+  if (!target.matches(".drop-show")) {
+    dropcontent.classList.remove("show");
+  }
+};
