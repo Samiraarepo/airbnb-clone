@@ -20,6 +20,10 @@ const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 
 const carousel = document.querySelector<HTMLElement>(".carousel_wrapper");
+const categoryContainer = document.querySelector<HTMLElement>(
+  "#categories-container .carousel_wrapper"
+);
+
 const nextBtn = document.querySelector<HTMLElement>(".next");
 const prevBtn = document.querySelector<HTMLElement>(".prev");
 
@@ -150,6 +154,27 @@ prevBtn?.addEventListener("click", () => {
   console.log("Prev button clicked");
 });
 
+/* category container */
+
+categoryContainer?.addEventListener("click", async (event) => {
+  const target = event.target as HTMLElement;
+  const categoryId = target?.dataset.categoryId; //// Extract categoryId from the dataset
+
+  if (categoryId) {
+    try {
+      const response = await fetch(`/categories/${categoryId}/rooms`);
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("Rooms for this category:", data.data);
+      } else {
+        console.error("No rooms found for this category");
+      }
+    } catch (error) {
+      console.error("Error fetching rooms:", error);
+    }
+  }
+});
 /*
 -----------------------------------
 Function Calls
