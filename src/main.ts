@@ -19,6 +19,10 @@ const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 
+const carousel = document.querySelector<HTMLElement>(".carousel_wrapper");
+const nextBtn = document.querySelector<HTMLElement>(".next");
+const prevBtn = document.querySelector<HTMLElement>(".prev");
+
 /*
 ------------------------------------
  Navbar
@@ -128,6 +132,22 @@ regionItems.forEach((item) => {
 
 closeBtn?.addEventListener("click", () => {
   destination && destination.value ? (destination.value = "") : "";
+});
+/*
+---------------------------------------
+Carousel Items
+---------------------------------------
+*/
+let scrollAmount = 400;
+
+nextBtn?.addEventListener("click", () => {
+  carousel?.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  console.log("Next button clicked");
+});
+
+prevBtn?.addEventListener("click", () => {
+  carousel?.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  console.log("Prev button clicked");
 });
 
 /*
