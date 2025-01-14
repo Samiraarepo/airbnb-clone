@@ -19,7 +19,6 @@ app.use(bodyParser.json());
 
 // POST /quote route
 app.post("/quote", (req, res) => {
-  // const { movie, quote, character } = req.body;
   try {
     const { movie, quote, character } = req.body;
     sql = "INSERT INTO quote(movie, quote, character) VALUES (?,?,?)";
@@ -76,7 +75,8 @@ app.get("/api/greet", (req, res) => {
   res.json({ message: "Greetings from another Express route!" });
 });
 
-// Update for Category and Room APIs
+// *****Update for Category and Room APIs******
+
 // Fetch all categories
 app.get("/categories", (req, res) => {
   const sql = "SELECT * FROM categories";
@@ -89,17 +89,24 @@ app.get("/categories", (req, res) => {
 });
 
 // Fetch rooms by category ID
+
 app.get("/categories/:categoryId/rooms", (req, res) => {
-  const { categoryId } = req.params;
+  const { categoryId } = req.params || 1;
   const sql = `
     SELECT rooms.*
     FROM rooms
     INNER JOIN room_categories ON rooms.id = room_categories.room_id
     WHERE room_categories.category_id = ?;
   `;
+
   db.all(sql, [categoryId], (err, rows) => {
     if (err) {
       return res.status(500).json({ success: false, error: err.message });
+    }
+    if (rows.length === 0) {
+      return res
+        .status(404)
+        .json({ success: false, error: "No rooms found for this category" });
     }
     res.json({ success: true, data: rows });
   });
