@@ -16,12 +16,6 @@ const createCategoriesTable = `
     icon_url TEXT NOT NULL
   );
 `;
-// Purpose: Stores the categories for rooms (e.g., Beachfront, Cabins, Luxury).
-
-// Columns:
-// id: A unique identifier (INTEGER PRIMARY KEY).
-// name: The name of the category (e.g., "Beachfront").
-// icon_url: A URL pointing to an image/icon representing the category.
 
 const createRoomsTable = `
   CREATE TABLE IF NOT EXISTS rooms (
