@@ -24,6 +24,9 @@ body {
   font-size: var(--font-size-default);
   color: var(--font-color);
 }
+a {
+  text-decoration: none;
+}
 input {
   font-family: "Airbnb Cereal VF";
   border: none;
@@ -417,7 +420,7 @@ Search-box Dropdown
   transform: scale(0.925); /* Slight zoom effect */
   transition: transform 0.25s ease-in-out; /* Smooth transition */
 }
-.region_items figure img {
+.region_items figure a img {
   width: 100%;
   height: auto;
   cursor: pointer;
@@ -458,11 +461,11 @@ Carousel Items
   margin: 1rem 0;
   padding: 0.25rem 0;
 }
-.carousel_wrapper figure figcaption {
+.carousel_wrapper figure a figcaption {
   font-size: 0.75rem;
   color: var(--subtitle-color);
 }
-.carousel_wrapper figure img {
+.carousel_wrapper figure a img {
   width: 24px;
   height: 24px;
   object-fit: cover; /* Maintain aspect ratio and crop excess */

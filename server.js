@@ -13,6 +13,7 @@ const db = new sqlite.Database("./quote.db", sqlite.OPEN_READWRITE, (err) => {
 
 const app = express();
 // const app = viteExpress.app();
+app.use(express.static("public"));
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -71,10 +72,6 @@ app.get("/quote", (req, res) => {
   }
 });
 
-app.get("/api/greet", (req, res) => {
-  res.json({ message: "Greetings from another Express route!" });
-});
-
 // *****Update for Category and Room APIs******
 
 // Fetch all categories
@@ -82,14 +79,16 @@ app.get("/categories", (req, res) => {
   const sql = "SELECT * FROM categories";
   db.all(sql, [], (err, rows) => {
     if (err) {
-      return res.status(500).json({ success: false, error: err.message });
+      console.error("Error fetching categories:", err.message);
+      res.status(500).json({ success: false, error: err.message });
+    } else {
+      console.log("Categories fetched:", rows);
+      res.json({ success: true, data: rows });
     }
-    res.json({ success: true, data: rows });
   });
 });
 
 // Fetch rooms by category ID
-
 app.get("/categories/:categoryId/rooms", (req, res) => {
   const { categoryId } = req.params || 1;
   const sql = `

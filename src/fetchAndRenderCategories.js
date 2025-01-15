@@ -6,6 +6,7 @@ async function fetchAndRenderCategories() {
     }
 
     const { success, data } = await response.json();
+    console.log("Categories fetched:", data);
 
     if (success && Array.isArray(data)) {
       renderCategories(data);
@@ -33,8 +34,10 @@ function renderCategories(categories) {
   categories.forEach(({ id, name, icon_url }) => {
     const figure = document.createElement("figure");
     figure.innerHTML = `
+    <a href="${icon_url}">
           <img src="${icon_url}" alt="${name}">
           <figcaption>${name}</figcaption>
+          </a>
         `;
     figure.dataset.categoryId = id;
     container.appendChild(figure);
