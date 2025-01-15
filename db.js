@@ -13,10 +13,15 @@ const sqlCategory = `CREATE TABLE IF NOT EXISTS categories (
     )`;
 db.run(sqlCategory);
 
-const sqlRoom = `CREATE TABLE IF NOT EXISTS rooms (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL
-)`;
+const sqlRoom = `
+    CREATE TABLE IF NOT EXISTS rooms (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      location TEXT NOT NULL,
+      price_per_night REAL NOT NULL,
+      images TEXT NOT NULL
+    );
+  `;
 
 db.run(sqlRoom);
 
@@ -31,3 +36,4 @@ const categoryRoom = `CREATE TABLE IF NOT EXISTS category_room (
 db.run(categoryRoom);
 
 console.log("All tables created (if not already existing).");
+export default db;
