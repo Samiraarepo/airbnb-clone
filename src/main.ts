@@ -160,3 +160,33 @@ activeChanges(checkInSection);
 activeChanges(checkOutSection);
 activeChanges(whoSection);
 activeChanges(dateSection);
+//----------------------------------
+//carousel logic for fetch api
+//category
+async function getCategories() {
+  const url = "/api/categories";
+  const data = await fetch(url);
+  const categories = await data.json();
+  return categories;
+}
+const iterateCategories = document.getElementById("carousel") as HTMLElement;
+const categories = await getCategories();
+let innerhtml = "";
+categories.map((category: any) => {
+  const catHtml = `<figure>
+              <img src="${category.icon_url}" alt="">
+              <figcaption>
+                ${category.name}
+              </figcaption>
+            </figure>`;
+  innerhtml = innerhtml + catHtml;
+});
+iterateCategories.innerHTML = innerhtml;
+//room
+async function getRooms() {
+  const url = "/api/rooms/categoryId";
+  const data = await fetch(url);
+  const room = await data.json();
+  console.log(await room);
+}
+getRooms();

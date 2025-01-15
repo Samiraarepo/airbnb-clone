@@ -3,7 +3,7 @@ import db from "../db.js";
 export const getRoomsByCategory = (req, res) => {
   const categoryId = req.params.categoryId;
 
-  const query = `SELECT rooms.* FROM rooms
+  const query = `SELECT * FROM rooms
 INNER JOIN room_categories ON rooms.id = room_categories.room_id
 WHERE room_categories.category_id = ?`;
 

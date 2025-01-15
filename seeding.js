@@ -78,55 +78,55 @@ const rooms_ = [
 
 const categories_ = [
   {
+    name: "Icons",
+    icon_url: "./images/pics/1.webp",
+  },
+  {
+    name: "Amazing view",
+    icon_url: "./images/pics/2.jpg",
+  },
+  {
     name: "Tiny homes",
-    icon_url: "",
-  },
-  {
-    name: "Countryside",
-    icon_url: "",
-  },
-  {
-    name: "Castles",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
   {
     name: "Barns",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
 
   {
     name: "Beachfronts",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
   {
     name: "Cabins",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
 
   {
     name: "Lakefront",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
   {
     name: "OMG!",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
 
   {
     name: "Ski-in/out",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
   {
     name: "Amazing pools",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
   {
     name: "Farms",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
   {
     name: "Treehouses",
-    icon_url: "",
+    icon_url: "./images/pics/3.jpg",
   },
 ];
 
