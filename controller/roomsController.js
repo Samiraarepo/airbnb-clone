@@ -3,9 +3,9 @@ import db from "../db.js";
 export const getRoomsByCategory = (req, res) => {
   const categoryId = req.params.categoryId;
 
-  const query = `SELECT room.* FROM rooms
-INNER JOIN category_room ON rooms.id = category_room.room_id
-WHERE category_room.category_id = ?`;
+  const query = `SELECT rooms.* FROM rooms
+INNER JOIN room_categories ON rooms.id = room_categories.room_id
+WHERE room_categories.category_id = ?`;
 
   db.all(query, [categoryId], (err, rows) => {
     if (err) {
@@ -38,7 +38,7 @@ export const createRoom = (req, res) => {
       const categoryRoomQueries = categoryIds.map((categoryId) => {
         return new Promise((resolve, reject) => {
           const queryCategoryRoom = `
-          INSERT INTO category_room (category_id, room_id)
+          INSERT INTO room_categories (category_id, room_id)
           VALUES (?, ?)
         `;
           db.run(queryCategoryRoom, [categoryId, roomId], function (err) {
