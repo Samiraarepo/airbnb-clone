@@ -10,6 +10,7 @@ async function fetchAndRenderCategories() {
 
     if (success && Array.isArray(data)) {
       renderCategories(data);
+      addCarouselNavigation();
     } else {
       console.error("Unexpected data format", data);
     }
@@ -33,6 +34,7 @@ function renderCategories(categories) {
   // Populate categories dynamically
   categories.forEach(({ id, name, icon_url }) => {
     const figure = document.createElement("figure");
+
     figure.innerHTML = `
     <a href="${icon_url}">
           <img src="${icon_url}" alt="${name}">
@@ -43,6 +45,27 @@ function renderCategories(categories) {
     container.appendChild(figure);
   });
 }
+function addCarouselNavigation() {
+  const wrapper = document.querySelector(".carousel_wrapper");
 
-// Call the function
+  const prevBtn = document.createElement("button");
+  prevBtn.className = "prev";
+  prevBtn.innerHTML = `<img src="./icons/chevron-left.svg">`;
+
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "next";
+  nextBtn.innerHTML = `<img src="./icons/chevron-right.svg">`;
+
+  wrapper.appendChild(prevBtn);
+  wrapper.appendChild(nextBtn);
+
+  // Add event listeners to buttons
+  prevBtn.addEventListener("click", () => {
+    wrapper.scrollBy({ left: -400, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    wrapper.scrollBy({ left: 400, behavior: "smooth" });
+  });
+}
 fetchAndRenderCategories();

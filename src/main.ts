@@ -19,13 +19,9 @@ const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 
-const carousel = document.querySelector<HTMLElement>(".carousel_wrapper");
 const categoryContainer = document.querySelector<HTMLElement>(
   "#categories-container .carousel_wrapper"
 );
-
-const nextBtn = document.querySelector<HTMLElement>(".next");
-const prevBtn = document.querySelector<HTMLElement>(".prev");
 
 /*
 ------------------------------------
@@ -142,23 +138,10 @@ closeBtn?.addEventListener("click", () => {
 Carousel Items
 ---------------------------------------
 */
-let scrollAmount = 400;
-
-nextBtn?.addEventListener("click", () => {
-  carousel?.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  console.log("Next button clicked");
-});
-
-prevBtn?.addEventListener("click", () => {
-  carousel?.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  console.log("Prev button clicked");
-});
-
-/* category container */
 
 categoryContainer?.addEventListener("click", async (event) => {
   const target = event.target as HTMLElement;
-  const categoryId = target?.dataset.categoryId; //// Extract categoryId from the dataset
+  const categoryId = target?.dataset.categoryId; // Extract categoryId from the dataset
 
   if (categoryId) {
     try {

@@ -453,8 +453,9 @@ Carousel Items
   scroll-behavior: smooth;
   scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
-.carousel_wrapper figure {
+.carousel_wrapper figure a {
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
@@ -464,6 +465,7 @@ Carousel Items
 .carousel_wrapper figure a figcaption {
   font-size: 0.75rem;
   color: var(--subtitle-color);
+  white-space: nowrap;
 }
 .carousel_wrapper figure a img {
   width: 24px;

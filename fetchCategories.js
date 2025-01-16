@@ -22,7 +22,6 @@ const fetchCategories = () => {
   });
 };
 
-// Run the fetch logic
 fetchCategories();
 
 // Fetch all room categories
@@ -37,7 +36,7 @@ const fetchRoomCategories = () => {
     }
   });
 };
-// Run the fetch logic
+
 fetchRoomCategories();
 
 // Close the database connection
