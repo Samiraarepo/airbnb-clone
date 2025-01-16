@@ -1,7 +1,7 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
-const rooms_ = [
+const rooms = [
   {
     name: "Ocean View Suite",
     location: "Miami Beach, FL",
@@ -76,57 +76,106 @@ const rooms_ = [
   },
 ];
 
-const categories_ = [
-  {
-    name: "Icons",
-    icon_url: "./images/pics/1.webp",
-  },
-  {
-    name: "Amazing view",
-    icon_url: "./images/pics/2.jpg",
-  },
+const categories = [
   {
     name: "Tiny homes",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Tinyhomes.jpg",
+  },
+  {
+    name: "Country side",
+    icon_url: "/images/pics/Countryside.jpg",
+  },
+  {
+    name: "Castles",
+    icon_url: "/images/pics/Castles.jpg",
   },
   {
     name: "Barns",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Barns.jpg",
   },
-
   {
     name: "Beachfronts",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Beachfront.jpg",
   },
   {
     name: "Cabins",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Cabins.jpg",
   },
-
   {
     name: "Lakefront",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Lakefront.jpg",
   },
   {
     name: "OMG!",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/OMG!.jpg",
   },
-
   {
     name: "Ski-in/out",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Ski-in-out.jpg",
   },
   {
     name: "Amazing pools",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Amazing-pools.jpg",
   },
   {
     name: "Farms",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Farms.jpg",
+  },
+  {
+    name: "Tree houses",
+    icon_url: "/images/pics/Treehouses.jpg",
+  },
+  {
+    name: "Arctic",
+    icon_url: "/images/pics/Arctic.jpg",
+  },
+  {
+    name: "Design",
+    icon_url: "/images/pics/Design.jpg",
+  },
+  {
+    name: "Historical homes",
+    icon_url: "/images/pics/Historicalhomes.jpg",
+  },
+  {
+    name: "Houseboats",
+    icon_url: "/images/pics/Houseboats.jpg",
+  },
+  {
+    name: "Islands",
+    icon_url: "/images/pics/Islands.jpg",
+  },
+  {
+    name: "Lake front",
+    icon_url: "/images/pics/Lakefront.jpg",
+  },
+  {
+    name: "Luxe",
+    icon_url: "/images/pics/Luxe.jpg",
+  },
+  {
+    name: "Mansions",
+    icon_url: "/images/pics/Mansions.jpg",
+  },
+  {
+    name: "National parks",
+    icon_url: "/images/pics/Nationalparks.jpg",
+  },
+  {
+    name: "Off-the-grid",
+    icon_url: "/images/pics/Off-the-grid.jpg",
+  },
+  {
+    name: "Topcities",
+    icon_url: "/images/pics/Topcities.jpg",
+  },
+  {
+    name: "Trending",
+    icon_url: "/images/pics/Trending.jpg",
   },
   {
     name: "Treehouses",
-    icon_url: "./images/pics/3.jpg",
+    icon_url: "/images/pics/Tropical.jpg",
   },
 ];
 

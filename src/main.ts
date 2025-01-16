@@ -184,7 +184,7 @@ categories.map((category: any) => {
 iterateCategories.innerHTML = innerhtml;
 //room
 async function getRooms() {
-  const url = "/api/rooms/categoryId";
+  const url = "/api/rooms/${categoryId}";
   const data = await fetch(url);
   const room = await data.json();
   console.log(await room);
