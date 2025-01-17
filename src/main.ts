@@ -162,6 +162,20 @@ activeChanges(whoSection);
 activeChanges(dateSection);
 //----------------------------------
 //carousel logic for fetch api
+interface Category {
+  id: number;
+  name: string;
+  icon_url: string;
+}
+
+interface Room {
+  id: number; // اضافه کردن id برای شناسایی اتاق‌ها
+  name: string;
+  location: string;
+  price_per_night: number;
+  images: string[];
+  categoryId: number; // اضافه کردن categoryId برای مرتبط کردن با دسته
+}
 //category
 async function getCategories() {
   const url = "/api/categories";
@@ -171,22 +185,47 @@ async function getCategories() {
 }
 const iterateCategories = document.getElementById("carousel") as HTMLElement;
 const categories = await getCategories();
-let innerhtml = "";
-categories.map((category: any) => {
-  const catHtml = `<figure>
-              <img src="${category.icon_url}" alt="">
-              <figcaption>
-                ${category.name}
-              </figcaption>
-            </figure>`;
-  innerhtml = innerhtml + catHtml;
+categories.forEach((category: Category) => {
+  const figure = document.createElement("figure");
+  const img = document.createElement("img");
+  img.src = category.icon_url;
+  img.alt = category.name;
+  const figcaption = document.createElement("figcaption");
+  figcaption.textContent = category.name;
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+  figure.addEventListener("click", async () => {
+    const rooms = await getRooms(category.id);
+    displayRooms(rooms);
+  });
+  iterateCategories.appendChild(figure);
 });
-iterateCategories.innerHTML = innerhtml;
-//room
-async function getRooms() {
-  const url = "/api/rooms/${categoryId}";
-  const data = await fetch(url);
-  const room = await data.json();
-  console.log(await room);
+function displayRooms(rooms: Room[]) {
+  const roomContainer = document.getElementById(
+    "room_container"
+  ) as HTMLDivElement;
+  roomContainer.innerHTML = "";
+  rooms.forEach((room) => {
+    const roomDiv = document.createElement("div");
+    roomDiv.classList.add("room");
+    const img = document.createElement("img");
+    img.src = room.images[0];
+    img.alt = room.name;
+    roomDiv.appendChild(img);
+
+    const infoDiv = document.createElement("div");
+    infoDiv.innerHTML = `<h3>${room.name}</h3>
+                         <p>${room.location}</p>
+                         <p>${room.price_per_night}</p>`;
+    roomDiv.appendChild(infoDiv);
+
+    roomContainer.appendChild(roomDiv);
+  });
 }
-getRooms();
+//fetch room information
+async function getRooms(categoryId: number) {
+  const url = `/api/rooms/${categoryId}`;
+  const data = await fetch(url);
+  const rooms = await data.json();
+  return rooms;
+}

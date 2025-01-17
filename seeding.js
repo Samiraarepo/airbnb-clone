@@ -1,184 +1,195 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
-const rooms = [
+const categories_ = [
+  {
+    name: "Tiny homes",
+    icon_url: "/images/Icon/Tinyhomes.jpg",
+  },
+  {
+    name: "Country side",
+    icon_url: "/images/Icon/Countryside.jpg",
+  },
+  {
+    name: "Castles",
+    icon_url: "/images/Icon/Castles.jpg",
+  },
+  {
+    name: "Barns",
+    icon_url: "/images/Icon/Barns.jpg",
+  },
+
+  {
+    name: "Beachfronts",
+    icon_url: "/images/Icon/Beachfront.jpg",
+  },
+  {
+    name: "Cabins",
+    icon_url: "/images/Icon/Cabins.jpg",
+  },
+
+  {
+    name: "Lakefront",
+    icon_url: "/images/Icon/Lakefront.jpg",
+  },
+  {
+    name: "OMG!",
+    icon_url: "/images/Icon/OMG!.jpg",
+  },
+
+  {
+    name: "Ski-in/out",
+    icon_url: "/images/Icon/Ski-in-out.jpg",
+  },
+  {
+    name: "Amazing pools",
+    icon_url: "/images/Icon/Amazing-pools.jpg",
+  },
+  {
+    name: "Farms",
+    icon_url: "/images/Icon/Farms.jpg",
+  },
+  {
+    name: "Tree houses",
+    icon_url: "/images/Icon/Treehouses.jpg",
+  },
+  {
+    name: "Arctic",
+    icon_url: "/images/Icon/Arctic.jpg",
+  },
+  {
+    name: "Design",
+    icon_url: "/images/Icon/Design.jpg",
+  },
+  {
+    name: "Historical homes",
+    icon_url: "/images/Icon/Historicalhomes.jpg",
+  },
+  {
+    name: "Houseboats",
+    icon_url: "/images/Icon/Houseboats.jpg",
+  },
+  {
+    name: "Islands",
+    icon_url: "/images/Icon/Islands.jpg",
+  },
+  {
+    name: "Lake front",
+    icon_url: "/images/Icon/Lakefront.jpg",
+  },
+  {
+    name: "Luxe",
+    icon_url: "/images/Icon/Luxe.jpg",
+  },
+  {
+    name: "Mansions",
+    icon_url: "/images/Icon/Mansions.jpg",
+  },
+  {
+    name: "National parks",
+    icon_url: "/images/Icon/Nationalparks.jpg",
+  },
+  {
+    name: "Off-the-grid",
+    icon_url: "/images/Icon/Off-the-grid.jpg",
+  },
+  {
+    name: "Topcities",
+    icon_url: "/images/Icon/Topcities.jpg",
+  },
+  {
+    name: "Trending",
+    icon_url: "/images/Icon/Trending.jpg",
+  },
+  {
+    name: "Treehouses",
+    icon_url: "/images/Icon/Tropical.jpg",
+  },
+  {
+    name: "Icon",
+    icon_url: "/images/Icon/icons.webp",
+  },
+  {
+    name: "Amazingviews",
+    icon_url: "/images/Icon/Amazingviews.jpg",
+  },
+];
+
+const rooms_ = [
   {
     name: "Ocean View Suite",
     location: "Miami Beach, FL",
     price_per_night: 200,
-    images: ["ocean_view.jpg", "suite.jpg"],
+    images: ["/images/pics/sample1.jpg", "/images/pics/sample2.jpg"],
   },
   {
     name: "Mountain Cabin",
     location: "Aspen, CO",
     price_per_night: 150,
-    images: ["mountain_cabin.jpg"],
+    images: ["/images/pics/sample3.jpg"],
   },
   {
     name: "City Apartment",
     location: "New York, NY",
     price_per_night: 300,
-    images: ["city_apartment.jpg"],
+    images: ["/images/pics/sample4.jpg"],
   },
   {
     name: "Lakefront Cottage",
     location: "Lake Tahoe, CA",
     price_per_night: 180,
-    images: ["lakefront_cottage.jpg"],
+    images: ["/images/pics/sample1.jpeg"],
   },
   {
     name: "Luxury Villa",
     location: "Beverly Hills, CA",
     price_per_night: 500,
-    images: ["luxury_villa.jpg"],
+    images: ["/images/pics/sample1.jpg", "/images/pics/sample2.jpg"],
   },
   {
     name: "Desert Retreat",
     location: "Sedona, AZ",
     price_per_night: 120,
-    images: ["desert_retreat.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Beach Bungalow",
     location: "Honolulu, HI",
     price_per_night: 250,
-    images: ["beach_bungalow.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Ski Chalet",
     location: "Park City, UT",
     price_per_night: 300,
-    images: ["ski_chalet.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Historic Inn",
     location: "Charleston, SC",
     price_per_night: 140,
-    images: ["historic_inn.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Countryside Cottage",
     location: "Napa Valley, CA",
     price_per_night: 160,
-    images: ["countryside_cottage.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Modern Loft",
     location: "Seattle, WA",
     price_per_night: 220,
-    images: ["modern_loft.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Rustic Barn",
     location: "Lancaster, PA",
     price_per_night: 100,
-    images: ["rustic_barn.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
 ];
-
-const categories = [
-  {
-    name: "Tiny homes",
-    icon_url: "/images/pics/Tinyhomes.jpg",
-  },
-  {
-    name: "Country side",
-    icon_url: "/images/pics/Countryside.jpg",
-  },
-  {
-    name: "Castles",
-    icon_url: "/images/pics/Castles.jpg",
-  },
-  {
-    name: "Barns",
-    icon_url: "/images/pics/Barns.jpg",
-  },
-  {
-    name: "Beachfronts",
-    icon_url: "/images/pics/Beachfront.jpg",
-  },
-  {
-    name: "Cabins",
-    icon_url: "/images/pics/Cabins.jpg",
-  },
-  {
-    name: "Lakefront",
-    icon_url: "/images/pics/Lakefront.jpg",
-  },
-  {
-    name: "OMG!",
-    icon_url: "/images/pics/OMG!.jpg",
-  },
-  {
-    name: "Ski-in/out",
-    icon_url: "/images/pics/Ski-in-out.jpg",
-  },
-  {
-    name: "Amazing pools",
-    icon_url: "/images/pics/Amazing-pools.jpg",
-  },
-  {
-    name: "Farms",
-    icon_url: "/images/pics/Farms.jpg",
-  },
-  {
-    name: "Tree houses",
-    icon_url: "/images/pics/Treehouses.jpg",
-  },
-  {
-    name: "Arctic",
-    icon_url: "/images/pics/Arctic.jpg",
-  },
-  {
-    name: "Design",
-    icon_url: "/images/pics/Design.jpg",
-  },
-  {
-    name: "Historical homes",
-    icon_url: "/images/pics/Historicalhomes.jpg",
-  },
-  {
-    name: "Houseboats",
-    icon_url: "/images/pics/Houseboats.jpg",
-  },
-  {
-    name: "Islands",
-    icon_url: "/images/pics/Islands.jpg",
-  },
-  {
-    name: "Lake front",
-    icon_url: "/images/pics/Lakefront.jpg",
-  },
-  {
-    name: "Luxe",
-    icon_url: "/images/pics/Luxe.jpg",
-  },
-  {
-    name: "Mansions",
-    icon_url: "/images/pics/Mansions.jpg",
-  },
-  {
-    name: "National parks",
-    icon_url: "/images/pics/Nationalparks.jpg",
-  },
-  {
-    name: "Off-the-grid",
-    icon_url: "/images/pics/Off-the-grid.jpg",
-  },
-  {
-    name: "Topcities",
-    icon_url: "/images/pics/Topcities.jpg",
-  },
-  {
-    name: "Trending",
-    icon_url: "/images/pics/Trending.jpg",
-  },
-  {
-    name: "Treehouses",
-    icon_url: "/images/pics/Tropical.jpg",
-  },
-];
-
+console.log(rooms_);
 // Create categories table
 const createCategoriesTable = async (db) => {
   const tableExists = await db.get(

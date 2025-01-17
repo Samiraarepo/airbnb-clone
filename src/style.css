@@ -491,3 +491,10 @@ Carousel Items
 .carousel_wrapper .prev {
   left: 1rem;
 }
+
+/* room part style */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
