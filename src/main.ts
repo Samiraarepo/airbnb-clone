@@ -169,12 +169,12 @@ interface Category {
 }
 
 interface Room {
-  id: number; // اضافه کردن id برای شناسایی اتاق‌ها
+  id: number;
   name: string;
   location: string;
   price_per_night: number;
-  images: string[];
-  categoryId: number; // اضافه کردن categoryId برای مرتبط کردن با دسته
+  images: string;
+  categoryId: number;
 }
 //category
 async function getCategories() {
@@ -184,7 +184,9 @@ async function getCategories() {
   return categories;
 }
 const iterateCategories = document.getElementById("carousel") as HTMLElement;
+iterateCategories.innerHTML = "";
 const categories = await getCategories();
+
 categories.forEach((category: Category) => {
   const figure = document.createElement("figure");
   const img = document.createElement("img");
@@ -200,16 +202,20 @@ categories.forEach((category: Category) => {
   });
   iterateCategories.appendChild(figure);
 });
+
 function displayRooms(rooms: Room[]) {
   const roomContainer = document.getElementById(
     "room_container"
   ) as HTMLDivElement;
   roomContainer.innerHTML = "";
+  roomContainer.classList.add("room_grid");
   rooms.forEach((room) => {
     const roomDiv = document.createElement("div");
     roomDiv.classList.add("room");
+    const imgcontainer = document.createElement("div");
+    imgcontainer.classList.add("image_container");
     const img = document.createElement("img");
-    img.src = room.images[0];
+    img.src = JSON.parse(room.images)[0];
     img.alt = room.name;
     roomDiv.appendChild(img);
 
@@ -220,6 +226,7 @@ function displayRooms(rooms: Room[]) {
     roomDiv.appendChild(infoDiv);
 
     roomContainer.appendChild(roomDiv);
+    console.log(roomContainer);
   });
 }
 //fetch room information
@@ -227,5 +234,7 @@ async function getRooms(categoryId: number) {
   const url = `/api/rooms/${categoryId}`;
   const data = await fetch(url);
   const rooms = await data.json();
+  console.log(rooms);
+
   return rooms;
 }

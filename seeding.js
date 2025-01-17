@@ -150,7 +150,12 @@ const rooms_ = [
     name: "Desert Retreat",
     location: "Sedona, AZ",
     price_per_night: 120,
-    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+    ],
   },
   {
     name: "Beach Bungalow",
@@ -301,7 +306,6 @@ const seedCategories = async (db) => {
 // Seed rooms (insert or update)
 const seedRooms = async (db) => {
   const rooms = rooms_;
-
   for (const room of rooms) {
     const exists = await db.get(`SELECT id FROM rooms WHERE name = ?`, [
       room.name,
@@ -315,7 +319,12 @@ const seedRooms = async (db) => {
     } else {
       await db.run(
         `INSERT INTO rooms (name, location, price_per_night, images) VALUES (?, ?, ?, ?)`,
-        [room.name, room.location, room.price_per_night, room.images]
+        [
+          room.name,
+          room.location,
+          room.price_per_night,
+          JSON.stringify(room.images),
+        ]
       );
       console.log(`Room "${room.name}" added.`);
     }
