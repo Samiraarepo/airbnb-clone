@@ -322,7 +322,12 @@ const seedRooms = async (db) => {
     if (exists) {
       await db.run(
         `UPDATE rooms SET location = ?, price_per_night = ?, images = ? WHERE id = ?`,
-        [room.location, room.price_per_night, room.images, exists.id]
+        [
+          room.location,
+          room.price_per_night,
+          JSON.stringify(room.images),
+          exists.id,
+        ]
       );
       console.log(`Room "${room.name}" updated.`);
     } else {
