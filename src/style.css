@@ -420,7 +420,7 @@ Search-box Dropdown
   transform: scale(0.925); /* Slight zoom effect */
   transition: transform 0.25s ease-in-out; /* Smooth transition */
 }
-.region_items figure a img {
+.region_items figure img {
   width: 100%;
   height: auto;
   cursor: pointer;

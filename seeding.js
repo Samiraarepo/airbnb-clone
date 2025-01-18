@@ -4,106 +4,106 @@ const sqlite3 = require("sqlite3").verbose();
 const categories = [
   {
     name: "Tiny homes",
-    icon_url: "/images/pics/Tinyhomes.jpg",
+    icon_url: "/images/icons/Tinyhomes.jpg",
   },
   {
     name: "Country side",
-    icon_url: "/images/pics/Countryside.jpg",
+    icon_url: "/images/icons/Countryside.jpg",
   },
   {
     name: "Castles",
-    icon_url: "/images/pics/Castles.jpg",
+    icon_url: "/images/icons/Castles.jpg",
   },
   {
     name: "Barns",
-    icon_url: "/images/pics/Barns.jpg",
+    icon_url: "/images/icons/Barns.jpg",
   },
 
   {
     name: "Beachfronts",
-    icon_url: "/images/pics/Beachfront.jpg",
+    icon_url: "/images/icons/Beachfront.jpg",
   },
   {
     name: "Cabins",
-    icon_url: "/images/pics/Cabins.jpg",
+    icon_url: "/images/icons/Cabins.jpg",
   },
 
   {
     name: "Lakefront",
-    icon_url: "/images/pics/Lakefront.jpg",
+    icon_url: "/images/icons/Lakefront.jpg",
   },
   {
     name: "OMG!",
-    icon_url: "/images/pics/OMG!.jpg",
+    icon_url: "/images/icons/OMG!.jpg",
   },
 
   {
     name: "Ski-in/out",
-    icon_url: "/images/pics/Ski-in-out.jpg",
+    icon_url: "/images/icons/Ski-in-out.jpg",
   },
   {
     name: "Amazing pools",
-    icon_url: "/images/pics/Amazing-pools.jpg",
+    icon_url: "/images/icons/Amazing-pools.jpg",
   },
   {
     name: "Farms",
-    icon_url: "/images/pics/Farms.jpg",
+    icon_url: "/images/icons/Farms.jpg",
   },
   {
     name: "Tree houses",
-    icon_url: "/images/pics/Treehouses.jpg",
+    icon_url: "/images/icons/Treehouses.jpg",
   },
   {
     name: "Arctic",
-    icon_url: "/images/pics/Arctic.jpg",
+    icon_url: "/images/icons/Arctic.jpg",
   },
   {
     name: "Design",
-    icon_url: "/images/pics/Design.jpg",
+    icon_url: "/images/icons/Design.jpg",
   },
   {
     name: "Historical homes",
-    icon_url: "/images/pics/Historicalhomes.jpg",
+    icon_url: "/images/icons/Historicalhomes.jpg",
   },
   {
     name: "Houseboats",
-    icon_url: "/images/pics/Houseboats.jpg",
+    icon_url: "/images/icons/Houseboats.jpg",
   },
   {
     name: "Islands",
-    icon_url: "/images/pics/Islands.jpg",
+    icon_url: "/images/icons/Islands.jpg",
   },
   {
     name: "Lake front",
-    icon_url: "/images/pics/Lakefront.jpg",
+    icon_url: "/images/icons/Lakefront.jpg",
   },
   {
     name: "Luxe",
-    icon_url: "/images/pics/Luxe.jpg",
+    icon_url: "/images/icons/Luxe.jpg",
   },
   {
     name: "Mansions",
-    icon_url: "/images/pics/Mansions.jpg",
+    icon_url: "/images/icons/Mansions.jpg",
   },
   {
     name: "National parks",
-    icon_url: "/images/pics/Nationalparks.jpg",
+    icon_url: "/images/icons/Nationalparks.jpg",
   },
   {
     name: "Off-the-grid",
-    icon_url: "/images/pics/Off-the-grid.jpg",
+    icon_url: "/images/icons/Off-the-grid.jpg",
   },
   {
     name: "Topcities",
-    icon_url: "/images/pics/Topcities.jpg",
+    icon_url: "/images/icons/Topcities.jpg",
   },
   {
     name: "Trending",
-    icon_url: "/images/pics/Trending.jpg",
+    icon_url: "/images/icons/Trending.jpg",
   },
   {
     name: "Treehouses",
-    icon_url: "/images/pics/Tropical.jpg",
+    icon_url: "/images/icons/Tropical.jpg",
   },
 ];
 console.log(categories.icon_url);
