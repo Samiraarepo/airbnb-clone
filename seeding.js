@@ -202,6 +202,92 @@ const rooms_ = [
     price_per_night: 100,
     images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
+  {
+    name: "Ocean View Suite",
+    location: "Miami Beach, FL",
+    price_per_night: 200,
+    images: [
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+    ],
+  },
+  {
+    name: "Mountain Cabin",
+    location: "Aspen, CO",
+    price_per_night: 150,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+    ],
+  },
+  {
+    name: "City Apartment",
+    location: "New York, NY",
+    price_per_night: 300,
+    images: ["/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Lakefront Cottage",
+    location: "Lake Tahoe, CA",
+    price_per_night: 180,
+    images: ["/images/pics/sample1.jpeg"],
+  },
+  {
+    name: "Luxury Villa",
+    location: "Beverly Hills, CA",
+    price_per_night: 500,
+    images: ["/images/pics/sample1.jpg", "/images/pics/sample2.jpg"],
+  },
+  {
+    name: "Desert Retreat",
+    location: "Sedona, AZ",
+    price_per_night: 120,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+    ],
+  },
+  {
+    name: "Beach Bungalow",
+    location: "Honolulu, HI",
+    price_per_night: 250,
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Ski Chalet",
+    location: "Park City, UT",
+    price_per_night: 300,
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Historic Inn",
+    location: "Charleston, SC",
+    price_per_night: 140,
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Countryside Cottage",
+    location: "Napa Valley, CA",
+    price_per_night: 160,
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Modern Loft",
+    location: "Seattle, WA",
+    price_per_night: 220,
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Rustic Barn",
+    location: "Lancaster, PA",
+    price_per_night: 100,
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
 ];
 console.log(rooms_);
 // Create categories table
