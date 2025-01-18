@@ -120,13 +120,22 @@ const rooms_ = [
     name: "Ocean View Suite",
     location: "Miami Beach, FL",
     price_per_night: 200,
-    images: ["/images/pics/sample1.jpg", "/images/pics/sample2.jpg"],
+    images: [
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+    ],
   },
   {
     name: "Mountain Cabin",
     location: "Aspen, CO",
     price_per_night: 150,
-    images: ["/images/pics/sample3.jpg"],
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+    ],
   },
   {
     name: "City Apartment",
