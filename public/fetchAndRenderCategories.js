@@ -11,12 +11,14 @@ async function fetchRooms(categoryId) {
     const rooms = data.data;
     const roomContainer = document.getElementById("room_container");
     roomContainer.innerHTML = "";
+
     // Add room images to the container
     rooms.forEach((room) => {
       const roomDiv = document.createElement("div");
       roomDiv.className = "room";
+
       const roomImage = document.createElement("img");
-      roomImage.src = room.image;
+      roomImage.src = JSON.parse(room.images)[0];
       roomImage.alt = room.name || "Room Image"; // Use the room name or fallback to "Room Image"
       roomImage.className = "room-image";
       roomDiv.appendChild(roomImage);
@@ -25,6 +27,10 @@ async function fetchRooms(categoryId) {
     });
   } catch (error) {
     console.error("Error fetching rooms:", error);
+    const roomContainer = document.getElementById("room_container");
+    roomContainer.innerHTML = "";
+    roomContainer.innerHTML =
+      "<p>Failed to load rooms. Please try again later.</p>";
   }
 }
 

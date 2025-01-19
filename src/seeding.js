@@ -213,7 +213,7 @@ const rooms_ = [
     name: "Lakefront Cottage",
     location: "Lake Tahoe, CA",
     price_per_night: 180,
-    images: ["/images/pics/ocean_view.jpeg"],
+    images: ["/images/pics/ocean_view.jpg"],
   },
   {
     name: "Luxury Villa",
@@ -299,7 +299,7 @@ const rooms_ = [
     name: "Lakefront Cottage",
     location: "Lake Tahoe, CA",
     price_per_night: 180,
-    images: ["/images/pics/sample1.jpeg", "/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample1.jpg", "/images/pics/ocean_view.jpg"],
   },
   {
     name: "Luxury Villa",
@@ -380,7 +380,9 @@ const rooms_ = [
   },
 ];
 
-console.log(rooms_);
+rooms_.forEach((room) => {
+  room.images = JSON.stringify(room.images);
+});
 
 // Create categories table
 const createCategoriesTable = async (db) => {
@@ -500,23 +502,13 @@ const seedRooms = async (db) => {
     if (exists) {
       await db.run(
         `UPDATE rooms SET location = ?, price_per_night = ?, images = ? WHERE id = ?`,
-        [
-          room.location,
-          room.price_per_night,
-          JSON.stringify(room.images),
-          exists.id,
-        ]
+        [room.location, room.price_per_night, room.images, exists.id]
       );
       console.log(`Room "${room.name}" updated.`);
     } else {
       await db.run(
         `INSERT INTO rooms (name, location, price_per_night, images) VALUES (?, ?, ?, ?)`,
-        [
-          room.name,
-          room.location,
-          room.price_per_night,
-          JSON.stringify(room.images),
-        ]
+        [room.name, room.location, room.price_per_night, room.images]
       );
       console.log(`Room "${room.name}" added.`);
     }
