@@ -26,16 +26,17 @@ async function fetchRooms(categoryId) {
       console.log("Rooms loaded into the container:", rooms);
     });
   } catch (error) {
-    console.error("Error fetching rooms:", error);
-    const roomContainer = document.getElementById("room_container");
-    roomContainer.innerHTML = "";
-    roomContainer.innerHTML =
-      "<p>Failed to load rooms. Please try again later.</p>";
+    console.error("Error fetching rooms:", error.message);
   }
 }
 
 async function fetchAndRenderCategories() {
+  const roomContainer = document.getElementById("room_container");
+
   try {
+    roomContainer.innerHTML = "";
+
+    // Fetch the data
     const response = await fetch("/categories");
     const { success, data } = await response.json();
 
@@ -52,7 +53,13 @@ async function fetchAndRenderCategories() {
       console.error("Unexpected data format", data);
     }
   } catch (error) {
-    console.error("Error fetching categories:", error);
+    console.error("Error fetching categories:", error.message);
+    if (roomContainer) {
+      roomContainer.innerHTML =
+        "<p>Failed to load rooms. Please try again later.</p>";
+    } else {
+      console.error("Element 'room_container' not found in the DOM.");
+    }
   }
 }
 
