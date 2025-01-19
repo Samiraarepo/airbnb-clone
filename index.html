@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airbnb</title>
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="public/style.css">
 </head>
 
 <body>
@@ -151,7 +151,10 @@
 
           </div>
         </div>
+        <!-- Room images -->
+        <div class="room_grid" id="room_container">
 
+        </div>
       </div>
     </main>
 
@@ -159,9 +162,11 @@
 
     </footer>
   </div>
-  <script type="module" src="./src/fetchAndRenderCategories.js"></script>
 
-  <script type="module" src="./src/main.ts"></script>
+  <script type="module" src="./public/fetchAndRenderRooms.js"></script>
+  <script type="module" src="./public/fetchAndRenderCategories.js"></script>
+
+  <script type="module" src="./public/main.ts"></script>
 </body>
 
 </html>
