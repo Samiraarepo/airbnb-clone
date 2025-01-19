@@ -19,9 +19,9 @@ const closeBtn = document.querySelector<HTMLInputElement>(".close_btn");
 const regionItems = document.querySelectorAll<HTMLElement>(".item");
 const destination = document.querySelector<HTMLInputElement>(".destination");
 
-const categoryFigure = document.querySelectorAll<HTMLElement>(
-  ".carousel_wrapper figure"
-);
+// const categoryFigure = document.querySelectorAll<HTMLElement>(
+//   ".carousel_wrapper figure"
+// );
 
 /*
 ------------------------------------

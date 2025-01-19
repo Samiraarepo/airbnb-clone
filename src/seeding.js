@@ -1,7 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const { open } = require("sqlite");
 
-const categories = [
+const categories_ = [
   {
     name: "Tiny homes",
     icon_url: "/images/icons/Tinyhomes.jpg",
@@ -106,9 +106,8 @@ const categories = [
     icon_url: "/images/icons/Tropical.jpg",
   },
 ];
-console.log(categories.icon_url);
 
-// const rooms = [
+// const rooms_ = [
 //   {
 //     name: "Ocean View Suite",
 //     location: "Miami Beach, FL",
@@ -187,85 +186,22 @@ const rooms_ = [
     name: "Ocean View Suite",
     location: "Miami Beach, FL",
     price_per_night: 200,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: [
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample2.jpg",
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample2.jpg",
+    ],
   },
   {
     name: "Mountain Cabin",
     location: "Aspen, CO",
     price_per_night: 150,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "City Apartment",
-    location: "New York, NY",
-    price_per_night: 300,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Lakefront Cottage",
-    location: "Lake Tahoe, CA",
-    price_per_night: 180,
-    images: ["/images/pics/ocean_view.jpeg"],
-  },
-  {
-    name: "Luxury Villa",
-    location: "Beverly Hills, CA",
-    price_per_night: 500,
-    images: ["/images/pics/sample1.jpg", "/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Desert Retreat",
-    location: "Sedona, AZ",
-    price_per_night: 120,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Beach Bungalow",
-    location: "Honolulu, HI",
-    price_per_night: 250,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Ski Chalet",
-    location: "Park City, UT",
-    price_per_night: 300,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Historic Inn",
-    location: "Charleston, SC",
-    price_per_night: 140,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Countryside Cottage",
-    location: "Napa Valley, CA",
-    price_per_night: 160,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Modern Loft",
-    location: "Seattle, WA",
-    price_per_night: 220,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Rustic Barn",
-    location: "Lancaster, PA",
-    price_per_night: 100,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Ocean View Suite",
-    location: "Miami Beach, FL",
-    price_per_night: 200,
-    images: ["/images/pics/ocean_view.jpg"],
-  },
-  {
-    name: "Mountain Cabin",
-    location: "Aspen, CO",
-    price_per_night: 150,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample2.jpg",
+    ],
   },
   {
     name: "City Apartment",
@@ -289,46 +225,163 @@ const rooms_ = [
     name: "Desert Retreat",
     location: "Sedona, AZ",
     price_per_night: 120,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample4.jpg",
+    ],
   },
   {
     name: "Beach Bungalow",
     location: "Honolulu, HI",
     price_per_night: 250,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Ski Chalet",
     location: "Park City, UT",
     price_per_night: 300,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Historic Inn",
     location: "Charleston, SC",
     price_per_night: 140,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Countryside Cottage",
     location: "Napa Valley, CA",
     price_per_night: 160,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Modern Loft",
     location: "Seattle, WA",
     price_per_night: 220,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
   },
   {
     name: "Rustic Barn",
     location: "Lancaster, PA",
     price_per_night: 100,
-    images: ["/images/pics/ocean_view.jpg"],
+    images: ["/images/pics/sample3.jpg", "/images/pics/sample4.jpg"],
+  },
+  {
+    name: "Ocean View Suite",
+    location: "Miami Beach, FL",
+    price_per_night: 200,
+    images: [
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample2.jpg",
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample2.jpg",
+    ],
+  },
+  {
+    name: "Mountain Cabin",
+    location: "Aspen, CO",
+    price_per_night: 150,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample2.jpg",
+    ],
+  },
+  {
+    name: "City Apartment",
+    location: "New York, NY",
+    price_per_night: 300,
+    images: ["/images/pics/ocean_view.jpg", "/images/pics/ocean_view.jpg"],
+  },
+  {
+    name: "Lakefront Cottage",
+    location: "Lake Tahoe, CA",
+    price_per_night: 180,
+    images: ["/images/pics/sample1.jpeg", "/images/pics/ocean_view.jpg"],
+  },
+  {
+    name: "Luxury Villa",
+    location: "Beverly Hills, CA",
+    price_per_night: 500,
+    images: [
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample1.jpg",
+      "/images/pics/sample2.jpg",
+    ],
+  },
+  {
+    name: "Desert Retreat",
+    location: "Sedona, AZ",
+    price_per_night: 120,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+      "/images/pics/sample4.jpg",
+    ],
+  },
+  {
+    name: "Beach Bungalow",
+    location: "Honolulu, HI",
+    price_per_night: 250,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+    ],
+  },
+  {
+    name: "Ski Chalet",
+    location: "Park City, UT",
+    price_per_night: 300,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+    ],
+  },
+  {
+    name: "Historic Inn",
+    location: "Charleston, SC",
+    price_per_night: 140,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+    ],
+  },
+  {
+    name: "Countryside Cottage",
+    location: "Napa Valley, CA",
+    price_per_night: 160,
+    images: ["/images/pics/sample3.jpg", "/images/pics/ocean_view.jpg"],
+  },
+  {
+    name: "Modern Loft",
+    location: "Seattle, WA",
+    price_per_night: 220,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+    ],
+  },
+  {
+    name: "Rustic Barn",
+    location: "Lancaster, PA",
+    price_per_night: 100,
+    images: [
+      "/images/pics/sample3.jpg",
+      "/images/pics/sample4.jpg",
+      "/images/pics/ocean_view.jpg",
+    ],
   },
 ];
+
 console.log(rooms_);
+
 // Create categories table
 const createCategoriesTable = async (db) => {
   const tableExists = await db.get(
@@ -404,6 +457,8 @@ const openDb = async () => {
 
 // Seed categories (insert or update)
 const seedCategories = async (db) => {
+  const categories = categories_;
+
   const tableExists = await db.get(
     `SELECT name FROM sqlite_master WHERE type='table' AND name='categories';`
   );
@@ -439,7 +494,6 @@ const seedCategories = async (db) => {
 const seedRooms = async (db) => {
   const rooms = rooms_;
   for (const room of rooms) {
-    const rooms = rooms_;
     const exists = await db.get(`SELECT id FROM rooms WHERE name = ?`, [
       room.name,
     ]);
@@ -450,7 +504,6 @@ const seedRooms = async (db) => {
           room.location,
           room.price_per_night,
           JSON.stringify(room.images),
-          room.images,
           exists.id,
         ]
       );
@@ -463,7 +516,6 @@ const seedRooms = async (db) => {
           room.location,
           room.price_per_night,
           JSON.stringify(room.images),
-          exists.id,
         ]
       );
       console.log(`Room "${room.name}" added.`);

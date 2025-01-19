@@ -23,65 +23,6 @@ app.use(express.static(path.resolve(__dirname, "../public")));
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
 
-// POST /quote route
-// app.post("/quote", (req, res) => {
-//   try {
-//     const { movie, quote, character } = req.body;
-//     sql = "INSERT INTO quote(movie, quote, character) VALUES (?,?,?)";
-//     db.run(sql, [movie, quote, character], (err) => {
-//       if (err) {
-//         return res.status(300).json({
-//           status: 300,
-//           success: false,
-//           error: err.message,
-//         });
-//       }
-//       console.log("Successful input: ", movie, quote, character);
-//     });
-//     return res.json({
-//       status: 200,
-//       success: true,
-//     });
-//   } catch (error) {
-//     return res.json({
-//       status: 400,
-//       success: false,
-//     });
-//   }
-// });
-
-// Example route
-// app.get("/quote", (req, res) => {
-//   sql = "SELECT * FROM quote";
-//   try {
-//     const queryObject = url.parse(req.url, true).query; //query parameters
-//     if (queryObject.field && queryObject.type)
-//       sql += ` WHERE ${queryObject.field} LIKE '%${queryObject.type}%'`;
-//     db.all(sql, [], (err, rows) => {
-//       if (err)
-//         return res
-//           .status(300)
-//           .json({ status: 300, success: false, error: err.message });
-
-//       if (rows.length < 1)
-//         return res
-//           .status(300)
-//           .json({ status: 300, success: false, error: "No match" });
-
-//       return res.status(200).json({ status: 200, data: rows, success: true });
-//     });
-//   } catch (error) {
-//     return res.json({
-//       status: 400,
-//       success: false,
-//     });
-//   }
-// });
-
-// *****Update for Category and Room APIs******
-
-// Fetch all categories
-
 app.get("/categories", (req, res) => {
   const sql = "SELECT * FROM categories";
   db.all(sql, [], (err, rows) => {
@@ -97,7 +38,6 @@ app.get("/categories", (req, res) => {
 
 // Fetch rooms by category ID
 app.get("/categories/:categoryId/rooms", (req, res) => {
-  console.log(req.url);
   const { categoryId } = req.params || 1;
   const sql = `
     SELECT rooms.*
