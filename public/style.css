@@ -444,6 +444,7 @@ Carousel Items
   width: 100%;
   overflow: hidden;
   position: relative;
+  padding-top: 0.7rem;
 }
 
 .carousel_wrapper {

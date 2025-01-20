@@ -34,8 +34,6 @@ async function fetchAndRenderCategories() {
   const roomContainer = document.getElementById("room_container");
 
   try {
-    roomContainer.innerHTML = "";
-
     // Fetch the data
     const response = await fetch("/categories");
     const { success, data } = await response.json();
