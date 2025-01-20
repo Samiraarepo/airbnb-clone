@@ -385,8 +385,10 @@ Search-box Dropdown
   margin-top: 2rem;
   left: 0;
   border-radius: 2rem;
+  background-color: #fff;
   box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
   padding: 2rem 1.5rem 1.5rem;
+  z-index: 9;
 }
 .region_selection {
   width: 24rem;
